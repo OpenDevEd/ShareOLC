@@ -14,4 +14,5 @@ Even if the health worker has internet, most simple applications just share the 
 The goal for this application is to be as simple as possible, while collecting essential information:
 - Location
 - Accuracy
+
 while offering advice to the user.
