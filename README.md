@@ -23,6 +23,8 @@ The application is going to be full open source, backwards compatible with earli
 FAQ
 ===
 
+What is OpenLocationCode? See https://github.com/google/open-location-code
+
 Why do you think this app is needed? The need for this app is based on personal experience working particularly in Zambia and Ghana, as well as wider experience of working with https://hotosm.org. The requirements for the above app sound simple, and it sounds as if e.g. WhatsApp already does this. However, when you speak with a user over the phone, on a poor phone line, trying to figure out why the app isn't delivery an accurate location, things look very different. 
 
 Why Android and not iOS? Most phones in Africa and other low-income regions of the world are Android.
