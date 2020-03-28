@@ -23,12 +23,16 @@ The application is going to be full open source, backwards compatible with earli
 FAQ
 ===
 
-What is OpenLocationCode? See https://github.com/google/open-location-code
+__What is OpenLocationCode?__ See https://github.com/google/open-location-code
 
-Why do you think this app is needed? The need for this app is based on personal experience working particularly in Zambia and Ghana, as well as wider experience of working with https://hotosm.org. The requirements for the above app sound simple, and it sounds as if e.g. WhatsApp already does this. However, when you speak with a user over the phone, on a poor phone line, trying to figure out why the app isn't delivery an accurate location, things look very different. 
+__Why do you think this app is needed?__ The need for this app is based on personal experience working particularly in Zambia and Ghana, as well as wider experience of working with https://hotosm.org. The requirements for the above app sound simple, and it sounds as if e.g. WhatsApp already does this. However, when you speak with a user over the phone, on a poor phone line, trying to figure out why the app isn't delivery an accurate location, things look very different. 
 
-Why Android and not iOS? Most phones in Africa and other low-income regions of the world are Android.
+__The SDK has an example for GeoLocation - can I use that?__ Yes, of course. The app is conceptually very close to the example in the SDK. It just presents itself slightly differently to the user.
 
-Why Android and not KaiOS? We would love to build an app for KaiOS as well.
+__Why Android and not iOS?__ Most phones in Africa and other low-income regions of the world are Android.
 
-Which version of Android? The app should be compatible with the lowest version of Android reasonably possible. This is because in low-income countries, many older Android phones are still in use.
+__Why Android and not KaiOS?__ We would love to build an app for KaiOS as well.
+
+__Which version of Android?__ The app should be compatible with the lowest version of Android reasonably possible. This is because in low-income countries, many older Android phones are still in use.
+
+__How long do you think the development of this app would take?__ I'm what you might call an inexperienced Android developer (as my main just is something else). However, when I've done Android development in the past, I've tinkered the with SDK examples, and built similar things. To an experienced Android developer, a first version should not take more than a few hours.
