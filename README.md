@@ -30,3 +30,5 @@ Why do you think this app is needed? The need for this app is based on personal 
 Why Android and not iOS? Most phones in Africa and other low-income regions of the world are Android.
 
 Why Android and not KaiOS? We would love to build an app for KaiOS as well.
+
+Which version of Android? The app should be compatible with the lowest version of Android reasonably possible. This is because in low-income countries, many older Android phones are still in use.
