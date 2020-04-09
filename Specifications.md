@@ -18,7 +18,7 @@ Variables [should be set up through a 'strings' file or config file]:
 ** If 'satellites in use' < s1 display 'Please try to go to an open area.' Wait for t3 minutes. 
 *** If 3 minutes over display 'Unable to detect location, Restart' Display Restart Button -> Go to Stage 1.
  
- Stage 4: Increasing Accuracy
+* Stage 4: Increasing Accuracy
 ** If accuracy >= a2 and <a1, display "medium"
 ** If accuracy <= a2, display "high", and go to Stage 5
 ** If the accuracy does not reach <=a2 when countdown = t2, display a message: 
