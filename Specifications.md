@@ -11,8 +11,8 @@ Variables [should be set up through a 'strings' file or config file]:
 
 * Stage 1: Is there connectivity? Can the google location API retrieve the location? If yes, go to Stage 4, if not continue to Stage 2.
 * Stage 2: No connectivity, no satellites detected. Message string: 'Please go outside'. Wait for a maximum of t3  minutes.
-    ** If satellites detected, move to Stage 3. 
-    **  If t3 mins is over display 'Unable to detect location, Restart' Display Restart Button -> Go to Stage 1.
+      If satellites detected, move to Stage 3. 
+      If t3 mins is over display 'Unable to detect location, Restart' Display Restart Button -> Go to Stage 1.
 * Stage 3: Emphemerids should be obtained from satellite now. Satellites should be in use now. 
 ** If 'satellites in use' >= s1, tell the user to wait for 15 minutes (t1=15), start count down from 15 to 1. Move to Stage 4.
 ** If 'satellites in use' < s1 display 'Please try to go to an open area.' Wait for t3 minutes. 
