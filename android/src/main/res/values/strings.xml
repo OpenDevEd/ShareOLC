@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">SharePlusCode</string>
+    <string name="code_view_empty">No code to display</string>
+    <string name="current_location_loading">Loading your location</string>
+    <string name="current_location_error">Can\'t determine your location</string>
+
+    <string name="distance_meters">%dm</string>
+    <string name="distance_few_kilometers">%.1fkm</string>
+    <string name="distance_many_kilometers">%.0fkm</string>
+    <string name="accuracy_value">Accuracy: %1$s</string>
+    <string name="satellites_value">Satellites: %1$s/%2$s</string>
+    <string name="stay_outside_minutes">Stay outside for %1$s minute</string>
+
+    <string name="title_no_connection">No Internet Connection</string>
+    <string name="msg_ok">OK</string>
+    <string name="msg_message_connection">You don\'t seem to be connected to the internet. Please check your connection settings and try again.</string>
+    <string name="enable_gps">Enable GPS</string>
+    <string name="enable_gps_msg">GPS is not enabled. Do you want to go to settings menu?</string>
+    <string name="action_settings">Settings</string>
+    <string name="no_close_app">Cancel</string>
+
+    <string name="satellites_0_0">Satellites: 0/0</string>
+    <string name="label_accuracy">Accuracy: -</string>
+    <string name="label_distance">-- m</string>
+    <string name="please_go_outside">Please go outside</string>
+    <string name="unable_to_detect_location_restart">Unable to detect location, Restart</string>
+    <string name="go_to_an_open_area">Please try to go to an open area.</string>
+    <string name="no_signal">No Signal</string>
+    <string name="high_accuracy">high</string>
+    <string name="medium_accuracy">medium</string>
+    <string name="poor_accuracy">poor</string>
+    <string name="low_accuracy">low</string>
+    <string name="sharing_data_not_available">Sharing data not available</string>
+    <string name="cannot_get_high_accuracy_share_anyway">Cannot get high accuracy, please share location anyway.</string>
+    <string name="no_connection_available">No connection available</string>
+    <string name="ready_to_share">Ready to Share</string>
+    <string name="restart">Restart</string>
+
+    <string name="about">About</string>
+    <string name="languages">Languages</string>
+    <string name="settings">Settings</string>
+    <string name="open_location_code">Plus Code: </string>
+    <string name="please_wait">Please wait.</string>
+    <string name="please_allow_location_permission">Please allow to access device location permission</string>
+    <string name="allow">Allow</string>
+    <string name="help">Help</string>
+    <string name="menu">Menu</string>
+    <string name="share">Share</string>
+
+    <string name="about_data1">
+    App Designed by Open Development Education
+    </string>
+
+    <string name="about_data2">
+    App developed by Narola Infotech
+    </string>
+
+    <string name="about_data3">
+    Find out more at : http://opendeved.net/ShareOLC
+    </string>
+
+    <string name="about_data4">
+    For comments and queries, email: shareolc@opendeved.net
+    </string>
+
+    <string name="about_data5">
+    This application is open source, licensed under the MIT licence. The source code is available at: https://github.com/OpenDevEd/ShareOLC
+    </string>
+</resources>

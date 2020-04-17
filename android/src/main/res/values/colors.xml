@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="code_box_stroke">#A0CC0000</color>
+    <color name="code_box_fill">#A0FF0000</color>
+    <color name="button_background_pressed">#CCCCCC</color>
+    <color name="text">#333</color>
+    <color name="hint_text_grey">#AAA</color>
+
+    <color name="colorGrey">#B8B8B8</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlackGrey">#333333</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlue">#0B7BB9</color>
+    <color name="colorGreenText">#18957C</color>
+
+
+<!--    7ec3ea
+    dbb8f6
+    beb7a7
+    eda1c8
+    7b94f9
+    f3aba2
+    74dac7
+    fefd7d
+    f3c25c
+    b3ed77
+    85e993-->
+
+    <color name="colorAqua">#80c3e9</color>
+    <color name="colorAquaLight">#93CAEA</color>
+    <color name="colorPurple">#dbb8f6</color>
+    <color name="colorPurpleLight">#E1C9F4</color>
+    <color name="colorNeutral">#beb7a7</color>
+    <color name="colorNeutralLight">#D6CEBD</color>
+    <color name="colorMagenta">#efa1c9</color>
+    <color name="colorMagentaLight">#EFAFD0</color>
+
+    <color name="colorBlue1">#7c95fa</color>
+    <color name="colorBlue1Light">#92A6F8</color>
+    <color name="colorLilac">#b6a4f1</color>
+    <color name="colorLilacLight">#C5B7F4</color>
+    <color name="colorRose">#f1a9a0</color>
+    <color name="colorRoseLight">#F4BDB7</color>
+    <color name="colorTurquoise">#75dbc8</color>
+    <color name="colorTurquoiseLight">#91E0D1</color>
+
+    <color name="colorYellow">#fefd7d</color>
+    <color name="colorYellowLight">#F9F891</color>
+    <color name="colorOrange">#f3c25c</color>
+    <color name="colorOrangeLight">#F8CF79</color>
+    <color name="colorApple">#b3ed77</color>
+    <color name="colorAppleLight">#C1EC94</color>
+    <color name="colorLeaf">#87ea95</color>
+    <color name="colorLeafLight">#A1ECAC</color>
+    <color name="colorBackground">#D5E9F6</color>
+</resources>

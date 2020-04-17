@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutMainHome"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layoutBottomHome"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/open_location_code"
+            android:textColor="@color/colorBlack"
+            android:textSize="26sp" />
+
+
+        <LinearLayout
+            android:id="@+id/layoutCodeView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <include layout="@layout/layout_code" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/txtSateliteHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="@string/satellites_0_0"
+            android:textColor="#000"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/txtAccuracyHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/label_accuracy"
+            android:textColor="#000"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/txtDistanceHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="@string/label_distance"
+            android:textColor="#000"
+            android:textSize="32sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layoutBottomHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtStateWaiting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="@string/please_wait"
+            android:textColor="#AC1E13"
+            android:textSize="32sp" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/btnDataShareHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_green"
+                android:gravity="center"
+                android:visibility="gone"
+                android:padding="14dp"
+                android:text="@string/ready_to_share"
+                android:textColor="@color/colorGreenText"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnRestartHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_green"
+                android:gravity="center"
+                android:padding="14dp"
+                android:text="@string/restart"
+                android:visibility="gone"
+                android:textColor="@color/colorGreenText"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">SharePlusCode</string>
+    <string name="code_view_empty">Aucun code à afficher</string>
+    <string name="current_location_loading">Chargement de votre position</string>
+    <string name="current_location_error">Impossible de déterminer votre emplacement</string>
+
+    <string name="distance_meters">%dm</string>
+    <string name="distance_few_kilometers">% .1fkm</string>
+    <string name="distance_many_kilometers">% .0fkm</string>
+    <string name="accuracy_value">Précision: %1$s</string>
+    <string name="satellites_value">Satellites: %1$s /%2$s</string>
+    <string name="stay_outside_minutes">Restez dehors pendant %1$s minute</string>
+
+    <string name="title_no_connection">No Internet Connection</string>
+    <string name="msg_ok">D\'accord</string>
+    <string name="msg_message_connection">Vous ne semblez pas être connecté à Internet. Veuillez vérifier vos paramètres de connexion et réessayer.</string>
+    <string name="enable_gps">Enable GPS</string>
+    <string name="enable_gps_msg">Le GPS n\'est pas activé. Voulez-vous accéder au menu des paramètres?</string>
+    <string name="action_settings">Réglages</string>
+    <string name="no_close_app">Annuler</string>
+
+    <string name="satellites_0_0">Satellites: 0/0</string>
+    <string name="label_accuracy">Précision: -</string>
+    <string name="label_distance">-- m</string>
+    <string name="please_go_outside">Veuillez sortir</string>
+    <string name="unable_to_detect_location_restart">Impossible de détecter l\'emplacement, redémarrer</string>
+    <string name="go_to_an_open_area">Veuillez essayer d\'aller dans une zone ouverte.</string>
+    <string name="no_signal">Pas de signal</string>
+    <string name="high_accuracy">haute</string>
+    <string name="medium_accuracy">moyen</string>
+    <string name="poor_accuracy">pauvre</string>
+    <string name="low_accuracy">faible</string>
+    <string name="sharing_data_not_available">Partage de données non disponible</string>
+    <string name="cannot_get_high_accuracy_share_anyway">Impossible d\'obtenir une grande précision, veuillez partager l\'emplacement de toute façon.</string>
+    <string name="no_connection_available">Aucune connexion disponible</string>
+    <string name="ready_to_share">Prêt à partager</string>
+    <string name="restart">Redémarrer</string>
+
+    <string name="about">À propos de</string>
+    <string name="languages">Les langues</string>
+    <string name="settings">Réglages</string>
+    <string name="open_location_code">Plus Code:</string>
+    <string name="please_wait">S\'il vous plaît, attendez.</string>
+    <string name="please_allow_location_permission">Veuillez autoriser l\'accès à l\'emplacement de l\'appareil</string>
+    <string name="allow">Autoriser</string>
+    <string name="help">Aidez-moi</string>
+
+    <string name="menu">Menu</string>
+    <string name="share">Partager</string>
+
+    <string name="about_data1">Application conçue par Open Development Education</string>
+
+    <string name="about_data2">Application développée par Narola Infotech</string>
+
+    <string name="about_data3">En savoir plus sur: http://opendeved.net/ShareOLC</string>
+
+    <string name="about_data4">Pour des commentaires et des questions, envoyez un courriel à shareolc@opendeved.net</string>
+
+    <string name="about_data5">Cette application est open source, sous licence MIT. Le code source est disponible sur: https://github.com/OpenDevEd/ShareOLC</string>
+
+</resources>
