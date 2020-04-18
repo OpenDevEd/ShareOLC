@@ -50,6 +50,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private var isNetworkEnabled = false
     private var isDone = false
     private var isSpeechButton = false
+    private var isReadyToShare = false
     private lateinit var baseLocationHelper: BaseLocationHelper
 
     private lateinit var handlerTimer: HandlerTimer
@@ -77,8 +78,10 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private var accuracyMediumStart = 26.0
     private var accuracyMediumEnd = 100.0
     lateinit var tts: TextToSpeech
-    var speechMessage = ""
-    var lastSpeechMessage = ""
+    private var speechMessage = ""
+    private var lastSpeechMessage = ""
+    private var altitudeHeight = 0.0
+    private var sensorData = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -205,19 +208,19 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     //New location updated...
     override fun onNewLocation(locationResult: Location?, available: Boolean) {
         this.mCurrentLocation = locationResult
-        Log.e("onNewLocation", "===> $available")
-
-        isDone = false
-
-        if (available) {
-            moveStage1(false)
-        } else {
-            speechMessage = getString(R.string.no_connection_available)
-            speechLoud()
-            txtStateWaiting.text = getString(R.string.no_connection_available)
-            txtStateWaiting.visibility = View.VISIBLE
-            btnDataShareHome.visibility = View.GONE
-            btnRestartHome.visibility = View.GONE
+        if (!isReadyToShare) {
+            Log.e("onNewLocation", "===> $available")
+            isDone = false
+            if (available) {
+                moveStage1(false)
+            } else {
+                speechMessage = getString(R.string.no_connection_available)
+                speechLoud()
+                txtStateWaiting.text = getString(R.string.no_connection_available)
+                txtStateWaiting.visibility = View.VISIBLE
+                btnDataShareHome.visibility = View.GONE
+                btnRestartHome.visibility = View.GONE
+            }
         }
     }
 
@@ -389,6 +392,12 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         speechMessage = getString(R.string.ready_to_share)
         speechLoud()
 
+        isReadyToShare = true
+        Handler().postDelayed({
+            Log.e("isReadyToShare", "===> " + " reset")
+            isReadyToShare = false
+        }, 10000)
+
         btnDataShareHome.setOnClickListener {
             createShareData()
         }
@@ -432,19 +441,24 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
 
     private fun createShareData() {
         if (mCurrentLocation != null && isDone) {
+            altitudeHeight = mCurrentLocation?.altitude!!
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                //horizontal accuracy, vertical accuracy
+                sensorData = mCurrentLocation?.accuracy.toString() + "," + mCurrentLocation?.verticalAccuracyMeters.toString()
+            } else {
+                sensorData = mCurrentLocation?.accuracy.toString()
+            }
 
-            val height = "height:null; "
+            val height = "height:" + altitudeHeight + "m;"
             val satellites = "sat:" + satelliteModel.useInSatellites + "/" + satelliteModel.totalSatellites + "; "
             val accuracy = "acc:" + sendAccuracy + "," + mCurrentLocation?.accuracy + "m" + "; "
-            val sensor = "sensor:null"
+            val sensor = "sensor:$sensorData"
             val shareUrl1 = "Google Maps: https://www.google.com/maps/place/$fullCode"
             val shareUrl2 = "OpenStreetMap: https://www.openstreetmap.org/#map=12/" + mCurrentLocation?.latitude + "/" + mCurrentLocation?.longitude
             val shareUrl3 = "Maps.Me: https://ge0.me/$fullCode"
             val shareUrl4 = "Plus Codes: https://plus.codes/$fullCode Get SharePlusCode at URL."
 
-            val shareData = "SharePlusCode." + " Your Plus Code is " + fullCode + " (" + height + satellites + accuracy + sensor + ")." + "\n" +
-                    shareUrl1 + "\n" + shareUrl2 + "\n" + shareUrl3 + "\n" + shareUrl4
-
+            val shareData = "SharePlusCode. Your Plus Code is $fullCode ($height$satellites$accuracy$sensor).\n$shareUrl1\n$shareUrl2\n$shareUrl3\n$shareUrl4"
             Log.e("shareData", "===> $shareData")
             shareIntentData(shareData)
         } else {
@@ -465,14 +479,12 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private fun speechLoud() {
         if (speechMessage.isNotEmpty()) {
             if (speechMessage != lastSpeechMessage) {
-                Log.e("speechLoud", "diff msg ===> $speechMessage")
                 sendSpeechLoud()
                 lastSpeechMessage = speechMessage
-            } else {
-                Log.e("speechLoud", "same msg ===> $speechMessage")
             }
         }
     }
+
 
     private fun sendSpeechLoud() {
         if (speechMessage.isNotEmpty()) {
@@ -485,9 +497,9 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                         Utility.toastLong(mContext, "Current Language is not supported for speech")
                     } else {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            tts.speak(speechMessage, TextToSpeech.QUEUE_FLUSH, null, null);
+                            tts.speak(speechMessage, TextToSpeech.QUEUE_FLUSH, null, null)
                         } else {
-                            tts.speak(speechMessage, TextToSpeech.QUEUE_FLUSH, null);
+                            tts.speak(speechMessage, TextToSpeech.QUEUE_FLUSH, null)
                         }
                     }
                 } else {
@@ -509,20 +521,22 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         if (mCurrentLocation != null) {
             locationManager.addGpsStatusListener { event ->
                 if (event == GpsStatus.GPS_EVENT_SATELLITE_STATUS) {
-                    val gpsStatus = locationManager.getGpsStatus(null)
-                    if (gpsStatus != null) {
-                        val satellitesList = gpsStatus.satellites
-                        if (satellitesList != null) {
-                            var totalSatellites = 0
-                            var useSatellites = 0
-                            for (gpsSatellite in satellitesList) {
-                                totalSatellites++
-                                if (gpsSatellite.usedInFix()) {
-                                    useSatellites++
+                    if (!isReadyToShare) {
+                        val gpsStatus = locationManager.getGpsStatus(null)
+                        if (gpsStatus != null) {
+                            val satellitesList = gpsStatus.satellites
+                            if (satellitesList != null) {
+                                var totalSatellites = 0
+                                var useSatellites = 0
+                                for (gpsSatellite in satellitesList) {
+                                    totalSatellites++
+                                    if (gpsSatellite.usedInFix()) {
+                                        useSatellites++
+                                    }
                                 }
+                                txtSateliteHome.text = String.format(mContext.resources.getString(R.string.satellites_value), useSatellites, totalSatellites)
+                                satelliteModel = SatelliteModel(totalSatellites, useSatellites)
                             }
-                            txtSateliteHome.text = String.format(mContext.resources.getString(R.string.satellites_value), useSatellites, totalSatellites)
-                            satelliteModel = SatelliteModel(totalSatellites, useSatellites)
                         }
                     }
                 }
@@ -589,6 +603,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             }
         }
     }
+
 
     fun hideMenu() {
         when {

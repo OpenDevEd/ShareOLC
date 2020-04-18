@@ -14,6 +14,6 @@
   ~ limitations under the License.
 -->
 <resources>
-    <dimen name="code_font_size">44sp</dimen>
+    <dimen name="code_font_size">42sp</dimen>
     <dimen name="title_font_size">18sp</dimen>
 </resources>
