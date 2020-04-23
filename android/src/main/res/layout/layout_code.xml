@@ -16,6 +16,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@color/colorTurquoiseLight"
             android:gravity="center"
@@ -28,6 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:singleLine="true"
                 android:text="5GRF"
                 android:textColor="@color/colorBlackGrey"
                 android:textSize="@dimen/code_font_size" />
@@ -38,6 +40,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@color/colorAquaLight"
             android:gravity="center"
@@ -49,9 +52,7 @@
                 android:id="@+id/txtTwoOLCHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:gravity="center"
+                android:singleLine="true"
                 android:text="2F3V"
                 android:textColor="@color/colorBlackGrey"
                 android:textSize="@dimen/code_font_size" />
@@ -60,18 +61,29 @@
         </LinearLayout>
 
 
-        <TextView
-            android:id="@+id/txtThreeOLCHome"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@color/colorMagentaLight"
             android:gravity="center"
+            android:orientation="horizontal"
             android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            android:text="+8M"
-            android:textColor="@color/colorBlackGrey"
-            android:textSize="@dimen/code_font_size" />
+            android:paddingBottom="4dp">
+
+
+            <TextView
+                android:id="@+id/txtThreeOLCHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="+8M"
+                android:textColor="@color/colorBlackGrey"
+                android:textSize="@dimen/code_font_size" />
+
+
+        </LinearLayout>
 
 
     </LinearLayout>

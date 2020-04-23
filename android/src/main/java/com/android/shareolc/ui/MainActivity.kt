@@ -25,6 +25,7 @@ import com.android.shareolc.model.SatelliteModel
 import com.android.shareolc.timers.HandlerTimer
 import com.android.shareolc.timers.SatelliteTimer
 import com.android.shareolc.utils.DialogUtils
+import com.android.shareolc.utils.JSConstant
 import com.android.shareolc.utils.PrefUtil
 import com.android.shareolc.utils.Utility
 import kotlinx.android.synthetic.main.btn_help.btnHelpHome
@@ -50,7 +51,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private var isNetworkEnabled = false
     private var isDone = false
     private var isSpeechButton = false
-    private var isReadyToShare = false
     private lateinit var baseLocationHelper: BaseLocationHelper
 
     private lateinit var handlerTimer: HandlerTimer
@@ -89,7 +89,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         mContext = this
         dialogUtils = DialogUtils(mContext)
         satelliteModel = SatelliteModel(0, 0)
-
+        JSConstant.IS_READY_SHARE = false
         //initialize handler...
         initializeHandlers()
 
@@ -208,7 +208,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     //New location updated...
     override fun onNewLocation(locationResult: Location?, available: Boolean) {
         this.mCurrentLocation = locationResult
-        if (!isReadyToShare) {
+        if (!JSConstant.IS_READY_SHARE) {
             Log.e("onNewLocation", "===> $available")
             isDone = false
             if (available) {
@@ -392,10 +392,10 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         speechMessage = getString(R.string.ready_to_share)
         speechLoud()
 
-        isReadyToShare = true
+        JSConstant.IS_READY_SHARE = true
         Handler().postDelayed({
             Log.e("isReadyToShare", "===> " + " reset")
-            isReadyToShare = false
+            //isReadyToShare = false
         }, 10000)
 
         btnDataShareHome.setOnClickListener {
@@ -442,19 +442,26 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private fun createShareData() {
         if (mCurrentLocation != null && isDone) {
             altitudeHeight = mCurrentLocation?.altitude!!
+            val accuracyFormat = formatDecimal(mCurrentLocation?.accuracy!!)
+            val latitude = mCurrentLocation?.latitude!!
+            val longitude = mCurrentLocation?.longitude!!
+            val altitudeFormat = formatDecimal(altitudeHeight.toFloat())
+
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 //horizontal accuracy, vertical accuracy
-                sensorData = mCurrentLocation?.accuracy.toString() + "," + mCurrentLocation?.verticalAccuracyMeters.toString()
+                val verticalAccuracy = mCurrentLocation?.verticalAccuracyMeters
+                sensorData = accuracyFormat + "," + formatDecimal(verticalAccuracy!!)
             } else {
-                sensorData = mCurrentLocation?.accuracy.toString()
+                sensorData = accuracyFormat
             }
 
-            val height = "height:" + altitudeHeight + "m;"
+            val height = "height:" + altitudeFormat + "m;"
             val satellites = "sat:" + satelliteModel.useInSatellites + "/" + satelliteModel.totalSatellites + "; "
-            val accuracy = "acc:" + sendAccuracy + "," + mCurrentLocation?.accuracy + "m" + "; "
+            val accuracy = "acc:" + sendAccuracy + "," + accuracyFormat + "m" + "; "
             val sensor = "sensor:$sensorData"
             val shareUrl1 = "Google Maps: https://www.google.com/maps/place/$fullCode"
-            val shareUrl2 = "OpenStreetMap: https://www.openstreetmap.org/#map=12/" + mCurrentLocation?.latitude + "/" + mCurrentLocation?.longitude
+            val shareUrl2 = "OpenStreetMap: https://www.openstreetmap.org/#map=12/$latitude/$longitude"
             val shareUrl3 = "Maps.Me: https://ge0.me/$fullCode"
             val shareUrl4 = "Plus Codes: https://plus.codes/$fullCode Get SharePlusCode at URL."
 
@@ -464,6 +471,10 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         } else {
             Utility.toastLong(mContext, getString(R.string.sharing_data_not_available))
         }
+    }
+
+    private fun formatDecimal(value: Float): String {
+        return String.format("%.2f", value)
     }
 
 
@@ -521,7 +532,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         if (mCurrentLocation != null) {
             locationManager.addGpsStatusListener { event ->
                 if (event == GpsStatus.GPS_EVENT_SATELLITE_STATUS) {
-                    if (!isReadyToShare) {
+                    if (!JSConstant.IS_READY_SHARE) {
                         val gpsStatus = locationManager.getGpsStatus(null)
                         if (gpsStatus != null) {
                             val satellitesList = gpsStatus.satellites
