@@ -47,6 +47,7 @@
     <string name="help">Help</string>
     <string name="menu">Menu</string>
     <string name="share">Share</string>
+    <string name="please_tap_green_button" translatable="false">Please tap green button to share result</string>
 
     <string name="about_data1">
     App Designed by Open Development Education
