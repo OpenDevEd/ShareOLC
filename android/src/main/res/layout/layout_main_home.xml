@@ -99,12 +99,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:singleLine="true"
                 android:layout_marginBottom="12dp"
                 android:text="@string/please_tap_green_button"
                 android:textColor="@color/colorBlackGrey"
-                android:textSize="22sp"/>
+                android:textSize="18sp"/>
+
 
             <TextView
                 android:id="@+id/btnDataShareHome"
@@ -121,14 +122,29 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/btnRestartHome"
+                android:id="@+id/btnOutsideHome"
+                android:layout_below="@+id/btnTextDataShareHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_turquoise"
                 android:gravity="center"
+                android:visibility="gone"
+                android:padding="14dp"
+                android:text="@string/i_am_outside"
+                android:textColor="@color/colorBlack"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnRestartHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_magenta"
+                android:gravity="center"
                 android:padding="14dp"
                 android:text="@string/restart"
-                android:visibility="visible"
+                android:visibility="gone"
+                android:layout_below="@+id/btnTextDataShareHome"
                 android:textColor="@color/colorBlack"
                 android:textSize="22sp"
                 android:textStyle="bold" />

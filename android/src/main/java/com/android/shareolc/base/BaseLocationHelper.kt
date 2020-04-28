@@ -148,11 +148,11 @@ class BaseLocationHelper(private var mContext: Activity) : SensorEventListener {
         Log.e(tag, "networkEnabled old API: $networkEnabled")
 
         if (gpsEnabled) {
-            mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, fastestIntervalMillisO.toLong(), 10f, mGpsLocationListener)
+            mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, fastestIntervalMillisO.toLong(), 10f, mGpsLocationListener!!)
         }
 
         if (networkEnabled) {
-            mLocationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, fastestIntervalMillisO.toLong(), 10f, mNetworkLocationListener)
+            mLocationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, fastestIntervalMillisO.toLong(), 10f, mNetworkLocationListener!!)
         }
 
         if (!gpsEnabled && !networkEnabled) {
@@ -168,8 +168,8 @@ class BaseLocationHelper(private var mContext: Activity) : SensorEventListener {
             stopTrackingLocation()
         } else {
             //used older api
-            mLocationManager.removeUpdates(mGpsLocationListener)
-            mLocationManager.removeUpdates(mNetworkLocationListener)
+            mLocationManager.removeUpdates(mGpsLocationListener!!)
+            mLocationManager.removeUpdates(mNetworkLocationListener!!)
         }
     }
 

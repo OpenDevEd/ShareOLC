@@ -3,7 +3,6 @@
     android:id="@+id/layoutMenuHome"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorBlack"
     android:orientation="vertical">
 
 
@@ -16,7 +15,7 @@
         android:paddingBottom="8dp"
         android:paddingLeft="12dp"
         android:id="@+id/txtMenuNameRow"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
         android:textSize="20sp" />
 
 
@@ -24,6 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="2dp"
-        android:background="@color/colorWhite" />
+        android:background="@color/colorBlack" />
 
 </LinearLayout>

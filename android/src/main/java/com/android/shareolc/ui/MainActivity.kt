@@ -156,8 +156,12 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             requestAppPermissions(ARRAY_PERMISSIONS, R.string.app_name, ARRAY_PERMISSION_CODE)
         }
 
+
         btnRestartHome.setOnClickListener {
             moveStage1(true)
+        }
+
+        btnOutsideHome.setOnClickListener {
         }
     }
 
@@ -216,10 +220,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             } else {
                 speechMessage = getString(R.string.no_connection_available)
                 speechLoud()
-                txtStateWaiting.text = getString(R.string.no_connection_available)
-                txtStateWaiting.visibility = View.VISIBLE
-                btnDataShareHome.visibility = View.GONE
-                btnRestartHome.visibility = View.GONE
+                noConnectionAvailable()
             }
         }
     }
@@ -237,7 +238,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         if (mCurrentLocation == null) {
             moveStage2()
         } else {
-            showLocationCode(mCurrentLocation!!)
+            showDistanceCode(mCurrentLocation!!)
             moveStage4()
         }
     }
@@ -249,6 +250,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         if (satelliteModel.totalSatellites == 0) {
             Log.e("moveStage2", "===> " + "move outside ok")
             moveOutside()
+
             if (satelliteTimer.stopHandler) {
                 unableDetectLocation()
             } else {
@@ -298,9 +300,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                             speechMessage = stayOutsideMessage
                             speechLoud()
                             txtStateWaiting.text = stayOutsideMessage
-                            txtStateWaiting.visibility = View.VISIBLE
-                            btnDataShareHome.visibility = View.GONE
-                            btnRestartHome.visibility = View.GONE
+                            stayOutSideViews()
                         }
                     }
                 })
@@ -334,6 +334,8 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         isDone = false
         if (mCurrentLocation != null) {
             val accuracy = mCurrentLocation?.accuracy!!.toDouble()
+            Log.e("accuracy", "===> $accuracy")
+
             getSatellitesAvailable()
             when (accuracy) {
                 accuracyNo -> {
@@ -379,6 +381,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                 speechLoud()
                 txtStateWaiting.visibility = View.VISIBLE
             }
+            btnTextDataShareHome.visibility = View.VISIBLE
             btnDataShareHome.visibility = View.VISIBLE
             btnRestartHome.visibility = View.GONE
             moveStage6()
@@ -395,7 +398,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         JSConstant.IS_READY_SHARE = true
         Handler().postDelayed({
             Log.e("isReadyToShare", "===> " + " reset")
-            //isReadyToShare = false
         }, 10000)
 
         btnDataShareHome.setOnClickListener {
@@ -411,6 +413,8 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         txtStateWaiting.visibility = View.VISIBLE
         btnDataShareHome.visibility = View.GONE
         btnRestartHome.visibility = View.GONE
+        btnTextDataShareHome.visibility = View.GONE
+        btnOutsideHome.visibility = View.GONE
     }
 
     private fun unableDetectLocation() {
@@ -420,6 +424,8 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         txtStateWaiting.visibility = View.VISIBLE
         btnDataShareHome.visibility = View.GONE
         btnRestartHome.visibility = View.VISIBLE
+        btnTextDataShareHome.visibility = View.GONE
+        btnOutsideHome.visibility = View.GONE
     }
 
     private fun moveOutside() {
@@ -429,6 +435,19 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         txtStateWaiting.visibility = View.VISIBLE
         btnDataShareHome.visibility = View.GONE
         btnRestartHome.visibility = View.GONE
+        btnTextDataShareHome.visibility = View.GONE
+        btnOutsideHome.visibility = View.GONE
+    }
+
+    private fun waitingViews() {
+        speechMessage = getString(R.string.please_wait)
+        speechLoud()
+        txtStateWaiting.text = getString(R.string.please_wait)
+        txtStateWaiting.visibility = View.VISIBLE
+        btnDataShareHome.visibility = View.GONE
+        btnRestartHome.visibility = View.GONE
+        btnTextDataShareHome.visibility = View.GONE
+        btnOutsideHome.visibility = View.GONE
     }
 
     private fun hideViews() {
@@ -436,6 +455,25 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         txtStateWaiting.visibility = View.GONE
         btnRestartHome.visibility = View.GONE
         btnDataShareHome.visibility = View.GONE
+        btnTextDataShareHome.visibility = View.GONE
+        btnOutsideHome.visibility = View.GONE
+    }
+
+    private fun noConnectionAvailable() {
+        txtStateWaiting.text = getString(R.string.no_connection_available)
+        txtStateWaiting.visibility = View.VISIBLE
+        btnDataShareHome.visibility = View.GONE
+        btnRestartHome.visibility = View.GONE
+        btnTextDataShareHome.visibility = View.GONE
+        btnOutsideHome.visibility = View.GONE
+    }
+
+    private fun stayOutSideViews() {
+        txtStateWaiting.visibility = View.VISIBLE
+        btnDataShareHome.visibility = View.GONE
+        btnRestartHome.visibility = View.GONE
+        btnTextDataShareHome.visibility = View.GONE
+        btnOutsideHome.visibility = View.GONE
     }
 
 
@@ -456,8 +494,8 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                 sensorData = accuracyFormat
             }
 
-            val height = "height:" + altitudeFormat + "m;"
-            val satellites = "sat:" + satelliteModel.useInSatellites + "/" + satelliteModel.totalSatellites + "; "
+            val height = "height: " + altitudeFormat + "m;"
+            val satellites = "sat: " + satelliteModel.useInSatellites + "/" + satelliteModel.totalSatellites + "; "
             val accuracy = "acc:" + sendAccuracy + "," + accuracyFormat + "m" + "; "
             val sensor = "sensor:$sensorData"
             val shareUrl1 = "Google Maps: https://www.google.com/maps/place/$fullCode"
@@ -557,24 +595,30 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
 
 
     //SHOW open location code...
-    private fun showLocationCode(location: Location?) {
-        if (mCurrentLocation != null) {
-            if (location!!.hasBearing() && getCurrentOpenLocationCode() != null) {
-                val direction = DirectionUtil.getDirection(location, getCurrentOpenLocationCode(), mCurrentLocation)
-                showDistance(direction.distance)
-            }
+    private fun showDistanceCode(location: Location?) {
+        if (location != null) {
+
             val code = OpenLocationCodeUtil.createOpenLocationCode(location.latitude, location.longitude)
             lastFullCode = code
             fullCode = code.code
+
             //String fullCode = "5GRF 2F3V +8M";
             val oneCode = fullCode.substring(0, 4)
             val twoCode = fullCode.substring(4, 8)
-            val threeCode = fullCode.substring(8, 11)
+            val threeCode = fullCode.substring(8, 12)
             Log.e("fullCode: ", "===> $fullCode")
+            Log.e("threeCode: ", "===> $threeCode")
 
             txtOneOLCHome.text = oneCode
             txtTwoOLCHome.text = twoCode
             txtThreeOLCHome.text = threeCode
+
+            //if (location!!.hasBearing() && getCurrentOpenLocationCode() != null) {
+            if (getCurrentOpenLocationCode() != null) {
+                val direction = DirectionUtil.getDirection(location, getCurrentOpenLocationCode(), mCurrentLocation)
+                showDistance(direction.distance)
+                Log.e("distance: ", "===> ${direction.distance}")
+            }
         }
     }
 
