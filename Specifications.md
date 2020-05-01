@@ -1,4 +1,4 @@
-Variables and Sequence
+Variables
 ========
 
 Variables [should be set up through a 'strings' file or config file]:
@@ -8,6 +8,9 @@ Variables [should be set up through a 'strings' file or config file]:
 * s1=5 (minimum number of satellites in use needed)
 * a1=100m (within medium accuracy)
 * a2=5m (within hig accuracy)
+
+Sequence
+========
 
 * Stage 1: Is there connectivity? Can the google location API retrieve the location? If yes, go to Stage 4, if not continue to Stage 2.
 * Stage 2: No connectivity, no satellites detected. Message string: 'Please go outside'. Wait for a maximum of t3  minutes.
@@ -31,7 +34,12 @@ Share
 
 When pressing 'share' the following text is made available to applications that can receive text intents:
 
-ShareOLC. olc:5GRF2F3V+8MM  geo:37.7749,-122.4194 height:241m sat:10/17 acc:high,3m sensor:1,2,3,4 https://www.google.com/maps/search/-13.9966875,29.4898101 https://www.openstreetmap.org/#map=12/-13.9467/29.5151 
+
+SharePlusCode. Your Plus Code is 5G59VXMM+QFF (height:1585.60m; sat:8/9; acc:high,16.57m; sensor:16.57,2.00).
+Google Maps: https://www.google.com/maps/place/5G59VXMM+QFF
+OpenStreetMap: https://www.openstreetmap.org/#map=12/-26.1155737/27.9837321
+Maps.Me: https://ge0.me/5G59VXMM+QFF
+Plus Codes: https://plus.codes/5G59VXMM+QFF Get SharePlusCode at URL.
 
 In this, "sensor:" contains additional GPS sensor data, such as raw values for horizontal and vertical accuracy. The items are separated by <space>, but could also be separated e.g. by ";", as long as that works. 
 
