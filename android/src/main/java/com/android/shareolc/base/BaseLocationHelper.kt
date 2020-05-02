@@ -19,8 +19,9 @@ import android.view.WindowManager
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.location.*
-import java.util.concurrent.TimeUnit
 import kotlin.math.abs
+
+
 
 class BaseLocationHelper(private var mContext: Activity) : SensorEventListener {
 
@@ -29,8 +30,8 @@ class BaseLocationHelper(private var mContext: Activity) : SensorEventListener {
     private lateinit var locationCallback: LocationCallback
     private var mListener: NewLocationListener? = null
 
-    private val updateIntervalMillis: Long = TimeUnit.SECONDS.toMillis(4)
-    private val fastestUpdateIntervalMillis = updateIntervalMillis / 2
+   // private val updateIntervalMillis: Long = 4000L
+    private val fastestUpdateIntervalMillis = 2000L
 
     private var mGoogleApiAvailability: GoogleApiAvailability? = null
     private var mUsingGms = false
@@ -44,7 +45,7 @@ class BaseLocationHelper(private var mContext: Activity) : SensorEventListener {
     private var mAxisY = 0
 
     private val tag = "BaseLocationHelper"
-    private val fastestIntervalMillisO = 1000
+    private val fastestIntervalMillisO = 2000L
 
     private var isGPSEnabled = false
     private var isNetworkEnabled = false
@@ -57,6 +58,7 @@ class BaseLocationHelper(private var mContext: Activity) : SensorEventListener {
     private lateinit var defaultDisplay: Display
     private lateinit var mSensor: Sensor
     private val minBearingOff = 2.0f
+    private val MIN_DISTANCE_CHANGE_FOR_UPDATES = 10.0f // 10 meters
 
 
     fun initLocation() {
@@ -73,7 +75,7 @@ class BaseLocationHelper(private var mContext: Activity) : SensorEventListener {
         locationRequest = LocationRequest()
         determineIfUsingGms()
 
-        locationRequest.interval = updateIntervalMillis
+        locationRequest.interval = fastestUpdateIntervalMillis
         locationRequest.fastestInterval = fastestUpdateIntervalMillis
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(mContext)
@@ -148,11 +150,11 @@ class BaseLocationHelper(private var mContext: Activity) : SensorEventListener {
         Log.e(tag, "networkEnabled old API: $networkEnabled")
 
         if (gpsEnabled) {
-            mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, fastestIntervalMillisO.toLong(), 10f, mGpsLocationListener!!)
+            mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, fastestIntervalMillisO, MIN_DISTANCE_CHANGE_FOR_UPDATES, mGpsLocationListener!!)
         }
 
         if (networkEnabled) {
-            mLocationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, fastestIntervalMillisO.toLong(), 10f, mNetworkLocationListener!!)
+            mLocationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, fastestIntervalMillisO, MIN_DISTANCE_CHANGE_FOR_UPDATES, mNetworkLocationListener!!)
         }
 
         if (!gpsEnabled && !networkEnabled) {

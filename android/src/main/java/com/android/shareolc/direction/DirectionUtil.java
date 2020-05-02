@@ -10,8 +10,11 @@ public class DirectionUtil {
 
     public static Direction getDirection(Location fromLocation, OpenLocationCode destinationCode,Location toLocation) {
         OpenLocationCode.CodeArea destinationArea = destinationCode.decode();
-        double toLatitude = destinationArea.getCenterLatitude();
-        double toLongitude = destinationArea.getCenterLongitude();
+        //double toLatitude = destinationArea.getCenterLatitude();
+        //double toLongitude = destinationArea.getCenterLongitude();
+
+        double toLatitude = toLocation.getLatitude();
+        double toLongitude = toLocation.getLongitude();
 
         float[] results = new float[3];
         Location.distanceBetween(

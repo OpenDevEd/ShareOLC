@@ -3,7 +3,7 @@
     android:id="@+id/layoutMenuHome"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="6dp"
+    android:layout_margin="4dp"
     android:background="@drawable/background_menu"
     android:orientation="vertical"
     android:visibility="gone">

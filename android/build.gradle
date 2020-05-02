@@ -10,8 +10,8 @@ android {
         applicationId "com.android.shareolc"
         minSdkVersion 15
         targetSdkVersion 29
-        versionCode 11
-        versionName "1.0.10"
+        versionCode 15
+        versionName "1.0.14"
     }
     buildTypes {
         release {

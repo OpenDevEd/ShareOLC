@@ -32,13 +32,10 @@
     <string name="poor_accuracy">poor</string>
     <string name="low_accuracy">low</string>
     <string name="sharing_data_not_available">Sharing data not available</string>
-    <string name="cannot_get_high_accuracy_share_anyway">Cannot get high accuracy please share location anyway.</string>
+    <string name="cannot_get_high_accuracy_share_anyway">Cannot get high accuracy lease share location anyway.</string>
     <string name="no_connection_available">No connection available</string>
     <string name="ready_to_share">Ready to Share</string>
     <string name="restart">Restart</string>
-
-
-    <string name="i_am_outside">I\'m outside</string>
 
     <string name="about">About</string>
     <string name="languages">Languages</string>
@@ -71,4 +68,9 @@
     <string name="about_data5">
     This application is open source, licensed under the MIT licence. The source code is available at: https://github.com/OpenDevEd/ShareOLC
     </string>
+
+
+    <string name="i_am_outside">I\'m outside</string>
+    <string name="share_sharepluscode">SharePlusCode. Your Plus Code is</string>
+    <string name="share_getpluscode"> Get SharePlusCode at URL.</string>
 </resources>

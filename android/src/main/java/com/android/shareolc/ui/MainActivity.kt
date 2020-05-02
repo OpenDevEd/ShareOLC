@@ -20,7 +20,6 @@ import com.android.shareolc.adapters.MenuAdapter
 import com.android.shareolc.base.BaseLocationHelper
 import com.android.shareolc.code.OpenLocationCode
 import com.android.shareolc.code.OpenLocationCodeUtil
-import com.android.shareolc.direction.DirectionUtil
 import com.android.shareolc.model.SatelliteModel
 import com.android.shareolc.timers.HandlerTimer
 import com.android.shareolc.timers.SatelliteTimer
@@ -51,6 +50,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private var isNetworkEnabled = false
     private var isDone = false
     private var isSpeechButton = false
+    private var is10Timer = false
     private lateinit var baseLocationHelper: BaseLocationHelper
 
     private lateinit var handlerTimer: HandlerTimer
@@ -82,6 +82,9 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private var lastSpeechMessage = ""
     private var altitudeHeight = 0.0
     private var sensorData = ""
+    private var accuracyShareData = 0.0f
+    //private var distanceShareData = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,6 +93,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         dialogUtils = DialogUtils(mContext)
         satelliteModel = SatelliteModel(0, 0)
         JSConstant.IS_READY_SHARE = false
+        is10Timer = false
         //initialize handler...
         initializeHandlers()
 
@@ -162,6 +166,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         }
 
         btnOutsideHome.setOnClickListener {
+            waitingViews()
         }
     }
 
@@ -333,58 +338,74 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private fun moveStage4() {
         isDone = false
         if (mCurrentLocation != null) {
+
             val accuracy = mCurrentLocation?.accuracy!!.toDouble()
+            accuracyShareData = accuracy.toFloat()
             Log.e("accuracy", "===> $accuracy")
 
             getSatellitesAvailable()
-            when (accuracy) {
-                accuracyNo -> {
-                    Log.e("moveStage4", "===> " + "no signal ok")
-                    txtAccuracyHome.text = accuracyValue(getString(R.string.no_signal))
-                    sendAccuracy = "No signal"
-                    hideViews()
+
+            Handler().postDelayed({
+                when (accuracy) {
+                    accuracyNo -> {
+                        Log.e("moveStage4", "===> " + "no signal ok")
+                        txtAccuracyHome.text = accuracyValue(getString(R.string.no_signal))
+                        sendAccuracy = "No signal"
+                        waitingViews()
+                    }
+                    in accuracyHighStart..accuracyHighEnd -> {
+                        Log.e("moveStage4", "===> " + "high ok")
+                        txtAccuracyHome.text = accuracyValue(getString(R.string.high_accuracy))
+                        sendAccuracy = getString(R.string.high_accuracy)
+                        moveStage5(true)
+                    }
+                    in accuracyMediumStart..accuracyMediumEnd -> {
+                        Log.e("moveStage4", "===> " + "medium ok")
+                        txtAccuracyHome.text = accuracyValue(getString(R.string.medium_accuracy))
+                        sendAccuracy = getString(R.string.medium_accuracy)
+                        waitingViews()
+                    }
+                    else -> {
+                        Log.e("moveStage4", "===> " + "does not reached accuracy ok")
+                        txtAccuracyHome.text = accuracyValue(getString(R.string.medium_accuracy))
+                        sendAccuracy = getString(R.string.medium_accuracy)
+                        moveStage5(false)
+                    }
                 }
-                in accuracyHighStart..accuracyHighEnd -> {
-                    Log.e("moveStage4", "===> " + "high ok")
-                    txtAccuracyHome.text = accuracyValue(getString(R.string.high_accuracy))
-                    sendAccuracy = getString(R.string.high_accuracy)
-                    moveStage5(true)
-                }
-                in accuracyMediumStart..accuracyMediumEnd -> {
-                    Log.e("moveStage4", "===> " + "medium ok")
-                    txtAccuracyHome.text = accuracyValue(getString(R.string.medium_accuracy))
-                    sendAccuracy = getString(R.string.medium_accuracy)
-                    hideViews()
-                }
-                else -> {
-                    Log.e("moveStage4", "===> " + "does not reached accuracy ok")
-                    moveStage5(false)
-                }
-            }
+            }, 1000L)
         }
     }
 
 
     private fun moveStage5(highAccuracy: Boolean) {
         isDone = false
-        if (satelliteModel.useInSatellites < minSatellite) {
-            Log.e("moveStage5", "===> go open area ok")
-            moveOpenArea()
-        } else if (satelliteModel.useInSatellites >= minSatellite) {
-            txtStateWaiting.text = getString(R.string.cannot_get_high_accuracy_share_anyway)
-            if (highAccuracy) {
-                speechMessage = ""
-                txtStateWaiting.visibility = View.GONE
-            } else {
-                Log.e("moveStage5", "===> " + "cannot get high accuracy share ok")
-                speechMessage = getString(R.string.cannot_get_high_accuracy_share_anyway)
-                speechLoud()
-                txtStateWaiting.visibility = View.VISIBLE
+
+        if (satelliteModel.totalSatellites == 0) {
+            Log.e("moveStage4", "===> totalSatellites 0")
+            moveOutside()
+        } else {
+            if (satelliteModel.useInSatellites < minSatellite) {
+                Log.e("moveStage4", "===> go open area ok")
+                moveOpenArea()
+            } else if (satelliteModel.useInSatellites >= minSatellite) {
+                if (highAccuracy) {
+                    speechMessage = ""
+                    txtStateWaiting.visibility = View.GONE
+                    is10Timer = true
+                } else {
+                    txtStateWaiting.text = getString(R.string.cannot_get_high_accuracy_share_anyway)
+                    txtStateWaiting.visibility = View.VISIBLE
+                    speechMessage = getString(R.string.cannot_get_high_accuracy_share_anyway)
+                    speechLoud()
+                    Log.e("moveStage5", "===> " + "cannot get high accuracy share ok")
+                    is10Timer = false
+                }
+
+                btnTextDataShareHome.visibility = View.VISIBLE
+                btnDataShareHome.visibility = View.VISIBLE
+                btnRestartHome.visibility = View.GONE
+                moveStage6()
             }
-            btnTextDataShareHome.visibility = View.VISIBLE
-            btnDataShareHome.visibility = View.VISIBLE
-            btnRestartHome.visibility = View.GONE
-            moveStage6()
         }
     }
 
@@ -395,10 +416,12 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         speechMessage = getString(R.string.ready_to_share)
         speechLoud()
 
-        JSConstant.IS_READY_SHARE = true
-        Handler().postDelayed({
-            Log.e("isReadyToShare", "===> " + " reset")
-        }, 10000)
+        if (is10Timer) {
+            JSConstant.IS_READY_SHARE = true
+            Handler().postDelayed({
+                Log.e("isReadyToShare", "===> " + " reset")
+            }, 10000)
+        }
 
         btnDataShareHome.setOnClickListener {
             createShareData()
@@ -436,23 +459,15 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         btnDataShareHome.visibility = View.GONE
         btnRestartHome.visibility = View.GONE
         btnTextDataShareHome.visibility = View.GONE
-        btnOutsideHome.visibility = View.GONE
+        btnOutsideHome.visibility = View.VISIBLE
     }
+
 
     private fun waitingViews() {
         speechMessage = getString(R.string.please_wait)
         speechLoud()
         txtStateWaiting.text = getString(R.string.please_wait)
         txtStateWaiting.visibility = View.VISIBLE
-        btnDataShareHome.visibility = View.GONE
-        btnRestartHome.visibility = View.GONE
-        btnTextDataShareHome.visibility = View.GONE
-        btnOutsideHome.visibility = View.GONE
-    }
-
-    private fun hideViews() {
-        speechMessage = ""
-        txtStateWaiting.visibility = View.GONE
         btnRestartHome.visibility = View.GONE
         btnDataShareHome.visibility = View.GONE
         btnTextDataShareHome.visibility = View.GONE
@@ -480,11 +495,10 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private fun createShareData() {
         if (mCurrentLocation != null && isDone) {
             altitudeHeight = mCurrentLocation?.altitude!!
-            val accuracyFormat = formatDecimal(mCurrentLocation?.accuracy!!)
+            val accuracyFormat = formatDecimal(accuracyShareData)
             val latitude = mCurrentLocation?.latitude!!
             val longitude = mCurrentLocation?.longitude!!
             val altitudeFormat = formatDecimal(altitudeHeight.toFloat())
-
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 //horizontal accuracy, vertical accuracy
@@ -494,16 +508,19 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                 sensorData = accuracyFormat
             }
 
-            val height = "height: " + altitudeFormat + "m;"
-            val satellites = "sat: " + satelliteModel.useInSatellites + "/" + satelliteModel.totalSatellites + "; "
+            val getSharePlusCodeData = getString(R.string.share_getpluscode);
+
+            val height = "height:" + altitudeFormat + "m; "
+            val satellites = "sat:" + satelliteModel.useInSatellites + "/" + satelliteModel.totalSatellites + "; "
             val accuracy = "acc:" + sendAccuracy + "," + accuracyFormat + "m" + "; "
             val sensor = "sensor:$sensorData"
             val shareUrl1 = "Google Maps: https://www.google.com/maps/place/$fullCode"
             val shareUrl2 = "OpenStreetMap: https://www.openstreetmap.org/#map=12/$latitude/$longitude"
             val shareUrl3 = "Maps.Me: https://ge0.me/$fullCode"
-            val shareUrl4 = "Plus Codes: https://plus.codes/$fullCode Get SharePlusCode at URL."
+            val shareUrl4 = "Plus Codes: https://plus.codes/" + fullCode + " " + getSharePlusCodeData
 
-            val shareData = "SharePlusCode. Your Plus Code is $fullCode ($height$satellites$accuracy$sensor).\n$shareUrl1\n$shareUrl2\n$shareUrl3\n$shareUrl4"
+            val startShareData = getString(R.string.share_sharepluscode);
+            val shareData = startShareData + " " + "$fullCode ($height$satellites$accuracy$sensor).\n$shareUrl1\n$shareUrl2\n$shareUrl3\n$shareUrl4"
             Log.e("shareData", "===> $shareData")
             shareIntentData(shareData)
         } else {
@@ -606,19 +623,23 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             val oneCode = fullCode.substring(0, 4)
             val twoCode = fullCode.substring(4, 8)
             val threeCode = fullCode.substring(8, 12)
-            Log.e("fullCode: ", "===> $fullCode")
-            Log.e("threeCode: ", "===> $threeCode")
+            //Log.e("fullCode: ", "===> $fullCode")
+            //Log.e("threeCode: ", "===> $threeCode")
 
             txtOneOLCHome.text = oneCode
             txtTwoOLCHome.text = twoCode
             txtThreeOLCHome.text = threeCode
 
+            val accuracyFormat = formatDecimal(location.accuracy)
+            txtDistanceHome.text = accuracyFormat + "m"
+
             //if (location!!.hasBearing() && getCurrentOpenLocationCode() != null) {
-            if (getCurrentOpenLocationCode() != null) {
+            /*if (getCurrentOpenLocationCode() != null) {
                 val direction = DirectionUtil.getDirection(location, getCurrentOpenLocationCode(), mCurrentLocation)
                 showDistance(direction.distance)
-                Log.e("distance: ", "===> ${direction.distance}")
-            }
+                Log.e("distance: ", "===> " + direction.distance)
+                //Log.e("accuracy: ", "===> "+location.accuracy+"m")
+            }*/
         }
     }
 
