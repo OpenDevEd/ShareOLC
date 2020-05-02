@@ -379,7 +379,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
 
     private fun moveStage5(highAccuracy: Boolean) {
         isDone = false
-
         if (satelliteModel.totalSatellites == 0) {
             Log.e("moveStage4", "===> totalSatellites 0")
             moveOutside()
