@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">SharePlusCode</string>
     <string name="code_view_empty">प्रदर्शित करने के लिए कोई कोड नहीं</string>
@@ -32,7 +31,7 @@
     <string name="poor_accuracy">गरीब</string>
     <string name="low_accuracy">कम</string>
     <string name="sharing_data_not_available">शेयरिंग डेटा उपलब्ध नहीं है</string>
-    <string name="cannot_get_high_accuracy_share_anyway">उच्च सटीकता प्राप्त नहीं कर सकते, कृपया स्थान साझा करें।</string>
+    <string name="cannot_get_high_accuracy_share_anyway">वैसे भी उच्च सटीकता लीज़ शेयर स्थान प्राप्त नहीं कर सकता।</string>
     <string name="no_connection_available">कोई कनेक्शन उपलब्ध नहीं है</string>
     <string name="ready_to_share">साझा करने के लिए तैयार है</string>
     <string name="restart">पुनर्प्रारंभ करें</string>
@@ -45,7 +44,6 @@
     <string name="please_allow_location_permission">कृपया डिवाइस स्थान की अनुमति का उपयोग करने की अनुमति दें</string>
     <string name="allow">अनुमति</string>
     <string name="help">मदद</string>
-
     <string name="menu">मेन्यू</string>
     <string name="share">शेयर</string>
 
@@ -58,4 +56,8 @@
     <string name="about_data4">टिप्पणियों और प्रश्नों के लिए, ईमेल: shareolc@opendeved.net</string>
 
     <string name="about_data5">यह आवेदन खुला स्रोत है, एमआईटी लाइसेंस के तहत लाइसेंस प्राप्त है। स्रोत कोड यहां उपलब्ध है: https://github.com/OpenDevEd/ShareOLC</string>
+    <string name="i_am_outside">मैं बाहर हूं</string>
+    <string name="share_sharepluscode">SharePlusCode। आपका प्लस कोड %1$s है</string>
+    <string name="share_getpluscode">URL पर %1$s SharePlusCode प्राप्त करें।</string>
+    <string name="please_tap_green_button">परिणाम साझा करने के लिए कृपया हरे बटन पर टैप करें</string>
 </resources>

@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">SharePlusCode</string>
+<string name="app_name" translatable="false">SharePlusCode</string>
     <string name="code_view_empty">No hay código para mostrar</string>
     <string name="current_location_loading">Cargando tu ubicación</string>
     <string name="current_location_error">No puedo determinar tu ubicación</string>
@@ -32,7 +31,7 @@
     <string name="poor_accuracy">pobre</string>
     <string name="low_accuracy">bajo</string>
     <string name="sharing_data_not_available">Compartir datos no disponibles</string>
-    <string name="cannot_get_high_accuracy_share_anyway">No se puede obtener una alta precisión, comparta la ubicación de todos modos.</string>
+    <string name="cannot_get_high_accuracy_share_anyway">No se puede obtener una ubicación de arrendamiento compartido de alta precisión de todos modos.</string>
     <string name="no_connection_available">No hay conexión disponible</string>
     <string name="ready_to_share">Listo para compartir</string>
     <string name="restart">Reiniciar</string>
@@ -45,7 +44,6 @@
     <string name="please_allow_location_permission">Por favor permita acceder al permiso de ubicación del dispositivo</string>
     <string name="allow">Permitir</string>
     <string name="help">Ayuda</string>
-
     <string name="menu">Menú</string>
     <string name="share">Compartir</string>
 
@@ -58,4 +56,9 @@
     <string name="about_data4">Para comentarios y consultas, correo electrónico: shareolc@opendeved.net</string>
 
     <string name="about_data5">Esta aplicación es de código abierto, con licencia bajo la licencia MIT. El código fuente está disponible en: https://github.com/OpenDevEd/ShareOLC</string>
+
+    <string name="i_am_outside">Estoy afuera</string>
+    <string name="share_sharepluscode">SharePlusCode. Su código Plus es %1$s</string>
+    <string name="share_getpluscode">%1$s Obtenga SharePlusCode en la URL.</string>
+    <string name="please_tap_green_button">Toque el botón verde para compartir el resultado.</string>
 </resources>

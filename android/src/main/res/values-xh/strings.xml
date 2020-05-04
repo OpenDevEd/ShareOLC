@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name" translatable="false">SharePlusCode</string>
+    <string name="code_view_empty">Akukho khowudi yokubonisa</string>
+    <string name="current_location_loading">Ifaka indawo yakho</string>
+    <string name="current_location_error">Andikwazi ukubona indawo yakho</string>
+
+    <string name="distance_meters">%dm</string>
+    <string name="distance_few_kilometers">% .1fkm</string>
+    <string name="distance_many_kilometers">% .0fkm</string>
+    <string name="accuracy_value">Ukuchaneka: %1$s</string>
+    <string name="satellites_value">Iisatellite: %1$s /%2$s</string>
+    <string name="stay_outside_minutes">Hlala ngaphandle %1$s umzuzu</string>
+
+    <string name="title_no_connection">Akukho Unxibelelwano lwe-Intanethi</string>
+    <string name="msg_ok">Kulungile</string>
+    <string name="msg_message_connection">Awubonakali ngathi uqhagamshelwe kwi-intanethi. Nceda ujonge iisetingi zonxibelelwano uze uzame kwakhona.</string>
+    <string name="enable_gps">Yenza i-GPS isebenze</string>
+    <string name="enable_gps_msg">IGPS ayisebenzi. Ngaba uyafuna ukuya kwimenyu yezicwangciso?</string>
+    <string name="action_settings">Useto</string>
+    <string name="no_close_app">Rhoxisa</string>
+
+    <string name="satellites_0_0">Iisatellite: 0/0</string>
+    <string name="label_accuracy">Ukuchaneka: -</string>
+    <string name="label_distance">-m</string>
+    <string name="please_go_outside">Nceda uphume phandle</string>
+    <string name="unable_to_detect_location_restart">Ayikwazi kubona indawo, Qalisa kwakhona</string>
+    <string name="go_to_an_open_area">Nceda uzame ukuya kwindawo evulekileyo.</string>
+    <string name="no_signal">Akukho Sibonakaliso</string>
+    <string name="high_accuracy">phezulu</string>
+    <string name="medium_accuracy">phakathi</string>
+    <string name="poor_accuracy">ihlwempu</string>
+    <string name="low_accuracy">isezantsi</string>
+    <string name="sharing_data_not_available">Ukwabelana ngedatha akufumaneki</string>
+    <string name="cannot_get_high_accuracy_share_anyway">Ayinakufumana indawo ephezulu yokuqeshisa ngendawo.</string>
+    <string name="no_connection_available">Akukho nxibelelwano lufumanekayo</string>
+    <string name="ready_to_share">Ilungele Ukwabelana</string>
+    <string name="restart">Phinda Uqalele</string>
+
+    <string name="about">Malunga</string>
+    <string name="languages">Iilwimi</string>
+    <string name="settings">Useto</string>
+    <string name="open_location_code">Ikhowudi engaphezulu:</string>
+    <string name="please_wait">Nceda linda.</string>
+    <string name="please_allow_location_permission">Nceda uvumele ukufikelela kwindawo yokufumana imvume</string>
+    <string name="allow">Vumela</string>
+    <string name="help">Nceda</string>
+    <string name="menu">Imenyu</string>
+    <string name="share">Yabelana</string>
+
+    <string name="about_data1">Isixhobo esenziwe ngu-Open Development Education</string>
+
+    <string name="about_data2">Isixhobo esenziwe nguNarola Infotech</string>
+
+    <string name="about_data3">Fumana ngakumbi kwi: http://opendeved.net/ShareOLC</string>
+
+    <string name="about_data4">Ngezimvo kunye nemibuzo, i-imeyile: shareolc@opendeved.net</string>
+
+    <string name="about_data5">Esi sicelo singumthombo ovulekileyo, onelayisensi phantsi kwelayisensi ye-MIT. Ikhowudi yomthombo iyafumaneka kwi: https://github.com/OpenDevEd/ShareOLC</string>
+
+    <string name="i_am_outside">Ndinguye ngaphandle</string>
+    <string name="share_sharepluscode">Indlela yokwabelana. Ikhowudi yakho yokudibanisa yi- %1$s</string>
+    <string name="share_getpluscode">I- %1$s Fumana i-SharePlusCode kwi-URL.</string>
+    <string name="please_tap_green_button">Nceda ucofe iqhosha eliluhlaza ukuze ube nesiphumo</string>
+</resources>

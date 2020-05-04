@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name" translatable="false">SharePlusCode</string>
+    <string name="code_view_empty">لا يوجد رمز لعرضه</string>
+    <string name="current_location_loading">تحميل موقعك</string>
+    <string name="current_location_error">لا يمكن تحديد موقعك</string>
+
+    <string name="distance_meters">٪ d م</string>
+    <string name="distance_few_kilometers">٪ .1fkm</string>
+    <string name="distance_many_kilometers">٪ .0fkm</string>
+    <string name="accuracy_value">الدقة:٪ 1 $ s</string>
+    <string name="satellites_value">الأقمار الصناعية:٪ 1 $ s /٪ 2 $ s</string>
+    <string name="stay_outside_minutes">ابق بالخارج لمدة٪ 1 $ s دقيقة</string>
+
+    <string name="title_no_connection">لا يوجد اتصال بالإنترنت</string>
+    <string name="msg_ok">حسنا</string>
+    <string name="msg_message_connection">يبدو أنك غير متصل بالإنترنت. يرجى التحقق من إعدادات الاتصال الخاصة بك وحاول مرة أخرى.</string>
+    <string name="enable_gps">تمكين GPS</string>
+    <string name="enable_gps_msg">لم يتم تمكين GPS. هل تريد الذهاب إلى قائمة الإعدادات؟</string>
+    <string name="action_settings">الإعدادات</string>
+    <string name="no_close_app">إلغاء</string>
+
+    <string name="satellites_0_0">الأقمار الصناعية: 0/0</string>
+    <string name="label_accuracy">صحة: -</string>
+    <string name="label_distance">- م</string>
+    <string name="please_go_outside">يرجى الخروج</string>
+    <string name="unable_to_detect_location_restart">تعذر اكتشاف الموقع ، أعد التشغيل</string>
+    <string name="go_to_an_open_area">يرجى المحاولة للذهاب إلى منطقة مفتوحة.</string>
+    <string name="no_signal">لا توجد تغطية</string>
+    <string name="high_accuracy">عالي</string>
+    <string name="medium_accuracy">متوسط</string>
+    <string name="poor_accuracy">فقير</string>
+    <string name="low_accuracy">low</string>
+    <string name="sharing_data_not_available">مشاركة البيانات غير متاحة</string>
+    <string name="cannot_get_high_accuracy_share_anyway">لا يمكن الحصول على موقع مشاركة تأجير عالية الدقة على أي حال.</string>
+    <string name="no_connection_available">لا يوجد اتصال متاح</string>
+    <string name="ready_to_share">جاهز للمشاركة</string>
+    <string name="restart">إعادة بدء</string>
+
+    <string name="about">حول</string>
+    <string name="languages">اللغات</string>
+    <string name="settings">الإعدادات</string>
+    <string name="open_location_code">كود أكثر:</string>
+    <string name="please_wait">ارجوك انتظر.</string>
+    <string name="please_allow_location_permission">الرجاء السماح بالوصول إلى إذن موقع الجهاز</string>
+    <string name="allow">السماح</string>
+    <string name="help">مساعدة</string>
+    <string name="menu">قائمة طعام</string>
+    <string name="share">شارك</string>
+
+    <string name="about_data1">التطبيق صممه التعليم المفتوح للتنمية</string>
+
+    <string name="about_data2">التطبيق تم تطويره بواسطة Narola Infotech</string>
+
+    <string name="about_data3">اكتشف المزيد على: http://opendeved.net/ShareOLC</string>
+
+    <string name="about_data4">للتعليقات والاستفسارات ، البريد الإلكتروني: shareolc@opendeved.net</string>
+
+    <string name="about_data5">هذا التطبيق مفتوح المصدر ، مرخص بموجب ترخيص MIT. كود المصدر متاح على: https://github.com/OpenDevEd/ShareOLC</string>
+
+    <string name="i_am_outside">انا في الخارج</string>
+    <string name="share_sharepluscode">SharePlusCode. رمز Plus الخاص بك هو٪ 1 $ s</string>
+    <string name="share_getpluscode">٪ 1 $ s احصل على SharePlusCode على URL.</string>
+    <string name="please_tap_green_button">يرجى النقر على الزر الأخضر لمشاركة النتيجة</string>
+</resources>

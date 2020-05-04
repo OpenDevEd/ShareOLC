@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">SharePlusCode</string>
     <string name="code_view_empty">Hakuna nambari ya kuonyesha</string>
@@ -32,7 +31,7 @@
     <string name="poor_accuracy">maskini</string>
     <string name="low_accuracy">chini</string>
     <string name="sharing_data_not_available">Kushiriki data haipatikani</string>
-    <string name="cannot_get_high_accuracy_share_anyway">Haiwezi kupata usahihi wa hali ya juu, tafadhali shiriki eneo anyway.</string>
+    <string name="cannot_get_high_accuracy_share_anyway">Haiwezi kupata eneo la kushiriki kwa usahihi wa kukodisha.</string>
     <string name="no_connection_available">Hakuna muunganisho uliopatikana</string>
     <string name="ready_to_share">Uko Tayari Kushiriki</string>
     <string name="restart">Anzisha tena</string>
@@ -45,13 +44,21 @@
     <string name="please_allow_location_permission">Tafadhali ruhusu kufikia idhini ya eneo la kifaa</string>
     <string name="allow">Ruhusu</string>
     <string name="help">Msaada</string>
-
     <string name="menu">Menyu</string>
     <string name="share">Shiriki</string>
 
     <string name="about_data1">Programu iliyoundwa na elimu ya wazi ya Maendeleo</string>
+
     <string name="about_data2">Programu iliyoundwa na Narola Infotech</string>
+
     <string name="about_data3">Tafuta zaidi kwa: http://opendeved.net/ShareOLC</string>
+
     <string name="about_data4">Kwa maoni na maswali, barua pepe: shareolc@opendeved.net</string>
+
     <string name="about_data5">Maombi haya ni chanzo wazi, leseni chini ya leseni ya MIT. Nambari ya chanzo inapatikana kwa: https://github.com/OpenDevEd/ShareOLC</string>
+
+    <string name="i_am_outside">Niko nje</string>
+    <string name="share_sharepluscode">Njia ya SharePlus. Nambari yako ya Kuongeza ni %1$s</string>
+    <string name="share_getpluscode">%1$s Pata Njia ya kushirikiPlus katika URL.</string>
+    <string name="please_tap_green_button">Tafadhali bonyeza kitufe kijani ili ushiriki matokeo</string>
 </resources>

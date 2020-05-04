@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name" translatable="false">SharePlusCode</string>
+    <string name="code_view_empty">ప్రదర్శించడానికి కోడ్ లేదు</string>
+    <string name="current_location_loading">మీ స్థానాన్ని లోడ్ చేస్తోంది</string>
+    <string name="current_location_error">మీ స్థానాన్ని నిర్ణయించలేము</string>
+
+    <string name="distance_meters">%dm</string>
+    <string name="distance_few_kilometers">% .1fkm</string>
+    <string name="distance_many_kilometers">% .0fkm</string>
+    <string name="accuracy_value">ఖచ్చితత్వం: %1$s</string>
+    <string name="satellites_value">ఉపగ్రహాలు: %1$s /%2$s</string>
+    <string name="stay_outside_minutes">%1$s నిమిషం బయట ఉండండి</string>
+
+    <string name="title_no_connection">ఇంటర్నెట్ కనెక్షన్ లేదు</string>
+    <string name="msg_ok">అలాగే</string>
+    <string name="msg_message_connection">మీరు ఇంటర్నెట్కు కనెక్ట్ అయినట్లు లేదు. దయచేసి మీ కనెక్షన్ సెట్టింగులను తనిఖీ చేసి, మళ్లీ ప్రయత్నించండి.</string>
+    <string name="enable_gps">GPS ని ప్రారంభించండి</string>
+    <string name="enable_gps_msg">GPS ప్రారంభించబడలేదు. మీరు సెట్టింగుల మెనూకు వెళ్లాలనుకుంటున్నారా?</string>
+    <string name="action_settings">సెట్టింగులు</string>
+    <string name="no_close_app">రద్దు చేయండి</string>
+
+    <string name="satellites_0_0">ఉపగ్రహాలు: 0/0</string>
+    <string name="label_accuracy">ఖచ్చితత్వం: -</string>
+    <string name="label_distance">- మ</string>
+    <string name="please_go_outside">దయచేసి బయటికి వెళ్లండి</string>
+    <string name="unable_to_detect_location_restart">స్థానాన్ని గుర్తించడం సాధ్యం కాలేదు, పున art ప్రారంభించండి</string>
+    <string name="go_to_an_open_area">దయచేసి బహిరంగ ప్రదేశానికి వెళ్ళడానికి ప్రయత్నించండి.</string>
+    <string name="no_signal">సంకేతం లేదు</string>
+    <string name="high_accuracy">అధిక</string>
+    <string name="medium_accuracy">మీడియం</string>
+    <string name="poor_accuracy">పేద</string>
+    <string name="low_accuracy">తక్కువ</string>
+    <string name="sharing_data_not_available">భాగస్వామ్య డేటా అందుబాటులో లేదు</string>
+    <string name="cannot_get_high_accuracy_share_anyway">ఏమైనప్పటికీ అధిక ఖచ్చితత్వం లీజు వాటా స్థానాన్ని పొందలేరు.</string>
+    <string name="no_connection_available">కనెక్షన్ అందుబాటులో లేదు</string>
+    <string name="ready_to_share">భాగస్వామ్యం చేయడానికి సిద్ధంగా ఉంది</string>
+    <string name="restart">పునఃప్రారంభించు</string>
+
+    <string name="about">గురించి</string>
+    <string name="languages">భాషలు</string>
+    <string name="settings">సెట్టింగులు</string>
+    <string name="open_location_code">మరిన్ని కోడ్:</string>
+    <string name="please_wait">దయచేసి వేచి ఉండండి.</string>
+    <string name="please_allow_location_permission">దయచేసి పరికర స్థాన అనుమతిని యాక్సెస్ చేయడానికి అనుమతించండి</string>
+    <string name="allow">అనుమతించు</string>
+    <string name="help">సహాయం</string>
+    <string name="menu">మెను</string>
+    <string name="share">Share</string>
+
+    <string name="about_data1">అనువర్తనం ఓపెన్ డెవలప్మెంట్ ఎడ్యుకేషన్ రూపొందించింది</string>
+
+    <string name="about_data2">నరోలా ఇన్ఫోటెక్ అభివృద్ధి చేసిన అనువర్తనం</string>
+
+    <string name="about_data3">ఇక్కడ మరింత తెలుసుకోండి: http://opendeved.net/ShareOLC</string>
+
+    <string name="about_data4">వ్యాఖ్యలు మరియు ప్రశ్నల కోసం, ఇమెయిల్: shareolc@opendeved.net</string>
+
+    <string name="about_data5">ఈ అప్లికేషన్ ఓపెన్ సోర్స్, MIT లైసెన్స్ క్రింద లైసెన్స్ పొందింది. సోర్స్ కోడ్ ఇక్కడ అందుబాటులో ఉంది: https://github.com/OpenDevEd/ShareOLC</string>
+
+    <string name="i_am_outside">నేను బయట ఉన్నాను</string>
+    <string name="share_sharepluscode">SharePlusCode. మీ ప్లస్ కోడ్ %1$s</string>
+    <string name="share_getpluscode">%1$s URL వద్ద షేర్ప్లస్కోడ్ పొందండి.</string>
+    <string name="please_tap_green_button">ఫలితాన్ని భాగస్వామ్యం చేయడానికి దయచేసి ఆకుపచ్చ బటన్ను నొక్కండి</string>
+</resources>

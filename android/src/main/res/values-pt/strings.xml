@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">SharePlusCode</string>
     <string name="code_view_empty">Nenhum código para exibir</string>
@@ -16,7 +15,7 @@
     <string name="msg_ok">Está bem</string>
     <string name="msg_message_connection">Você não parece estar conectado à internet. Verifique suas configurações de conexão e tente novamente.</string>
     <string name="enable_gps">Ativar GPS</string>
-    <string name="enable_gps_msg">GPS não está ativado. Deseja ir ao menu de configurações?</string>
+    <string name="enable_gps_msg">GPS não está ativado. Deseja ir para o menu de configurações?</string>
     <string name="action_settings">Definições</string>
     <string name="no_close_app">Cancelar</string>
 
@@ -24,7 +23,7 @@
     <string name="label_accuracy">Precisão: -</string>
     <string name="label_distance">- m</string>
     <string name="please_go_outside">Por favor, vá lá fora</string>
-    <string name="unable_to_detect_location_restart">Não foi possível detectar a localização, reiniciar</string>
+    <string name="unable_to_detect_location_restart">Não foi possível detectar o local, reiniciar</string>
     <string name="go_to_an_open_area">Por favor, tente ir para uma área aberta.</string>
     <string name="no_signal">No Signal</string>
     <string name="high_accuracy">Alto</string>
@@ -32,7 +31,7 @@
     <string name="poor_accuracy">pobre</string>
     <string name="low_accuracy">baixo</string>
     <string name="sharing_data_not_available">Compartilhando dados não disponíveis</string>
-    <string name="cannot_get_high_accuracy_share_anyway">Não é possível obter alta precisão, compartilhe a localização de qualquer maneira.</string>
+    <string name="cannot_get_high_accuracy_share_anyway">Não é possível obter o local do compartilhamento de concessão de alta precisão de qualquer maneira.</string>
     <string name="no_connection_available">Nenhuma conexão disponível</string>
     <string name="ready_to_share">Pronto para compartilhar</string>
     <string name="restart">Reiniciar</string>
@@ -45,7 +44,6 @@
     <string name="please_allow_location_permission">Permita o acesso à permissão de localização do dispositivo</string>
     <string name="allow">Permitir</string>
     <string name="help">Socorro</string>
-
     <string name="menu">Cardápio</string>
     <string name="share">Compartilhar</string>
 
@@ -58,4 +56,9 @@
     <string name="about_data4">Para comentários e consultas, envie um email para: shareolc@opendeved.net</string>
 
     <string name="about_data5">Este aplicativo é de código aberto, licenciado sob a licença MIT. O código fonte está disponível em: https://github.com/OpenDevEd/ShareOLC</string>
+
+    <string name="i_am_outside">Eu estou do lado de fora</string>
+    <string name="share_sharepluscode">SharePlusCode. Seu código positivo é %1$s</string>
+    <string name="share_getpluscode">%1$s Obtenha o SharePlusCode no URL.</string>
+    <string name="please_tap_green_button">Toque no botão verde para compartilhar o resultado</string>
 </resources>

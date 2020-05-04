@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name" translatable="false">SharePlusCode</string>
+    <string name="code_view_empty">ظاہر کرنے کے لئے کوئی کوڈ نہیں</string>
+    <string name="current_location_loading">اپنے مقام کو لوڈ کیا جارہا ہے</string>
+    <string name="current_location_error">آپ کے مقام کا تعین نہیں کرسکتا</string>
+
+    <string name="distance_meters">٪ dm</string>
+    <string name="distance_few_kilometers">٪ .1fkm</string>
+    <string name="distance_many_kilometers">٪ .0fkm</string>
+    <string name="accuracy_value">درستگی:٪ 1 $ s</string>
+    <string name="satellites_value">سیٹلائٹ:٪ 1 $ s /٪ 2 $ s</string>
+    <string name="stay_outside_minutes">٪ 1 $ s منٹ کے لئے باہر رہیں</string>
+
+    <string name="title_no_connection">انٹرنیٹ کنکشن نہیں ہے</string>
+    <string name="msg_ok">ٹھیک ہے</string>
+    <string name="msg_message_connection">ایسا لگتا ہے کہ آپ انٹرنیٹ سے جڑے ہوئے نہیں ہیں۔ براہ کرم اپنی کنکشن کی ترتیبات کو چیک کریں اور دوبارہ کوشش کریں۔</string>
+    <string name="enable_gps">GPS کو فعال کریں</string>
+    <string name="enable_gps_msg">GPS فعال نہیں ہے۔ کیا آپ سیٹنگ مینو میں جانا چاہتے ہیں؟</string>
+    <string name="action_settings">ترتیبات</string>
+    <string name="no_close_app">منسوخ کریں</string>
+
+    <string name="satellites_0_0">سیٹلائٹ: 0/0</string>
+    <string name="label_accuracy">درستگی: -</string>
+    <string name="label_distance">-. م</string>
+    <string name="please_go_outside">براہ کرم باہر جاو</string>
+    <string name="unable_to_detect_location_restart">مقام کا پتہ لگانے سے قاصر ، دوبارہ شروع کریں</string>
+    <string name="go_to_an_open_area">براہ کرم کھلے علاقے میں جانے کی کوشش کریں۔</string>
+    <string name="no_signal">سگنل نہیں ہیں</string>
+    <string name="high_accuracy">اونچا</string>
+    <string name="medium_accuracy">میڈیم</string>
+    <string name="poor_accuracy">غریب</string>
+    <string name="low_accuracy">کم</string>
+    <string name="sharing_data_not_available">شیئرنگ ڈیٹا دستیاب نہیں ہے</string>
+    <string name="cannot_get_high_accuracy_share_anyway">ویسے بھی درست لیز شیئر لوکیشن حاصل نہیں کیا جاسکتا۔</string>
+    <string name="no_connection_available">کوئی رابطہ دستیاب نہیں ہے</string>
+    <string name="ready_to_share">اشتراک کے لئے تیار ہے</string>
+    <string name="restart">دوبارہ شروع کریں</string>
+
+    <string name="about">کے بارے میں</string>
+    <string name="languages">زبانیں</string>
+    <string name="settings">ترتیبات</string>
+    <string name="open_location_code">مزید کوڈ:</string>
+    <string name="please_wait">برائے مہربانی انتظار کریں.</string>
+    <string name="please_allow_location_permission">براہ کرم آلے کے مقام کی اجازت تک رسائی کی اجازت دیں</string>
+    <string name="allow">اجازت دیں</string>
+    <string name="help">مدد</string>
+    <string name="menu">مینو</string>
+    <string name="share">بانٹیں</string>
+
+    <string name="about_data1">اوپن ڈویلپمنٹ ایجوکیشن کے ذریعہ تیار کردہ ایپ</string>
+
+    <string name="about_data2">ایپ نرولا انفٹیک نے تیار کی ہے</string>
+
+    <string name="about_data3">مزید معلومات حاصل کریں: http://opendeved.net/ShareOLC پر</string>
+
+    <string name="about_data4">تبصرے اور سوالات کے ل email ، ای میل کریں: shareolc@opendeved.net</string>
+
+    <string name="about_data5">یہ درخواست اوپن سورس ہے ، جو ایم آئی ٹی لائسنس کے تحت لائسنس یافتہ ہے۔ ماخذ کوڈ پر دستیاب ہے: https://github.com/OpenDevEd/ShareOLC</string>
+
+    <string name="i_am_outside">میں باہر ہوں</string>
+    <string name="share_sharepluscode">شیئر پلس کوڈ۔ آپ کا پلس کوڈ٪ 1 $ s ہے</string>
+    <string name="share_getpluscode">٪ 1 $ s یو آر ایل پر شیئر پلس کوڈ حاصل کریں۔</string>
+    <string name="please_tap_green_button">براہ کرم نتیجہ بانٹنے کے لئے گرین بٹن کو تھپتھپائیں</string>
+</resources>

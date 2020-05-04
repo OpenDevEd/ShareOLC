@@ -23,6 +23,7 @@ import com.android.sharepluscode.code.OpenLocationCodeUtil
 import com.android.sharepluscode.model.SatelliteModel
 import com.android.sharepluscode.timers.HandlerTimer
 import com.android.sharepluscode.timers.SatelliteTimer
+import com.android.sharepluscode.timers.StartSecondsTimer
 import com.android.sharepluscode.utils.DialogUtils
 import com.android.sharepluscode.utils.JSConstant
 import com.android.sharepluscode.utils.PrefUtil
@@ -35,6 +36,7 @@ import kotlinx.android.synthetic.main.layout_code.*
 import kotlinx.android.synthetic.main.layout_drop_down_menu.*
 import kotlinx.android.synthetic.main.layout_main_home.*
 import kotlinx.android.synthetic.main.layout_permission_home.*
+import java.lang.Exception
 import java.util.*
 
 
@@ -53,6 +55,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private var is10Timer = false
     private lateinit var baseLocationHelper: BaseLocationHelper
 
+    //timers...
     private lateinit var handlerTimer: HandlerTimer
     private lateinit var timeHandler: Handler
     private lateinit var timeRunnable: Runnable
@@ -64,6 +67,11 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private lateinit var sTimer: SatelliteTimer
     private lateinit var sTimeHandler: Handler
     private lateinit var sTimeRunnable: Runnable
+
+    private lateinit var startSecondsTimer: StartSecondsTimer
+    private lateinit var secondsHandler: Handler
+    private lateinit var secondsRunnable: Runnable
+
 
     private lateinit var satelliteModel: SatelliteModel
     private var mCurrentLocation: Location? = null
@@ -83,7 +91,9 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private var altitudeHeight = 0.0
     private var sensorData = ""
     private var accuracyShareData = 0.0f
-    //private var distanceShareData = 0
+
+    private var endMilliseconds = 10000L //10 seconds
+    private var waitMilliseconds = 500L
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -106,6 +116,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         initViews()
     }
 
+
     private fun initializeHandlers() {
         handlerTimer = HandlerTimer()
         timeHandler = handlerTimer.timeHandler
@@ -118,6 +129,10 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         sTimer = SatelliteTimer()
         sTimeHandler = sTimer.satelliteTimeHandler
         sTimeRunnable = sTimer.satelliteTimeRunnable
+
+        startSecondsTimer = StartSecondsTimer()
+        secondsHandler = startSecondsTimer.secondsTimeHandler
+        secondsRunnable = startSecondsTimer.secondsTimeRunnable
     }
 
 
@@ -162,7 +177,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
 
 
         btnRestartHome.setOnClickListener {
-            moveStage1(true)
+            startStage(true)
         }
 
         btnOutsideHome.setOnClickListener {
@@ -214,14 +229,14 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-    //New location updated...
+    //new location updated...
     override fun onNewLocation(locationResult: Location?, available: Boolean) {
         this.mCurrentLocation = locationResult
+        Log.e("onNewLocation", "===> $available")
         if (!JSConstant.IS_READY_SHARE) {
-            Log.e("onNewLocation", "===> $available")
             isDone = false
             if (available) {
-                moveStage1(false)
+                startStage(false)
             } else {
                 speechMessage = getString(R.string.no_connection_available)
                 speechLoud()
@@ -231,15 +246,38 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-    private fun moveStage1(isRestarted: Boolean) {
+    private fun startStage(isRestarted: Boolean) {
         isDone = false
         if (isRestarted) {
             initializeHandlers()
             handlerTimer.stopHandler = false
             satelliteTimer.stopHandler = false
             sTimer.stopHandler = false
+            startSecondsTimer.startStopHandler = false
         }
 
+
+        if (startSecondsTimer.startStopHandler) {
+            moveStage1()
+        } else {
+            waitingViews()
+            if (!startSecondsTimer.isSecondsRunning) {
+                secondsHandler.postDelayed(secondsRunnable, 0)
+            }
+            startSecondsTimer.setOnTimeListener(object : StartSecondsTimer.SecondTimerTickListener {
+                override fun onTickListener(seconds: Int) {
+                    if (seconds == 1) {
+                        startSecondsTimer.removeSecondsTimerCallbacks()
+                        Log.e("moveStage1", "===> " + "10 seconds done")
+                        moveStage1()
+                    }
+                }
+            })
+        }
+    }
+
+
+    private fun moveStage1() {
         if (mCurrentLocation == null) {
             moveStage2()
         } else {
@@ -338,13 +376,11 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private fun moveStage4() {
         isDone = false
         if (mCurrentLocation != null) {
-
             val accuracy = mCurrentLocation?.accuracy!!.toDouble()
             accuracyShareData = accuracy.toFloat()
             Log.e("accuracy", "===> $accuracy")
 
             getSatellitesAvailable()
-
             Handler().postDelayed({
                 when (accuracy) {
                     accuracyNo -> {
@@ -388,43 +424,71 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                 moveOpenArea()
             } else if (satelliteModel.useInSatellites >= minSatellite) {
                 if (highAccuracy) {
-                    speechMessage = ""
-                    txtStateWaiting.visibility = View.GONE
                     is10Timer = true
+                    highAccuracyViews()
                 } else {
-                    txtStateWaiting.text = getString(R.string.cannot_get_high_accuracy_share_anyway)
-                    txtStateWaiting.visibility = View.VISIBLE
-                    speechMessage = getString(R.string.cannot_get_high_accuracy_share_anyway)
-                    speechLoud()
                     Log.e("moveStage5", "===> " + "cannot get high accuracy share ok")
                     is10Timer = false
+                    cannotAccuracyViews()
                 }
 
-                btnTextDataShareHome.visibility = View.VISIBLE
-                btnDataShareHome.visibility = View.VISIBLE
-                btnRestartHome.visibility = View.GONE
-                moveStage6()
+                Handler().postDelayed({
+                    Log.e("moveStage6", "===> " + "going")
+                    moveStage6()
+                }, waitMilliseconds)
             }
         }
     }
 
 
     private fun moveStage6() {
-        Log.e("moveStage6", "===> " + "finally done")
-        isDone = true
-        speechMessage = getString(R.string.ready_to_share)
-        speechLoud()
-
+        //end seconds timer...
         if (is10Timer) {
             JSConstant.IS_READY_SHARE = true
+            waitingViews()
             Handler().postDelayed({
                 Log.e("isReadyToShare", "===> " + " reset")
-            }, 10000)
+                isDone = true
+                isReadyShareViews()
+            }, endMilliseconds)
         }
 
         btnDataShareHome.setOnClickListener {
             createShareData()
         }
+    }
+
+
+    private fun highAccuracyViews() {
+        speechMessage = ""
+        txtStateWaiting.visibility = View.GONE
+        btnRestartHome.visibility = View.GONE
+        btnOutsideHome.visibility = View.GONE
+        btnTextDataShareHome.visibility = View.GONE
+        btnDataShareHome.visibility = View.GONE
+    }
+
+
+    private fun cannotAccuracyViews() {
+        speechMessage = getString(R.string.cannot_get_high_accuracy_share_anyway)
+        speechLoud()
+        txtStateWaiting.text = getString(R.string.cannot_get_high_accuracy_share_anyway)
+        txtStateWaiting.visibility = View.VISIBLE
+        btnRestartHome.visibility = View.GONE
+        btnOutsideHome.visibility = View.GONE
+        btnTextDataShareHome.visibility = View.GONE
+        btnDataShareHome.visibility = View.GONE
+    }
+
+
+    private fun isReadyShareViews() {
+        speechMessage = getString(R.string.ready_to_share)
+        speechLoud()
+        txtStateWaiting.visibility = View.GONE
+        btnRestartHome.visibility = View.GONE
+        btnOutsideHome.visibility = View.GONE
+        btnTextDataShareHome.visibility = View.VISIBLE
+        btnDataShareHome.visibility = View.VISIBLE
     }
 
 
@@ -507,19 +571,23 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                 sensorData = accuracyFormat
             }
 
-            val getSharePlusCodeData = getString(R.string.share_getpluscode);
-
+            //location data...
             val height = "height:" + altitudeFormat + "m; "
             val satellites = "sat:" + satelliteModel.useInSatellites + "/" + satelliteModel.totalSatellites + "; "
             val accuracy = "acc:" + sendAccuracy + "," + accuracyFormat + "m" + "; "
             val sensor = "sensor:$sensorData"
-            val shareUrl1 = "Google Maps: https://www.google.com/maps/place/$fullCode"
-            val shareUrl2 = "OpenStreetMap: https://www.openstreetmap.org/#map=12/$latitude/$longitude"
-            val shareUrl3 = "Maps.Me: https://ge0.me/$fullCode"
-            val shareUrl4 = "Plus Codes: https://plus.codes/" + fullCode + " " + getSharePlusCodeData
+            val dataValue = " ($height$satellites$accuracy$sensor)."
 
-            val startShareData = getString(R.string.share_sharepluscode);
-            val shareData = startShareData + " " + "$fullCode ($height$satellites$accuracy$sensor).\n$shareUrl1\n$shareUrl2\n$shareUrl3\n$shareUrl4"
+            //urls data...
+            val getSharePlusCodeData = String.format(mContext.resources.getString(R.string.share_getpluscode), fullCode)
+            val shareUrl1 = "\nGoogle Maps: https://www.google.com/maps/place/$fullCode"
+            val shareUrl2 = "\nOpenStreetMap: https://www.openstreetmap.org/#map=14/$latitude/$longitude"
+            val shareUrl3 = "\nMaps.Me: https://ge0.me/$fullCode"
+            val shareUrl4 = "\nPlus Codes: https://plus.codes/$getSharePlusCodeData"
+            val urlsData = shareUrl1 + shareUrl2 + shareUrl3 + shareUrl4
+
+            val startShareData = String.format(mContext.resources.getString(R.string.share_sharepluscode), fullCode)
+            val shareData = startShareData + dataValue + urlsData
             Log.e("shareData", "===> $shareData")
             shareIntentData(shareData)
         } else {
@@ -527,10 +595,10 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         }
     }
 
+
     private fun formatDecimal(value: Float): String {
         return String.format("%.2f", value)
     }
-
 
     private fun shareIntentData(shareData: String) {
         val sendIntent = Intent()
@@ -697,10 +765,16 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         super.updateLocale(locale)
     }
 
+
     override fun onDestroy() {
         super.onDestroy()
-        handlerTimer.removeTimerCallbacks()
-        satelliteTimer.removeSatelliteTimerCallbacks()
-        sTimer.removeSatelliteTimerCallbacks()
+        try {
+            handlerTimer.removeTimerCallbacks()
+            satelliteTimer.removeSatelliteTimerCallbacks()
+            sTimer.removeSatelliteTimerCallbacks()
+            startSecondsTimer.removeSecondsTimerCallbacks()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }

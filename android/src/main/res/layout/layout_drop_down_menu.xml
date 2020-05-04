@@ -26,8 +26,8 @@
             android:clickable="true"
             android:focusable="true"
             android:padding="8dp"
-            android:tint="@color/colorBlack"
-            android:src="@drawable/ic_close_white" />
+            android:src="@drawable/ic_close_white"
+            android:tint="@color/colorBlack" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,11 +66,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleMenu"
         android:layout_width="match_parent"
-        android:background="@color/colorAquaLight"
+        android:layout_height="280dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
-        android:layout_height="wrap_content"
-        android:scrollbars="none" />
+        android:background="@color/colorAquaLight"
+        android:scrollbars="vertical" />
 
     <TextView
         android:id="@+id/btnAboutMenu"

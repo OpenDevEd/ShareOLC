@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name" translatable="false">SharePlusCode</string>
+    <string name="code_view_empty">Enweghị koodu iji gosipụta</string>
+    <string name="current_location_loading">Loading ebe ị nọ</string>
+    <string name="current_location_error">Ikem ikpebi ebe ị nọ</string>
+
+    <string name="distance_meters">%dm</string>
+    <string name="distance_few_kilometers">% .1fkm</string>
+    <string name="distance_many_kilometers">% .0fkm</string>
+    <string name="accuracy_value">Izi ezi: %1$s</string>
+    <string name="satellites_value">Satellites: %1$s /%2$s</string>
+    <string name="stay_outside_minutes">Nọrọ na mpụga maka nkeji %1$s</string>
+
+    <string name="title_no_connection">Enweghị njikọ Internetntanetị</string>
+    <string name="msg_ok">Ọ DỊ MMA</string>
+    <string name="msg_message_connection">Ọ dị ka ị gaghị ejikọ na ịntanetị. Biko lelee ntọala njikọ gị ma nwaa ọzọ.</string>
+    <string name="enable_gps">Kwado GPS</string>
+    <string name="enable_gps_msg">Emeghị ka GPS rụọ ọrụ. Want chọrọ ịga menu menu?</string>
+    <string name="action_settings">Ntọala</string>
+    <string name="no_close_app">Kagbuo</string>
+
+    <string name="satellites_0_0">Satellites: 0/0</string>
+    <string name="label_accuracy">Eziokwu: -</string>
+    <string name="label_distance">- m</string>
+    <string name="please_go_outside">Biko pụọ n\'èzí</string>
+    <string name="unable_to_detect_location_restart">Enweghi ike ịchọpụta ọnọdụ, Malitegharịa ekwentị</string>
+    <string name="go_to_an_open_area">Biko nwaa ịga ebe ghe oghe.</string>
+    <string name="no_signal">Enweghị alrịba Ama</string>
+    <string name="high_accuracy">elu</string>
+    <string name="medium_accuracy">ọkara</string>
+    <string name="poor_accuracy">ogbenye</string>
+    <string name="low_accuracy">dị ala</string>
+    <string name="sharing_data_not_available">Ikekọrịta data adịghị</string>
+    <string name="cannot_get_high_accuracy_share_anyway">Enweghi ike inweta oke nkwekọrịta nkwekọrịta dị elu na agbanyeghị.</string>
+    <string name="no_connection_available">Onweghi njikọ dị</string>
+    <string name="ready_to_share">Jikere Nkesa</string>
+    <string name="restart">Malitegharịa ekwentị</string>
+
+    <string name="about">Ihe</string>
+    <string name="languages">Asụsụ</string>
+    <string name="settings">Ntọala</string>
+    <string name="open_location_code">Koodu ozo:</string>
+    <string name="please_wait">Biko chere.</string>
+    <string name="please_allow_location_permission">Biko nye ohere iji nweta ikike ọnọdụ ngwaọrụ</string>
+    <string name="allow">Kwe ka</string>
+    <string name="help">Enyemaka</string>
+    <string name="menu">Nchigha</string>
+    <string name="share">Kesaa</string>
+
+    <string name="about_data1">Ngwa Ezubere site na Mmụta Mmepe</string>
+
+    <string name="about_data2">Ngwa nke Narola Infotech zụlitere</string>
+
+    <string name="about_data3">Choputa ihe ndi ozo na: http://opendeved.net/ShareOLC</string>
+
+    <string name="about_data4">Maka nkọwa na ajụjụ, email: shareolc@opendeved.net</string>
+
+    <string name="about_data5">Ngwa a bụ isi mmalite, ikike n\'okpuru ikikere MIT. Koodu isi mmalite a di na: https://github.com/OpenDevEd/ShareOLC</string>
+
+    <string name="i_am_outside">Anọ m n\'èzí</string>
+    <string name="share_sharepluscode">SharePlusCode. Koodu Ntughari gi bu %1$s</string>
+    <string name="share_getpluscode">%1$s Nweta SharePlusCode na URL.</string>
+    <string name="please_tap_green_button">Biko kpatụ bọtịnụ akwụkwọ ndụ akwụkwọ ndụ iji kesaa nsonaazụ</string>
+</resources>
