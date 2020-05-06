@@ -31,7 +31,7 @@
     <string name="poor_accuracy">ድሃ</string>
     <string name="low_accuracy">ዝቅተኛ</string>
     <string name="sharing_data_not_available">ውሂብ ማጋራት አይገኝም</string>
-    <string name="cannot_get_high_accuracy_share_anyway">ምንም እንኳን ከፍተኛ ትክክለኛ የኪራይ ድርሻ አካባቢ ማግኘት አልተቻለም።</string>
+    <string name="cannot_get_high_accuracy_share_anyway">ከፍተኛ ትክክለኛነት ማግኘት አልተቻለም እባክዎ ለማንኛውም አካባቢን ያጋሩ።</string>
     <string name="no_connection_available">ምንም ግንኙነት የለም</string>
     <string name="ready_to_share">ለማጋራት ዝግጁ</string>
     <string name="restart">እንደገና ጀምር</string>

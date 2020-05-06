@@ -79,20 +79,12 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private var fullCode: String = "-"
     private var sendAccuracy: String = "-"
 
-    private var minSatellite = 5
-    private var accuracyNo = 0.0
-    private var accuracyHighStart = 1.0
-    private var accuracyHighEnd = 5.0
-    private var accuracyMediumStart = 6.0
-    private var accuracyMediumEnd = 100.0
     lateinit var tts: TextToSpeech
     private var speechMessage = ""
     private var lastSpeechMessage = ""
     private var altitudeHeight = 0.0
     private var sensorData = ""
     private var accuracyShareData = 0.0f
-
-    private var endMilliseconds = 10000L //10 seconds
     private var waitMilliseconds = 500L
 
 
@@ -324,7 +316,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
 
     private fun moveStage3() {
         isDone = false
-        if (satelliteModel.useInSatellites >= minSatellite) {
+        if (satelliteModel.useInSatellites >= JSConstant.minSatellite) {
             Log.e("moveStage3", "===> " + "satellites greater ok")
             if (handlerTimer.stopHandler) {
                 moveStage4()
@@ -348,7 +340,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                     }
                 })
             }
-        } else if (satelliteModel.useInSatellites < minSatellite) {
+        } else if (satelliteModel.useInSatellites < JSConstant.minSatellite) {
             Log.e("moveStage3", "===> " + "satellites less ok")
             moveOpenArea()
             if (sTimer.stopHandler) {
@@ -383,19 +375,19 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             getSatellitesAvailable()
             Handler().postDelayed({
                 when (accuracy) {
-                    accuracyNo -> {
+                    JSConstant.accuracyNo -> {
                         Log.e("moveStage4", "===> " + "no signal ok")
                         txtAccuracyHome.text = accuracyValue(getString(R.string.no_signal))
                         sendAccuracy = "No signal"
                         waitingViews()
                     }
-                    in accuracyHighStart..accuracyHighEnd -> {
+                    in JSConstant.accuracyHighStart..JSConstant.accuracyHighEnd -> {
                         Log.e("moveStage4", "===> " + "high ok")
                         txtAccuracyHome.text = accuracyValue(getString(R.string.high_accuracy))
                         sendAccuracy = getString(R.string.high_accuracy)
                         moveStage5(true)
                     }
-                    in accuracyMediumStart..accuracyMediumEnd -> {
+                    in JSConstant.accuracyMediumStart..JSConstant.accuracyMediumEnd -> {
                         Log.e("moveStage4", "===> " + "medium ok")
                         txtAccuracyHome.text = accuracyValue(getString(R.string.medium_accuracy))
                         sendAccuracy = getString(R.string.medium_accuracy)
@@ -419,10 +411,10 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             Log.e("moveStage4", "===> totalSatellites 0")
             moveOutside()
         } else {
-            if (satelliteModel.useInSatellites < minSatellite) {
+            if (satelliteModel.useInSatellites < JSConstant.minSatellite) {
                 Log.e("moveStage4", "===> go open area ok")
                 moveOpenArea()
-            } else if (satelliteModel.useInSatellites >= minSatellite) {
+            } else if (satelliteModel.useInSatellites >= JSConstant.minSatellite) {
                 if (highAccuracy) {
                     is10Timer = true
                     highAccuracyViews()
@@ -450,7 +442,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                 Log.e("isReadyToShare", "===> " + " reset")
                 isDone = true
                 isReadyShareViews()
-            }, endMilliseconds)
+            }, JSConstant.endTimerMillisecondsDelayed)
         }
 
         btnDataShareHome.setOnClickListener {

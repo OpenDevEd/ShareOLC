@@ -31,7 +31,7 @@
     <string name="poor_accuracy">ihlwempu</string>
     <string name="low_accuracy">isezantsi</string>
     <string name="sharing_data_not_available">Ukwabelana ngedatha akufumaneki</string>
-    <string name="cannot_get_high_accuracy_share_anyway">Ayinakufumana indawo ephezulu yokuqeshisa ngendawo.</string>
+    <string name="cannot_get_high_accuracy_share_anyway">Awunakufumana ukuchaneka okuphezulu nceda wabelane ngendawo.</string>
     <string name="no_connection_available">Akukho nxibelelwano lufumanekayo</string>
     <string name="ready_to_share">Ilungele Ukwabelana</string>
     <string name="restart">Phinda Uqalele</string>

@@ -31,7 +31,7 @@
     <string name="poor_accuracy">गरीब</string>
     <string name="low_accuracy">कम</string>
     <string name="sharing_data_not_available">शेयरिंग डेटा उपलब्ध नहीं है</string>
-    <string name="cannot_get_high_accuracy_share_anyway">वैसे भी उच्च सटीकता लीज़ शेयर स्थान प्राप्त नहीं कर सकता।</string>
+    <string name="cannot_get_high_accuracy_share_anyway">वैसे भी उच्च सटीकता प्राप्त नहीं कर सकते कृपया स्थान साझा करें।</string>
     <string name="no_connection_available">कोई कनेक्शन उपलब्ध नहीं है</string>
     <string name="ready_to_share">साझा करने के लिए तैयार है</string>
     <string name="restart">पुनर्प्रारंभ करें</string>

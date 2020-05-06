@@ -31,7 +31,7 @@
     <string name="poor_accuracy">غریب</string>
     <string name="low_accuracy">کم</string>
     <string name="sharing_data_not_available">شیئرنگ ڈیٹا دستیاب نہیں ہے</string>
-    <string name="cannot_get_high_accuracy_share_anyway">ویسے بھی درست لیز شیئر لوکیشن حاصل نہیں کیا جاسکتا۔</string>
+    <string name="cannot_get_high_accuracy_share_anyway">اعلی درستگی حاصل نہیں کی جاسکتی ہے ویسے بھی مقام کا اشتراک کریں۔</string>
     <string name="no_connection_available">کوئی رابطہ دستیاب نہیں ہے</string>
     <string name="ready_to_share">اشتراک کے لئے تیار ہے</string>
     <string name="restart">دوبارہ شروع کریں</string>

@@ -31,7 +31,7 @@
     <string name="poor_accuracy">matalauta</string>
     <string name="low_accuracy">low</string>
     <string name="sharing_data_not_available">Ba a raba bayanai ba</string>
-    <string name="cannot_get_high_accuracy_share_anyway">Ba za a iya samun babban daidaito haya haya wuri ba.</string>
+    <string name="cannot_get_high_accuracy_share_anyway">Ba za a iya samun daidaito daidai ba a raba wuri ko ta yaya.</string>
     <string name="no_connection_available">Babu hanyar sadarwa</string>
     <string name="ready_to_share">Shirye Shirya</string>
     <string name="restart">Sake kunnawa</string>

@@ -31,7 +31,7 @@
     <string name="poor_accuracy">pobre</string>
     <string name="low_accuracy">baixo</string>
     <string name="sharing_data_not_available">Compartilhando dados não disponíveis</string>
-    <string name="cannot_get_high_accuracy_share_anyway">Não é possível obter o local do compartilhamento de concessão de alta precisão de qualquer maneira.</string>
+    <string name="cannot_get_high_accuracy_share_anyway">Não é possível obter alta precisão, compartilhe a localização de qualquer maneira.</string>
     <string name="no_connection_available">Nenhuma conexão disponível</string>
     <string name="ready_to_share">Pronto para compartilhar</string>
     <string name="restart">Reiniciar</string>

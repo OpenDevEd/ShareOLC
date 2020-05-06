@@ -31,7 +31,7 @@
     <string name="poor_accuracy">দরিদ্র</string>
     <string name="low_accuracy">কম</string>
     <string name="sharing_data_not_available">ভাগ করে নেওয়ার ডেটা পাওয়া যায় না</string>
-    <string name="cannot_get_high_accuracy_share_anyway">যাইহোক, উচ্চ নির্ভুলতার লিজ ভাগের অবস্থান পাওয়া যায় না।</string>
+    <string name="cannot_get_high_accuracy_share_anyway">উচ্চ নির্ভুলতা পেতে পারে না দয়া করে যেভাবে অবস্থান ভাগ করুন।</string>
     <string name="no_connection_available">কোনও সংযোগ উপলব্ধ নেই</string>
     <string name="ready_to_share">ভাগ করে নেওয়ার জন্য প্রস্তুত</string>
     <string name="restart">আবার শুরু</string>

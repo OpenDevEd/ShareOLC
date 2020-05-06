@@ -11,13 +11,15 @@ class StartSecondsTimer {
 
     private var mSeconds = 0
     private var mSecondsTimerTickListener: SecondTimerTickListener? = null
+    private var totalSecondsDelayed = 5 //5 seconds delayed start timers
+
     val secondsTimeRunnable: Runnable = object : Runnable {
         override fun run() {
             if (!startStopHandler) {
                 try {
                     isSecondsRunning = true
                     if (mSecondsTimerTickListener != null) {
-                        mSecondsTimerTickListener?.onTickListener(10 - mSeconds)
+                        mSecondsTimerTickListener?.onTickListener(totalSecondsDelayed - mSeconds)
                     }
                     mSeconds += 1
                     secondsTimeHandler.postDelayed(this, UPDATE_INTERVAL)

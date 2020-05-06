@@ -31,7 +31,7 @@
     <string name="poor_accuracy">فقير</string>
     <string name="low_accuracy">low</string>
     <string name="sharing_data_not_available">مشاركة البيانات غير متاحة</string>
-    <string name="cannot_get_high_accuracy_share_anyway">لا يمكن الحصول على موقع مشاركة تأجير عالية الدقة على أي حال.</string>
+    <string name="cannot_get_high_accuracy_share_anyway">لا يمكن الحصول على دقة عالية يرجى مشاركة الموقع على أي حال.</string>
     <string name="no_connection_available">لا يوجد اتصال متاح</string>
     <string name="ready_to_share">جاهز للمشاركة</string>
     <string name="restart">إعادة بدء</string>

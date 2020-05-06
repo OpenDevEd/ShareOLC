@@ -11,6 +11,7 @@ class HandlerTimer {
 
     private var mSeconds = 0
     private var mTimerTickListener: TimerTickListener? = null
+    private var totalMinutesDelayed = 15 // 15 minutes delayed timer...
 
     val timeRunnable: Runnable = object : Runnable {
         override fun run() {
@@ -18,7 +19,7 @@ class HandlerTimer {
                 try {
                     isRunning = true
                     if (mTimerTickListener != null) {
-                        mTimerTickListener?.onTickListener(15 - mSeconds)
+                        mTimerTickListener?.onTickListener(totalMinutesDelayed - mSeconds)
                     }
                     mSeconds += 1
                     timeHandler.postDelayed(this, UPDATE_INTERVAL * 60L)

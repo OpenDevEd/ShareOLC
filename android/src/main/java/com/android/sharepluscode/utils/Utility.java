@@ -51,9 +51,6 @@ public class Utility {
         assert cm != null;
         NetworkInfo networkInfo = cm.getActiveNetworkInfo();
         return networkInfo != null && networkInfo.isConnected();
-
-
-
     }
 
 }
