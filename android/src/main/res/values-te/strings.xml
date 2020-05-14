@@ -58,7 +58,5 @@
     <string name="about_data5">ఈ అప్లికేషన్ ఓపెన్ సోర్స్, MIT లైసెన్స్ క్రింద లైసెన్స్ పొందింది. సోర్స్ కోడ్ ఇక్కడ అందుబాటులో ఉంది: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">నేను బయట ఉన్నాను</string>
-    <string name="share_sharepluscode">SharePlusCode. మీ ప్లస్ కోడ్ %1$s</string>
-    <string name="share_getpluscode">%1$s URL వద్ద షేర్ప్లస్కోడ్ పొందండి.</string>
     <string name="please_tap_green_button">ఫలితాన్ని భాగస్వామ్యం చేయడానికి దయచేసి ఆకుపచ్చ బటన్ను నొక్కండి</string>
 </resources>

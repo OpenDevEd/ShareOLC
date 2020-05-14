@@ -58,7 +58,5 @@
     <string name="about_data5">Lolu hlelo lokusebenza lungumthombo ovulekile, onelayisense ngaphansi kwelayisense ye-MIT. Ikhodi yomthombo iyatholakala ku-: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">Ngingaphandle</string>
-    <string name="share_sharepluscode">I-SharePlusCode. Ikhodi yakho Yokunye i- %1$s</string>
-    <string name="share_getpluscode">%1$s Thola i-SharePlusCode ku-URL.</string>
     <string name="please_tap_green_button">Sicela uthephe inkinobho eluhlaza ukuze wabelane ngomphumela</string>
 </resources>

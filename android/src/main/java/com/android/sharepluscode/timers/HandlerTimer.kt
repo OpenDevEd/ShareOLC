@@ -9,9 +9,9 @@ class HandlerTimer {
     var isRunning = false
     var stopHandler = false
 
-    private var mSeconds = 0
+    private var mSeconds = 1000L
     private var mTimerTickListener: TimerTickListener? = null
-    private var totalMinutesDelayed = 15 // 15 minutes delayed timer...
+    private var totalMinutesDelayed = 1260000L // 20 minutes delayed timer...
 
     val timeRunnable: Runnable = object : Runnable {
         override fun run() {
@@ -21,8 +21,9 @@ class HandlerTimer {
                     if (mTimerTickListener != null) {
                         mTimerTickListener?.onTickListener(totalMinutesDelayed - mSeconds)
                     }
-                    mSeconds += 1
-                    timeHandler.postDelayed(this, UPDATE_INTERVAL * 60L)
+                    mSeconds += 1000L
+
+                    timeHandler.postDelayed(this, UPDATE_INTERVAL)
                 } catch (e: Exception) {
                     e.printStackTrace()
                     isRunning = false
@@ -39,7 +40,7 @@ class HandlerTimer {
     }
 
     interface TimerTickListener {
-        fun onTickListener(minutes: Int)
+        fun onTickListener(milliSeconds: Long)
     }
 
     fun setOnTimeListener(timerTickListener: TimerTickListener) {

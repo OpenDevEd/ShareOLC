@@ -59,7 +59,5 @@
     <string name="about_data5">Maombi haya ni chanzo wazi, leseni chini ya leseni ya MIT. Nambari ya chanzo inapatikana kwa: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">Niko nje</string>
-    <string name="share_sharepluscode">Njia ya SharePlus. Nambari yako ya Kuongeza ni %1$s</string>
-    <string name="share_getpluscode">%1$s Pata Njia ya kushirikiPlus katika URL.</string>
     <string name="please_tap_green_button">Tafadhali bonyeza kitufe kijani ili ushiriki matokeo</string>
 </resources>

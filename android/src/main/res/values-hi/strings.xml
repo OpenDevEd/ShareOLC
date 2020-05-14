@@ -57,7 +57,5 @@
 
     <string name="about_data5">यह आवेदन खुला स्रोत है, एमआईटी लाइसेंस के तहत लाइसेंस प्राप्त है। स्रोत कोड यहां उपलब्ध है: https://github.com/OpenDevEd/ShareOLC</string>
     <string name="i_am_outside">मैं बाहर हूं</string>
-    <string name="share_sharepluscode">SharePlusCode। आपका प्लस कोड %1$s है</string>
-    <string name="share_getpluscode">URL पर %1$s SharePlusCode प्राप्त करें।</string>
     <string name="please_tap_green_button">परिणाम साझा करने के लिए कृपया हरे बटन पर टैप करें</string>
 </resources>

@@ -58,7 +58,5 @@
     <string name="about_data5">Este aplicativo é de código aberto, licenciado sob a licença MIT. O código fonte está disponível em: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">Eu estou do lado de fora</string>
-    <string name="share_sharepluscode">SharePlusCode. Seu código positivo é %1$s</string>
-    <string name="share_getpluscode">%1$s Obtenha o SharePlusCode no URL.</string>
     <string name="please_tap_green_button">Toque no botão verde para compartilhar o resultado</string>
 </resources>

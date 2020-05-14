@@ -24,6 +24,7 @@ import com.android.sharepluscode.model.SatelliteModel
 import com.android.sharepluscode.timers.HandlerTimer
 import com.android.sharepluscode.timers.SatelliteTimer
 import com.android.sharepluscode.timers.StartSecondsTimer
+import com.android.sharepluscode.timers.TimerSpentHandler
 import com.android.sharepluscode.utils.DialogUtils
 import com.android.sharepluscode.utils.JSConstant
 import com.android.sharepluscode.utils.PrefUtil
@@ -36,8 +37,8 @@ import kotlinx.android.synthetic.main.layout_code.*
 import kotlinx.android.synthetic.main.layout_drop_down_menu.*
 import kotlinx.android.synthetic.main.layout_main_home.*
 import kotlinx.android.synthetic.main.layout_permission_home.*
-import java.lang.Exception
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 
 class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocationListener {
@@ -72,6 +73,10 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private lateinit var secondsHandler: Handler
     private lateinit var secondsRunnable: Runnable
 
+    //Time spent handler...
+    private lateinit var timerSpentHandler: TimerSpentHandler
+    private lateinit var spentHandler: Handler
+    private lateinit var spentRunnable: Runnable
 
     private lateinit var satelliteModel: SatelliteModel
     private var mCurrentLocation: Location? = null
@@ -86,6 +91,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private var sensorData = ""
     private var accuracyShareData = 0.0f
     private var waitMilliseconds = 500L
+    private var accuracy = 0.0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,7 +102,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         satelliteModel = SatelliteModel(0, 0)
         JSConstant.IS_READY_SHARE = false
         is10Timer = false
-        //initialize handler...
         initializeHandlers()
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -125,6 +130,11 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         startSecondsTimer = StartSecondsTimer()
         secondsHandler = startSecondsTimer.secondsTimeHandler
         secondsRunnable = startSecondsTimer.secondsTimeRunnable
+
+        timerSpentHandler = TimerSpentHandler()
+        spentHandler = timerSpentHandler.spentHandler
+        spentRunnable = timerSpentHandler.spentRunnable
+        timerSpentHandler.resetData()
     }
 
 
@@ -166,7 +176,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         btnAllowPermissionHome.setOnClickListener {
             requestAppPermissions(ARRAY_PERMISSIONS, R.string.app_name, ARRAY_PERMISSION_CODE)
         }
-
 
         btnRestartHome.setOnClickListener {
             startStage(true)
@@ -220,7 +229,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         }
     }
 
-
     //new location updated...
     override fun onNewLocation(locationResult: Location?, available: Boolean) {
         this.mCurrentLocation = locationResult
@@ -246,8 +254,14 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             satelliteTimer.stopHandler = false
             sTimer.stopHandler = false
             startSecondsTimer.startStopHandler = false
+            timerSpentHandler.spentStopHandler = false
         }
 
+        //started time spend timer...
+        timerSpentHandler.updateData(JSConstant.JSEVENT_STAGE1)
+        if (!timerSpentHandler.isSpentRunning) {
+            spentHandler.postDelayed(spentRunnable, 0)
+        }
 
         if (startSecondsTimer.startStopHandler) {
             moveStage1()
@@ -262,11 +276,17 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                         startSecondsTimer.removeSecondsTimerCallbacks()
                         Log.e("moveStage1", "===> " + "10 seconds done")
                         moveStage1()
+                    } else {
+                        if (mCurrentLocation != null) {
+                            startSecondsTimer.removeSecondsTimerCallbacks()
+                            moveStage1()
+                        }
                     }
                 }
             })
         }
     }
+
 
 
     private fun moveStage1() {
@@ -280,6 +300,8 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
 
 
     private fun moveStage2() {
+        timerSpentHandler.updateData(JSConstant.JSEVENT_STAGE2)
+
         isDone = false
         getSatellitesAvailable()
         if (satelliteModel.totalSatellites == 0) {
@@ -301,6 +323,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                             Log.e("moveStage2 counter 3", "===> " + "else ok")
                             speechMessage = ""
                             if (satelliteModel.totalSatellites != 0) {
+                                satelliteTimer.removeSatelliteTimerCallbacks()
                                 moveStage3()
                             }
                         }
@@ -314,32 +337,14 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
+
     private fun moveStage3() {
+        timerSpentHandler.updateData(JSConstant.JSEVENT_STAGE3)
+
         isDone = false
         if (satelliteModel.useInSatellites >= JSConstant.minSatellite) {
             Log.e("moveStage3", "===> " + "satellites greater ok")
-            if (handlerTimer.stopHandler) {
-                moveStage4()
-            } else {
-                if (!handlerTimer.isRunning) {
-                    timeHandler.postDelayed(timeRunnable, 0)
-                }
-                handlerTimer.setOnTimeListener(object : HandlerTimer.TimerTickListener {
-                    override fun onTickListener(minutes: Int) {
-                        if (minutes == 1) {
-                            handlerTimer.removeTimerCallbacks()
-                            moveStage4()
-                        } else {
-                            Log.e("moveStage3", "===> " + "stay outside ok")
-                            val stayOutsideMessage = String.format(mContext.resources.getString(R.string.stay_outside_minutes), minutes)
-                            speechMessage = stayOutsideMessage
-                            speechLoud()
-                            txtStateWaiting.text = stayOutsideMessage
-                            stayOutSideViews()
-                        }
-                    }
-                })
-            }
+            moveStage4()
         } else if (satelliteModel.useInSatellites < JSConstant.minSatellite) {
             Log.e("moveStage3", "===> " + "satellites less ok")
             moveOpenArea()
@@ -366,46 +371,80 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
 
 
     private fun moveStage4() {
+        timerSpentHandler.updateData(JSConstant.JSEVENT_STAGE4)
+
         isDone = false
         if (mCurrentLocation != null) {
-            val accuracy = mCurrentLocation?.accuracy!!.toDouble()
+            accuracy = mCurrentLocation?.accuracy!!.toDouble()
             accuracyShareData = accuracy.toFloat()
-            Log.e("accuracy", "===> $accuracy")
+            Log.e("accuracy", "===> ok $accuracy")
 
             getSatellitesAvailable()
-            Handler().postDelayed({
-                when (accuracy) {
-                    JSConstant.accuracyNo -> {
-                        Log.e("moveStage4", "===> " + "no signal ok")
-                        txtAccuracyHome.text = accuracyValue(getString(R.string.no_signal))
-                        sendAccuracy = "No signal"
-                        waitingViews()
-                    }
-                    in JSConstant.accuracyHighStart..JSConstant.accuracyHighEnd -> {
-                        Log.e("moveStage4", "===> " + "high ok")
-                        txtAccuracyHome.text = accuracyValue(getString(R.string.high_accuracy))
-                        sendAccuracy = getString(R.string.high_accuracy)
-                        moveStage5(true)
-                    }
-                    in JSConstant.accuracyMediumStart..JSConstant.accuracyMediumEnd -> {
-                        Log.e("moveStage4", "===> " + "medium ok")
-                        txtAccuracyHome.text = accuracyValue(getString(R.string.medium_accuracy))
-                        sendAccuracy = getString(R.string.medium_accuracy)
-                        waitingViews()
-                    }
-                    else -> {
-                        Log.e("moveStage4", "===> " + "does not reached accuracy ok")
-                        txtAccuracyHome.text = accuracyValue(getString(R.string.medium_accuracy))
-                        sendAccuracy = getString(R.string.medium_accuracy)
-                        moveStage5(false)
-                    }
+            if (handlerTimer.stopHandler) {
+                moveStage4CheckSatellites(false)
+            } else {
+                if (!handlerTimer.isRunning) {
+                    timeHandler.postDelayed(timeRunnable, 0)
                 }
-            }, 1000L)
+                handlerTimer.setOnTimeListener(object : HandlerTimer.TimerTickListener {
+                    override fun onTickListener(milliSeconds: Long) {
+                        val minutes = TimeUnit.MILLISECONDS.toMinutes(milliSeconds).toInt()
+                        Log.e("moveStage4", "===> timer tick $minutes")
+                        checkingStage4Data(minutes)
+                    }
+                })
+            }
         }
     }
 
 
-    private fun moveStage5(highAccuracy: Boolean) {
+    private fun checkingStage4Data(minutes: Int) {
+        if (minutes == 0) {
+            Log.e("moveStage4", "===> " + "timer removed done")
+            handlerTimer.removeTimerCallbacks()
+            moveStage4CheckSatellites(false)
+        } else {
+            if (accuracy == JSConstant.accuracyNo) {
+                Log.e("moveStage4", "===> " + "no signal ok")
+                txtAccuracyHome.text = accuracyValue(getString(R.string.no_signal))
+                sendAccuracy = "No signal"
+                createStayOutSideMessage(minutes)
+            } else if (accuracy >= JSConstant.accuracyHighStart && accuracy <= JSConstant.accuracyHighEnd) {
+                Log.e("moveStage4", "===> " + "high ok")
+                txtAccuracyHome.text = accuracyValue(getString(R.string.high_accuracy))
+                sendAccuracy = getString(R.string.high_accuracy)
+                moveStage4CheckSatellites(true)
+            } else if (accuracy >= JSConstant.accuracyMediumStart && accuracy <= JSConstant.accuracyMediumEnd) {
+                Log.e("moveStage4", "===> " + "medium ok")
+                txtAccuracyHome.text = accuracyValue(getString(R.string.medium_accuracy))
+                sendAccuracy = getString(R.string.medium_accuracy)
+                createStayOutSideMessage(minutes)
+            } else if (accuracy >= JSConstant.accuracyLowStart && accuracy <= JSConstant.accuracyLowEnd) {
+                Log.e("moveStage4", "===> " + "low ok")
+                txtAccuracyHome.text = accuracyValue(getString(R.string.low_accuracy))
+                sendAccuracy = getString(R.string.low_accuracy)
+                createStayOutSideMessage(minutes)
+            } else if (accuracy >= JSConstant.accuracyLowEnd && minutes == 0) {
+                Log.e("moveStage4", "===> " + "does not reached accuracy ok")
+                moveStage4CheckSatellites(false)
+            } else {
+                Log.e("moveStage4", "===> " + "else ok")
+                createStayOutSideMessage(minutes)
+            }
+        }
+    }
+
+
+    private fun createStayOutSideMessage(minutes: Int) {
+        val stayOutsideMessage = String.format(mContext.resources.getString(R.string.stay_outside_minutes), minutes)
+        speechMessage = stayOutsideMessage
+        speechLoud()
+        txtStateWaiting.text = stayOutsideMessage
+        stayOutSideViews()
+    }
+
+
+    private fun moveStage4CheckSatellites(highAccuracy: Boolean) {
         isDone = false
         if (satelliteModel.totalSatellites == 0) {
             Log.e("moveStage4", "===> totalSatellites 0")
@@ -416,26 +455,28 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                 moveOpenArea()
             } else if (satelliteModel.useInSatellites >= JSConstant.minSatellite) {
                 if (highAccuracy) {
+                    handlerTimer.removeTimerCallbacks()
                     is10Timer = true
                     highAccuracyViews()
                 } else {
-                    Log.e("moveStage5", "===> " + "cannot get high accuracy share ok")
                     is10Timer = false
                     cannotAccuracyViews()
                 }
 
                 Handler().postDelayed({
-                    Log.e("moveStage6", "===> " + "going")
-                    moveStage6()
+                    moveStage5()
                 }, waitMilliseconds)
             }
         }
     }
 
 
-    private fun moveStage6() {
-        //end seconds timer...
+
+    private fun moveStage5() {
+        timerSpentHandler.updateData(JSConstant.JSEVENT_STAGE5)
         if (is10Timer) {
+            timerSpentHandler.updateData(JSConstant.JSEVENT_STAGE_END)
+
             JSConstant.IS_READY_SHARE = true
             waitingViews()
             Handler().postDelayed({
@@ -444,11 +485,11 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                 isReadyShareViews()
             }, JSConstant.endTimerMillisecondsDelayed)
         }
-
         btnDataShareHome.setOnClickListener {
             createShareData()
         }
     }
+
 
 
     private fun highAccuracyViews() {
@@ -468,8 +509,8 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         txtStateWaiting.visibility = View.VISIBLE
         btnRestartHome.visibility = View.GONE
         btnOutsideHome.visibility = View.GONE
-        btnTextDataShareHome.visibility = View.GONE
-        btnDataShareHome.visibility = View.GONE
+        btnTextDataShareHome.visibility = View.VISIBLE
+        btnDataShareHome.visibility = View.VISIBLE
     }
 
 
@@ -563,23 +604,27 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                 sensorData = accuracyFormat
             }
 
+            //device information data..
+            val deviceModel = Utility.getDeviceModel()
+            val languageCode = PrefUtil.getStringPref(PrefUtil.PRF_LANGUAGE, mContext)
+            val infoData = languageCode + "; " + deviceModel.deviceName + "; " + deviceModel.deviceOsVersion + "; " + timerSpentHandler.sendDataHome()
+            val info = "[$infoData]"
+
             //location data...
             val height = "height:" + altitudeFormat + "m; "
             val satellites = "sat:" + satelliteModel.useInSatellites + "/" + satelliteModel.totalSatellites + "; "
             val accuracy = "acc:" + sendAccuracy + "," + accuracyFormat + "m" + "; "
             val sensor = "sensor:$sensorData"
-            val dataValue = " ($height$satellites$accuracy$sensor)."
+            val dataValue = " ($height$satellites$accuracy$sensor), $info"
 
             //urls data...
-            val getSharePlusCodeData = String.format(mContext.resources.getString(R.string.share_getpluscode), fullCode)
             val shareUrl1 = "\nGoogle Maps: https://www.google.com/maps/place/$fullCode"
             val shareUrl2 = "\nOpenStreetMap: https://www.openstreetmap.org/#map=14/$latitude/$longitude"
             val shareUrl3 = "\nMaps.Me: https://ge0.me/$fullCode"
-            val shareUrl4 = "\nPlus Codes: https://plus.codes/$getSharePlusCodeData"
+            val shareUrl4 = "\nPlus Codes: https://plus.codes/$fullCode Get SharePlusCode at URL."
             val urlsData = shareUrl1 + shareUrl2 + shareUrl3 + shareUrl4
 
-            val startShareData = String.format(mContext.resources.getString(R.string.share_sharepluscode), fullCode)
-            val shareData = startShareData + dataValue + urlsData
+            val shareData = "SharePlusCode. Your Plus Code is$dataValue$urlsData"
             Log.e("shareData", "===> $shareData")
             shareIntentData(shareData)
         } else {
@@ -761,6 +806,8 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     override fun onDestroy() {
         super.onDestroy()
         try {
+            tts.stop()
+            tts.shutdown()
             handlerTimer.removeTimerCallbacks()
             satelliteTimer.removeSatelliteTimerCallbacks()
             sTimer.removeSatelliteTimerCallbacks()

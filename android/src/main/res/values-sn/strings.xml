@@ -58,7 +58,5 @@
     <string name="about_data5">Ichi chishandiso chakavhurwa sosi, ine rezinesi pasi peMIT rezinesi. Iyo kodhi kodhi inowanikwa ku: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">Ndiri panze</string>
-    <string name="share_sharepluscode">SharePlusCode. Yako Plus Code ndeye %1$s</string>
-    <string name="share_getpluscode">%1$s Tora SharePlusCode ku URL.</string>
     <string name="please_tap_green_button">Ndokumbirawo ubaye bhatani bhatani kuti ugovanezve mhedzisiro</string>
 </resources>

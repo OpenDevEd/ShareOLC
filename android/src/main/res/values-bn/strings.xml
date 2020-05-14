@@ -58,7 +58,5 @@
     <string name="about_data5">এই অ্যাপ্লিকেশনটি ওপেন সোর্স, এমআইটি লাইসেন্সের আওতায় লাইসেন্সযুক্ত। উত্স কোডটি এখানে পাওয়া যায়: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">আমি বাইরে আছি</string>
-    <string name="share_sharepluscode">SharePlusCode। আপনার প্লাস কোডটি %1$s</string>
-    <string name="share_getpluscode">%1$s ইউআরএলে শেয়ারপ্লাসকোড পান।</string>
     <string name="please_tap_green_button">ফলাফল ভাগ করতে দয়া করে সবুজ বোতামটি আলতো চাপুন</string>
 </resources>

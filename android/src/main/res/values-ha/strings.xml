@@ -58,7 +58,5 @@
     <string name="about_data5">Wannan aikin na bude hanya ne, mai lasisi ƙarƙashin lasisin MIT. Ana samo lambar tushe a: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">Ina waje</string>
-    <string name="share_sharepluscode">ShareSarfa Lambar Plus ku ta %1$s</string>
-    <string name="share_getpluscode">%1$s Samu SharePlusCode a URL.</string>
     <string name="please_tap_green_button">Da fatan za a danna maballin kore domin raba sakamako</string>
 </resources>

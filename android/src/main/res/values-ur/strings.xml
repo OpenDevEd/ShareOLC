@@ -58,7 +58,5 @@
     <string name="about_data5">یہ درخواست اوپن سورس ہے ، جو ایم آئی ٹی لائسنس کے تحت لائسنس یافتہ ہے۔ ماخذ کوڈ پر دستیاب ہے: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">میں باہر ہوں</string>
-    <string name="share_sharepluscode">شیئر پلس کوڈ۔ آپ کا پلس کوڈ٪ 1 $ s ہے</string>
-    <string name="share_getpluscode">٪ 1 $ s یو آر ایل پر شیئر پلس کوڈ حاصل کریں۔</string>
     <string name="please_tap_green_button">براہ کرم نتیجہ بانٹنے کے لئے گرین بٹن کو تھپتھپائیں</string>
 </resources>

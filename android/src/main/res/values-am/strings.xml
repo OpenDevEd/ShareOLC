@@ -58,7 +58,5 @@
     <string name="about_data5">ይህ መተግበሪያ በ MIT ፈቃድ ፈቃድ የተሰጠው ክፍት ምንጭ ነው። የምንጭ ኮዱ በ https://github.com/OpenDevEd/ShareOLC ላይ ይገኛል</string>
 
     <string name="i_am_outside">ውጭ ነኝ</string>
-    <string name="share_sharepluscode">SharePlusCode የፕላስ ኮድዎ %1$s ነው</string>
-    <string name="share_getpluscode">%1$s URL ላይ SharePlusCode ያግኙ።</string>
     <string name="please_tap_green_button">ውጤቱን ለማጋራት እባክዎ አረንጓዴ ቁልፍን መታ ያድርጉ</string>
 </resources>

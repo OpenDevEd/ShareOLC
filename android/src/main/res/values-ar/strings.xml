@@ -58,7 +58,5 @@
     <string name="about_data5">هذا التطبيق مفتوح المصدر ، مرخص بموجب ترخيص MIT. كود المصدر متاح على: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">انا في الخارج</string>
-    <string name="share_sharepluscode">SharePlusCode. رمز Plus الخاص بك هو٪ 1 $ s</string>
-    <string name="share_getpluscode">٪ 1 $ s احصل على SharePlusCode على URL.</string>
     <string name="please_tap_green_button">يرجى النقر على الزر الأخضر لمشاركة النتيجة</string>
 </resources>
