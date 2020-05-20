@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sharepluscode.R
+import com.android.sharepluscode.localeHelper.LocaleHelper
 import com.android.sharepluscode.model.LanguegeModel
 import com.android.sharepluscode.ui.MainActivity
 import com.android.sharepluscode.utils.PrefUtil
@@ -41,10 +42,12 @@ class MenuAdapter(private var mContext: Activity) : RecyclerView.Adapter<MenuAda
         holder.itemView.setOnClickListener {
             if (mContext is MainActivity) {
                 PrefUtil.putStringPref(PrefUtil.PRF_LANGUAGE, languageModel.languageCode, mContext)
+                //LocaleHelper.setLocale(mContext, Locale(languageModel.languageCode))
                 val mainActivity = mContext as MainActivity
                 mainActivity.updateLocale(Locale(languageModel.languageCode))
                 notifyDataSetChanged()
                 mainActivity.hideMenu()
+                mainActivity.recreate()
             }
         }
     }
@@ -65,16 +68,16 @@ class MenuAdapter(private var mContext: Activity) : RecyclerView.Adapter<MenuAda
         dataList.add(LanguegeModel("Arabic", "ar"))
         dataList.add(LanguegeModel("Amharic", "am"))
         dataList.add(LanguegeModel("Bengali", "bn"))
-        dataList.add(LanguegeModel("Bemba", "bem"))
         dataList.add(LanguegeModel("Hausa", "ha"))
         dataList.add(LanguegeModel("Igbo", "ig"))
-        dataList.add(LanguegeModel("Kinyarwanda", "rw"))
         dataList.add(LanguegeModel("Shona", "sn"))
         dataList.add(LanguegeModel("Telugu", "te"))
-        dataList.add(LanguegeModel("Twi", "tw"))
         dataList.add(LanguegeModel("Urdu", "ur"))
         dataList.add(LanguegeModel("Xhosa", "xh"))
         dataList.add(LanguegeModel("Zulu", "zu"))
+
+        dataList.add(LanguegeModel("Kinyarwanda", "rw"))
+        dataList.add(LanguegeModel("Bemba", "bem"))
 
         Collections.sort(dataList, object : Comparator<LanguegeModel?> {
             override fun compare(s1: LanguegeModel?, s2: LanguegeModel?): Int {

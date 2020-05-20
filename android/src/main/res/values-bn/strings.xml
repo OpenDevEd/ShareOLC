@@ -1,19 +1,13 @@
 <resources>
     <string name="app_name" translatable="false">SharePlusCode</string>
-    <string name="code_view_empty">প্রদর্শনের জন্য কোনও কোড নেই</string>
-    <string name="current_location_loading">আপনার অবস্থান লোড হচ্ছে</string>
-    <string name="current_location_error">আপনার অবস্থান নির্ধারণ করা যায় না</string>
 
-    <string name="distance_meters">% জন্য dm</string>
-    <string name="distance_few_kilometers">% .1fkm</string>
-    <string name="distance_many_kilometers">% .0fkm</string>
+    <string name="current_location_error">আপনার অবস্থান নির্ধারণ করা যায় না</string>
+    <string name="distance_meters">%dm</string>
+    <string name="distance_few_kilometers">%.1fkm</string>
+    <string name="distance_many_kilometers">%.0fkm</string>
     <string name="accuracy_value">নির্ভুলতা: %1$s</string>
     <string name="satellites_value">উপগ্রহ: %1$s /%2$s</string>
-    <string name="stay_outside_minutes">%1$s মিনিটের জন্য বাইরে থাকুন</string>
 
-    <string name="title_no_connection">কোনও ইন্টারনেট সংযোগ নেই</string>
-    <string name="msg_ok">ঠিক আছে</string>
-    <string name="msg_message_connection">আপনি ইন্টারনেটের সাথে সংযুক্ত আছেন বলে মনে হচ্ছে না। আপনার সংযোগ সেটিংস পরীক্ষা করে দেখুন এবং আবার চেষ্টা করুন।</string>
     <string name="enable_gps">জিপিএস সক্ষম করুন</string>
     <string name="enable_gps_msg">জিপিএস সক্ষম নয়। আপনি কি সেটিংস মেনুতে যেতে চান?</string>
     <string name="action_settings">সেটিংস</string>
@@ -23,7 +17,6 @@
     <string name="label_accuracy">সঠিকতা: -</string>
     <string name="label_distance">- মি</string>
     <string name="please_go_outside">দয়া করে বাইরে যান</string>
-    <string name="unable_to_detect_location_restart">অবস্থান সনাক্ত করতে অক্ষম, পুনরায় চালু করুন</string>
     <string name="go_to_an_open_area">দয়া করে একটি খোলা জায়গায় যাওয়ার চেষ্টা করুন।</string>
     <string name="no_signal">সংকেত নেই</string>
     <string name="high_accuracy">উচ্চ</string>
@@ -47,16 +40,18 @@
     <string name="menu">তালিকা</string>
     <string name="share">ভাগ</string>
 
-    <string name="about_data1">অ্যাপটি ওপেন ডেভলপমেন্ট এডুকেশন ডিজাইন করেছেন</string>
-
+    <string name="about_data1">অ্যাপ্লিকেশনটি মুক্ত বিকাশ দ্বারা ডিজাইন করা</string>
     <string name="about_data2">অ্যাপটি নরোলা ইনফোটেক দ্বারা বিকাশ করা হয়েছে</string>
-
-    <string name="about_data3">এখানে আরও অনুসন্ধান করুন: http://opendeved.net/ShareOLC</string>
-
-    <string name="about_data4">মন্তব্য এবং প্রশ্নের জন্য, ইমেল: shareolc@opendeved.net</string>
-
+    <string name="about_data3">এখানে আরও অনুসন্ধান করুন: http://opendeved.net/SharePlusCode</string>
+    <string name="about_data4">মন্তব্য এবং প্রশ্নের জন্য, ইমেল: sharepluscode@opendeved.net</string>
     <string name="about_data5">এই অ্যাপ্লিকেশনটি ওপেন সোর্স, এমআইটি লাইসেন্সের আওতায় লাইসেন্সযুক্ত। উত্স কোডটি এখানে পাওয়া যায়: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">আমি বাইরে আছি</string>
     <string name="please_tap_green_button">ফলাফল ভাগ করতে দয়া করে সবুজ বোতামটি আলতো চাপুন</string>
+
+    <string name="unable_to_detect_location_restart">অবস্থান সনাক্ত করতে অক্ষম। পুনরায় চালু করুন।</string>
+    <string name="stay_outside_minutes">%1$s মিনিটের জন্য বাইরে থাকুন</string>
+    <string name="satellited_detected_move_open_area">স্যাটেলাইট সনাক্ত করা হয়েছে। নির্ভুলতা বাড়াতে আরও খোলা জায়গায় যান।</string>
+    <string name="go_outside_move_open_area">বাইরে যান এবং একটি খোলা জায়গায় যান।</string>
+    <string name="difficulty_detecting_location">অবস্থান সনাক্তকরণে অসুবিধা দয়া করে আরও %1$s মিনিট অপেক্ষা করুন …</string>
 </resources>

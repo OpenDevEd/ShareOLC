@@ -1,62 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">SharePlusCode</string>
-    <string name="code_view_empty">Aucun code à afficher</string>
-    <string name="current_location_loading">Chargement de votre position</string>
-    <string name="current_location_error">Impossible de déterminer votre emplacement</string>
 
+    <string name="current_location_error">Ntabwo tushoboye kubereka aho muherereye</string>
     <string name="distance_meters">%dm</string>
-    <string name="distance_few_kilometers">% .1fkm</string>
-    <string name="distance_many_kilometers">% .0fkm</string>
-    <string name="accuracy_value">Précision: %1$s</string>
-    <string name="satellites_value">Satellites: %1$s /%2$s</string>
-    <string name="stay_outside_minutes">Restez dehors pendant %1$s minute</string>
+    <string name="distance_few_kilometers">%.1fkm</string>
+    <string name="distance_many_kilometers">%.0fkm</string>
+    <string name="accuracy_value">Igipimo: %1$s</string>
+    <string name="satellites_value">icyogajuruyu: %1$s/%2$s</string>
 
-    <string name="title_no_connection">No Internet Connection</string>
-    <string name="msg_ok">D\'accord</string>
-    <string name="msg_message_connection">Vous ne semblez pas être connecté à Internet. Veuillez vérifier vos paramètres de connexion et réessayer.</string>
-    <string name="enable_gps">Enable GPS</string>
-    <string name="enable_gps_msg">Le GPS n\'est pas activé. Voulez-vous accéder au menu des paramètres?</string>
-    <string name="action_settings">Réglages</string>
-    <string name="no_close_app">Annuler</string>
+    <string name="enable_gps">Mwashiraho conectisiyo ya GPS</string>
+    <string name="enable_gps_msg">Conecsiyo ya GPS ntabwo iriho. Mwareba muri menu y\'igenamiterere yanyu</string>
+    <string name="action_settings">igenamiterere</string>
+    <string name="no_close_app">hagarika</string>
 
-    <string name="satellites_0_0">Satellites: 0/0</string>
-    <string name="label_accuracy">Précision: -</string>
+    <string name="satellites_0_0">ibyogajuru: 0/0</string>
+    <string name="label_accuracy">igipimo: -</string>
     <string name="label_distance">-- m</string>
-    <string name="please_go_outside">Veuillez sortir</string>
-    <string name="unable_to_detect_location_restart">Impossible de détecter l\'emplacement, redémarrer</string>
-    <string name="go_to_an_open_area">Veuillez essayer d\'aller dans une zone ouverte.</string>
-    <string name="no_signal">Pas de signal</string>
-    <string name="high_accuracy">haute</string>
-    <string name="medium_accuracy">moyen</string>
-    <string name="poor_accuracy">pauvres</string>
-    <string name="low_accuracy">faible</string>
-    <string name="sharing_data_not_available">Partage de données non disponible</string>
-    <string name="cannot_get_high_accuracy_share_anyway">Impossible d\'obtenir une grande précision, veuillez partager l\'emplacement de toute façon.</string>
-    <string name="no_connection_available">Aucune connexion disponible</string>
-    <string name="ready_to_share">Prêt à partager</string>
-    <string name="restart">Redémarrer</string>
+    <string name="please_go_outside">Mwasohoka hanze</string>
+    <string name="go_to_an_open_area">Mwagerageza mukajya ahantu hagari</string>
+    <string name="no_signal">Nta sinyali ihari</string>
+    <string name="high_accuracy">hejuru</string>
+    <string name="medium_accuracy">ijereranyije</string>
+    <string name="poor_accuracy">itameze neza</string>
+    <string name="low_accuracy">hasi cyane</string>
+    <string name="sharing_data_not_available">Gusangiza amakuru ntabwo bishobotse</string>
+    <string name="cannot_get_high_accuracy_share_anyway">Ntabwo bishobotse kugaragaza igipimo gihagije mwakomeza mukagaragza aho uherereye</string>
+    <string name="no_connection_available">Nta conecsiyo ihari</string>
+    <string name="ready_to_share">Mwasangiza</string>
+    <string name="restart">Ongera utangize</string>
 
-    <string name="about">À propos de</string>
-    <string name="languages">Les langues</string>
-    <string name="settings">Réglages</string>
-    <string name="open_location_code">Plus Code:</string>
-    <string name="please_wait">S\'il vous plaît, attendez.</string>
-    <string name="please_allow_location_permission">Veuillez autoriser l\'accès à l\'emplacement de l\'appareil</string>
-    <string name="allow">Autoriser</string>
-    <string name="help">Aidez-moi</string>
-    <string name="menu">Menu</string>
-    <string name="share">Partager</string>
+    <string name="about">Ibyerekeye</string>
+    <string name="languages">Indimi</string>
+    <string name="settings">Aho kurebera ibikubiyemo</string>
+    <string name="open_location_code">Plus Code: </string>
+    <string name="please_wait">Mwihangane</string>
+    <string name="please_allow_location_permission">Mwakwemera kumenyekanisha aho muherereye</string>
+    <string name="allow">Mwemeze</string>
+    <string name="help">Ubufasha</string>
+    <string name="menu">Ibikubiyemo</string>
+    <string name="share">Sangiza</string>
 
-    <string name="about_data1">Application conçue par Open Development Education</string>
+    <string name="about_data1">Byakozwe na Open Development and Education</string>
+    <string name="about_data2">Byateguwe na Narola Infotech</string>
+    <string name="about_data3">Mwabona andimakuru kuri: http://opendeved.net/SharePlusCode</string>
+    <string name="about_data4">Mwatugezaho ibitekerezo cyangwa ibibazo kuri: sharepluscode@opendeved.net</string>
+    <string name="about_data5">Iyi porogaramu ishobora gukoreshwa naburi wese, ifite uruhushya rya MIT. https://github.com/OpenDevEd/ShareOLC</string>
 
-    <string name="about_data2">Application développée par Narola Infotech</string>
+    <string name="i_am_outside">Ndi hanze</string>
+    <string name="please_tap_green_button">Mwakanda kucyimenyetso cyicyatsi gusangiza ibisubizo</string>
 
-    <string name="about_data3">En savoir plus sur: http://opendeved.net/ShareOLC</string>
-
-    <string name="about_data4">Pour des commentaires et des questions, envoyez un courriel à shareolc@opendeved.net</string>
-
-    <string name="about_data5">Cette application est open source, sous licence MIT. Le code source est disponible sur: https://github.com/OpenDevEd/ShareOLC</string>
-
-    <string name="i_am_outside">Je suis à l\'extérieur</string>
-    <string name="please_tap_green_button">Veuillez appuyer sur le bouton vert pour partager le résultat</string>
+    <string name="unable_to_detect_location_restart">Aho uherereye byanze kumenyekana, mwakwongera mugatangiza</string>
+    <string name="stay_outside_minutes">guma hanze iminota %1$</string>
+    <string name="satellited_detected_move_open_area">Ibyogajuru zirabonetse. Mwagana ahantu hagari kwogeza igipimo</string>
+    <string name="go_outside_move_open_area">Mwasohoka hanze ahantu hagari</string>
+    <string name="difficulty_detecting_location">Birikwanga kumenya aho uherereye Mwihangane indi %1$s iminota…</string>
 </resources>

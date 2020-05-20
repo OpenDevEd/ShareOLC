@@ -1,19 +1,13 @@
 <resources>
     <string name="app_name" translatable="false">SharePlusCode</string>
-    <string name="code_view_empty">Hapana kodhi yekuratidzira</string>
-    <string name="current_location_loading">Kuisa yaunogara</string>
-    <string name="current_location_error">Hatikwanise kuona nzvimbo yako</string>
 
+    <string name="current_location_error">Hatikwanise kuona nzvimbo yako</string>
     <string name="distance_meters">%dm</string>
-    <string name="distance_few_kilometers">% .1fkm</string>
-    <string name="distance_many_kilometers">% .0fkm</string>
+    <string name="distance_few_kilometers">%.1fkm</string>
+    <string name="distance_many_kilometers">%.0fkm</string>
     <string name="accuracy_value">Kururamisa: %1$s</string>
     <string name="satellites_value">Satellite: %1$s /%2$s</string>
-    <string name="stay_outside_minutes">Gara kunze kwe %1$s miniti</string>
 
-    <string name="title_no_connection">Hapana Internet Kubatana</string>
-    <string name="msg_ok">Zvakanaka</string>
-    <string name="msg_message_connection">Iwe haucharatidzika kunge wakabatana neinternet. Ndokumbira utarise marongero ako ekubatanidza uye edza zvakare.</string>
     <string name="enable_gps">Gonesa GPS</string>
     <string name="enable_gps_msg">GPS haina simba. Iwe unoda kuenda kumasething emenyu?</string>
     <string name="action_settings">Zvirongwa</string>
@@ -23,7 +17,6 @@
     <string name="label_accuracy">Kururamisa: -</string>
     <string name="label_distance">- m</string>
     <string name="please_go_outside">Ndokumbirawo kubuda panze</string>
-    <string name="unable_to_detect_location_restart">Hatikwanisi kuona nzvimbo, Tangazve</string>
     <string name="go_to_an_open_area">Ndokumbirawo kuti muedze kuenda kunzvimbo yakavhurika.</string>
     <string name="no_signal">Hapana Signal</string>
     <string name="high_accuracy">yakakwira</string>
@@ -47,16 +40,18 @@
     <string name="menu">Menyu</string>
     <string name="share">Govera</string>
 
-    <string name="about_data1">App Yakagadzirirwa ne Open Development Dzidzo</string>
-
+    <string name="about_data1">App Yakagadzirirwa neBudiriro Development</string>
     <string name="about_data2">App yakagadziriswa naNarola Infotech</string>
-
-    <string name="about_data3">Tsvaga zvimwe pa: http://opendeved.net/ShareOLC</string>
-
-    <string name="about_data4">Kuti uwane mhinduro uye mibvunzo, email: shareolc@opendeved.net</string>
-
+    <string name="about_data3">Tsvaga zvimwe pa: http://opendeved.net/SharePlusCode</string>
+    <string name="about_data4">Zvemashoko uye mibvunzo, email: sharepluscode@opendeved.net</string>
     <string name="about_data5">Ichi chishandiso chakavhurwa sosi, ine rezinesi pasi peMIT rezinesi. Iyo kodhi kodhi inowanikwa ku: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">Ndiri panze</string>
     <string name="please_tap_green_button">Ndokumbirawo ubaye bhatani bhatani kuti ugovanezve mhedzisiro</string>
+
+    <string name="unable_to_detect_location_restart">Hatikwanisi kuona nzvimbo. Ndokumbirawo kutanga.</string>
+    <string name="stay_outside_minutes">Gara kunze kwe %1$s maminitsi</string>
+    <string name="satellited_detected_move_open_area">Satellites yaonekwa. Famba uchienda kune imwe nzvimbo yakavhurika kuwedzera kukurumidza.</string>
+    <string name="go_outside_move_open_area">Enda kunze uye uende kunzvimbo yakavhurika.</string>
+    <string name="difficulty_detecting_location">Zvakaoma kuwana nzvimbo Ndomirira imwe %1$s maminitsi…</string>
 </resources>

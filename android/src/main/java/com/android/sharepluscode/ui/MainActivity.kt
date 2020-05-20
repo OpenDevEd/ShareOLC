@@ -11,6 +11,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.speech.tts.TextToSpeech
+import android.speech.tts.TextToSpeech.OnInitListener
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +21,7 @@ import com.android.sharepluscode.adapters.MenuAdapter
 import com.android.sharepluscode.base.BaseLocationHelper
 import com.android.sharepluscode.code.OpenLocationCode
 import com.android.sharepluscode.code.OpenLocationCodeUtil
+import com.android.sharepluscode.localeHelper.LocaleHelper
 import com.android.sharepluscode.model.SatelliteModel
 import com.android.sharepluscode.timers.HandlerTimer
 import com.android.sharepluscode.timers.SatelliteTimer
@@ -84,7 +86,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private var fullCode: String = "-"
     private var sendAccuracy: String = "-"
 
-    lateinit var tts: TextToSpeech
+    private var textToSpeech: TextToSpeech? = null
     private var speechMessage = ""
     private var lastSpeechMessage = ""
     private var altitudeHeight = 0.0
@@ -98,6 +100,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         mContext = this
+        LocaleHelper.onAttach(this)
         dialogUtils = DialogUtils(mContext)
         satelliteModel = SatelliteModel(0, 0)
         JSConstant.IS_READY_SHARE = false
@@ -196,6 +199,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         } else {
             layoutPermissionHome.visibility = View.GONE
             layoutMainHome.visibility = View.VISIBLE
+            textToSpeech = TextToSpeech(this, mTextToSpeechListener)
             setupGPSData()
         }
     }
@@ -210,12 +214,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             dialogUtils.isDismissGPSAlert()
         }
         baseLocationHelper.connectLocation()
-    }
-
-
-    override fun onPause() {
-        super.onPause()
-        baseLocationHelper.disconnectLocation()
     }
 
 
@@ -288,7 +286,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-
     private fun moveStage1() {
         if (mCurrentLocation == null) {
             moveStage2()
@@ -337,10 +334,8 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-
     private fun moveStage3() {
         timerSpentHandler.updateData(JSConstant.JSEVENT_STAGE3)
-
         isDone = false
         if (satelliteModel.useInSatellites >= JSConstant.minSatellite) {
             Log.e("moveStage3", "===> " + "satellites greater ok")
@@ -471,7 +466,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-
     private fun moveStage5() {
         timerSpentHandler.updateData(JSConstant.JSEVENT_STAGE5)
         if (is10Timer) {
@@ -489,7 +483,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             createShareData()
         }
     }
-
 
 
     private fun highAccuracyViews() {
@@ -621,7 +614,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             val shareUrl1 = "\nGoogle Maps: https://www.google.com/maps/place/$fullCode"
             val shareUrl2 = "\nOpenStreetMap: https://www.openstreetmap.org/#map=14/$latitude/$longitude"
             val shareUrl3 = "\nMaps.Me: https://ge0.me/$fullCode"
-            val shareUrl4 = "\nPlus Codes: https://plus.codes/$fullCode Get SharePlusCode at URL."
+            val shareUrl4 = "\nPlus Codes: https://plus.codes/$fullCode Get SharePlusCode at https://opendeved.net/SharePlusCode"
             val urlsData = shareUrl1 + shareUrl2 + shareUrl3 + shareUrl4
 
             val shareData = "SharePlusCode. Your Plus Code is$dataValue$urlsData"
@@ -655,27 +648,31 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         }
     }
 
+    private val mTextToSpeechListener = OnInitListener { status ->
+        if (status == TextToSpeech.SUCCESS) {
+            val appLanguage = PrefUtil.getStringPref(PrefUtil.PRF_LANGUAGE, mContext)
+            val result: Int = textToSpeech!!.setLanguage(Locale(appLanguage))
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("sendSpeechLoud", "msg ===> failed missing")
+                //Utility.toastLong(mContext, "Current Language is not supported for speech")
+            } else {
+                sendSpeechLoud()
+            }
+        } else {
+            Utility.toastLong(mContext, "Failed to voice initialization")
+        }
+    }
 
     private fun sendSpeechLoud() {
         if (speechMessage.isNotEmpty()) {
             Log.e("sendSpeechLoud", "msg ===> $speechMessage")
-            tts = TextToSpeech(this, TextToSpeech.OnInitListener {
-                if (it == TextToSpeech.SUCCESS) {
-                    val appLanguage = PrefUtil.getStringPref(PrefUtil.PRF_LANGUAGE, mContext)
-                    val result: Int = tts.setLanguage(Locale(appLanguage))
-                    if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                        Utility.toastLong(mContext, "Current Language is not supported for speech")
-                    } else {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            tts.speak(speechMessage, TextToSpeech.QUEUE_FLUSH, null, null)
-                        } else {
-                            tts.speak(speechMessage, TextToSpeech.QUEUE_FLUSH, null)
-                        }
-                    }
+            if (textToSpeech != null) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    textToSpeech!!.speak(speechMessage, TextToSpeech.QUEUE_FLUSH, null, null)
                 } else {
-                    Utility.toastLong(mContext, "Failed to voice initialization")
+                    textToSpeech!!.speak(speechMessage, TextToSpeech.QUEUE_FLUSH, null)
                 }
-            })
+            }
         }
     }
 
@@ -715,7 +712,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-    //SHOW open location code...
     private fun showDistanceCode(location: Location?) {
         if (location != null) {
 
@@ -723,13 +719,9 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             lastFullCode = code
             fullCode = code.code
 
-            //String fullCode = "5GRF 2F3V +8M";
             val oneCode = fullCode.substring(0, 4)
             val twoCode = fullCode.substring(4, 8)
             val threeCode = fullCode.substring(8, 12)
-            //Log.e("fullCode: ", "===> $fullCode")
-            //Log.e("threeCode: ", "===> $threeCode")
-
             txtOneOLCHome.text = oneCode
             txtTwoOLCHome.text = twoCode
             txtThreeOLCHome.text = threeCode
@@ -768,6 +760,10 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         return lastFullCode
     }
 
+    override fun updateLocale(locale: Locale) {
+        super.updateLocale(locale)
+    }
+
     override fun onBackPressed() {
         when {
             isShowingMenu -> {
@@ -798,20 +794,31 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         }
     }
 
-    override fun updateLocale(locale: Locale) {
-        super.updateLocale(locale)
+
+    override fun onStop() {
+        super.onStop()
+        stoppedLocation()
     }
 
 
-    override fun onDestroy() {
-        super.onDestroy()
+    private fun stoppedSpeech() {
+        if (textToSpeech != null) {
+            textToSpeech!!.stop()
+            textToSpeech!!.shutdown()
+        }
+    }
+
+
+    private fun stoppedLocation() {
         try {
-            tts.stop()
-            tts.shutdown()
+            Log.e("stoppedLocation ", "===> " + "ok")
+            stoppedSpeech()
+            baseLocationHelper.disconnectLocation()
             handlerTimer.removeTimerCallbacks()
             satelliteTimer.removeSatelliteTimerCallbacks()
             sTimer.removeSatelliteTimerCallbacks()
             startSecondsTimer.removeSecondsTimerCallbacks()
+            timerSpentHandler.removeSpentTimerCallbacks()
         } catch (e: Exception) {
             e.printStackTrace()
         }

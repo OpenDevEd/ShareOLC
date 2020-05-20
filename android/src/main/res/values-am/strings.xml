@@ -1,19 +1,13 @@
 <resources>
     <string name="app_name" translatable="false">SharePlusCode</string>
-    <string name="code_view_empty">ለማሳየት ምንም ኮድ የለም</string>
-    <string name="current_location_loading">አካባቢዎን በመጫን ላይ</string>
+
     <string name="current_location_error">"አካባቢዎን መወሰን አልተቻለም።"</string>
-
     <string name="distance_meters">%dm</string>
-    <string name="distance_few_kilometers">% .1fkm</string>
-    <string name="distance_many_kilometers">% .0fkm</string>
+    <string name="distance_few_kilometers">%.1fkm</string>
+    <string name="distance_many_kilometers">%.0fkm</string>
     <string name="accuracy_value">ትክክለኛነት %1$s</string>
-    <string name="satellites_value">ሳተላይቶች %1$s /%2$s</string>
-    <string name="stay_outside_minutes">ከ %1$s ደቂቃ ውጭ ቆይ</string>
+    <string name="satellites_value">ሳተላይቶች- %1$s /%2$s</string>
 
-    <string name="title_no_connection">ምንም የበይነመረብ ግንኙነት የለም</string>
-    <string name="msg_ok">እሺ</string>
-    <string name="msg_message_connection">ከበይነመረቡ ጋር የተገናኙ አይመስሉም። እባክዎ የግንኙነት ቅንብሮችዎን ይፈትሹና እንደገና ይሞክሩ።</string>
     <string name="enable_gps">GPS ን አንቃ</string>
     <string name="enable_gps_msg">GPS አልነቃም። ወደ ቅንብሮች ምናሌ መሄድ ይፈልጋሉ?</string>
     <string name="action_settings">ቅንጅቶች</string>
@@ -23,7 +17,6 @@
     <string name="label_accuracy">ትክክለኛነት: -</string>
     <string name="label_distance">- ሜ</string>
     <string name="please_go_outside">እባክዎን ወደ ውጭ ይውጡ</string>
-    <string name="unable_to_detect_location_restart">አካባቢውን መለየት አልተቻለም ፣ እንደገና አስጀምር</string>
     <string name="go_to_an_open_area">እባክዎን ወደ ክፍት ቦታ ለመሄድ ይሞክሩ ፡፡</string>
     <string name="no_signal">ምልክት የለም</string>
     <string name="high_accuracy">ከፍተኛ</string>
@@ -31,7 +24,7 @@
     <string name="poor_accuracy">ድሃ</string>
     <string name="low_accuracy">ዝቅተኛ</string>
     <string name="sharing_data_not_available">ውሂብ ማጋራት አይገኝም</string>
-    <string name="cannot_get_high_accuracy_share_anyway">ከፍተኛ ትክክለኛነት ማግኘት አልተቻለም እባክዎ ለማንኛውም አካባቢን ያጋሩ።</string>
+    <string name="cannot_get_high_accuracy_share_anyway">ከፍተኛ ትክክለኛነት ማግኘት አልተቻለም እባክዎን አካባቢን ለማንኛውም ያጋሩ።</string>
     <string name="no_connection_available">ምንም ግንኙነት የለም</string>
     <string name="ready_to_share">ለማጋራት ዝግጁ</string>
     <string name="restart">እንደገና ጀምር</string>
@@ -47,16 +40,18 @@
     <string name="menu">ምናሌ</string>
     <string name="share">ያጋሩ</string>
 
-    <string name="about_data1">በክፍት ልማት ትምህርት የተነደፈ መተግበሪያ</string>
-
+    <string name="about_data1">በክፍት ልማት የተቀየሰ መተግበሪያ</string>
     <string name="about_data2">በናሮላ መረጃ ቴክኖሎጅ የተገነባ መተግበሪያ</string>
-
-    <string name="about_data3">የበለጠ ለመረዳት በ http://opendeved.net/ShareOLC</string>
-
-    <string name="about_data4">ለአስተያየቶች እና ጥያቄዎች ጥያቄዎች በኢሜል: shareolc@opendeved.net</string>
-
+    <string name="about_data3">የበለጠ ያግኙ በ http://opendeved.net/SharePlusCode</string>
+    <string name="about_data4">ለአስተያየቶች እና ጥያቄዎች ጥያቄዎች በኢሜል: sharepluscode@opendeved.net</string>
     <string name="about_data5">ይህ መተግበሪያ በ MIT ፈቃድ ፈቃድ የተሰጠው ክፍት ምንጭ ነው። የምንጭ ኮዱ በ https://github.com/OpenDevEd/ShareOLC ላይ ይገኛል</string>
 
     <string name="i_am_outside">ውጭ ነኝ</string>
     <string name="please_tap_green_button">ውጤቱን ለማጋራት እባክዎ አረንጓዴ ቁልፍን መታ ያድርጉ</string>
+
+    <string name="unable_to_detect_location_restart">አካባቢን መለየት አልተቻለም። እባክዎ እንደገና ይጀምሩ።</string>
+    <string name="stay_outside_minutes">ለ %1$s ደቂቃዎች ውጭ ይቆዩ</string>
+    <string name="satellited_detected_move_open_area">ሳተላይቶች ተገኝተዋል። ትክክለኛነትን ለመጨመር ወደ ይበልጥ ክፍት ቦታ ይሂዱ።</string>
+    <string name="go_outside_move_open_area">ወደ ውጭ ይውጡ እና ወደ ክፍት ቦታ ይሂዱ።</string>
+    <string name="difficulty_detecting_location">አስቸጋሪ አካባቢን መለየት እባክዎ ሌላ %1$s ደቂቃዎች ይጠብቁ…</string>
 </resources>

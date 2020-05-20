@@ -1,19 +1,13 @@
 <resources>
     <string name="app_name" translatable="false">SharePlusCode</string>
-    <string name="code_view_empty">لا يوجد رمز لعرضه</string>
-    <string name="current_location_loading">تحميل موقعك</string>
+
     <string name="current_location_error">لا يمكن تحديد موقعك</string>
+    <string name="distance_meters">%dم</string>
+    <string name="distance_few_kilometers">%.1fkm</string>
+    <string name="distance_many_kilometers">%.0fkm</string>
+    <string name="accuracy_value">الدقة: %1$s</string>
+    <string name="satellites_value">الأقمار الصناعية: %1$s/%2$s</string>
 
-    <string name="distance_meters">٪ d م</string>
-    <string name="distance_few_kilometers">٪ .1fkm</string>
-    <string name="distance_many_kilometers">٪ .0fkm</string>
-    <string name="accuracy_value">الدقة:٪ 1 $ s</string>
-    <string name="satellites_value">الأقمار الصناعية:٪ 1 $ s /٪ 2 $ s</string>
-    <string name="stay_outside_minutes">ابق بالخارج لمدة٪ 1 $ s دقيقة</string>
-
-    <string name="title_no_connection">لا يوجد اتصال بالإنترنت</string>
-    <string name="msg_ok">حسنا</string>
-    <string name="msg_message_connection">يبدو أنك غير متصل بالإنترنت. يرجى التحقق من إعدادات الاتصال الخاصة بك وحاول مرة أخرى.</string>
     <string name="enable_gps">تمكين GPS</string>
     <string name="enable_gps_msg">لم يتم تمكين GPS. هل تريد الذهاب إلى قائمة الإعدادات؟</string>
     <string name="action_settings">الإعدادات</string>
@@ -23,7 +17,6 @@
     <string name="label_accuracy">صحة: -</string>
     <string name="label_distance">- م</string>
     <string name="please_go_outside">يرجى الخروج</string>
-    <string name="unable_to_detect_location_restart">تعذر اكتشاف الموقع ، أعد التشغيل</string>
     <string name="go_to_an_open_area">يرجى المحاولة للذهاب إلى منطقة مفتوحة.</string>
     <string name="no_signal">لا توجد تغطية</string>
     <string name="high_accuracy">عالي</string>
@@ -47,16 +40,18 @@
     <string name="menu">قائمة طعام</string>
     <string name="share">شارك</string>
 
-    <string name="about_data1">التطبيق صممه التعليم المفتوح للتنمية</string>
-
+    <string name="about_data1">التطبيق صممه Open Development</string>
     <string name="about_data2">التطبيق تم تطويره بواسطة Narola Infotech</string>
-
-    <string name="about_data3">اكتشف المزيد على: http://opendeved.net/ShareOLC</string>
-
-    <string name="about_data4">للتعليقات والاستفسارات ، البريد الإلكتروني: shareolc@opendeved.net</string>
-
-    <string name="about_data5">هذا التطبيق مفتوح المصدر ، مرخص بموجب ترخيص MIT. كود المصدر متاح على: https://github.com/OpenDevEd/ShareOLC</string>
+    <string name="about_data3">اكتشف المزيد على: http://opendeved.net/SharePlusCode</string>
+    <string name="about_data4">للتعليقات والاستفسارات ، البريد الإلكتروني: sharepluscode@opendeved.net</string>
+    <string name="about_data5">هذا التطبيق مفتوح المصدر ومرخص بموجب ترخيص MIT. كود المصدر متاح على: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">انا في الخارج</string>
     <string name="please_tap_green_button">يرجى النقر على الزر الأخضر لمشاركة النتيجة</string>
+
+    <string name="unable_to_detect_location_restart">تعذر اكتشاف الموقع. يرجى إعادة التشغيل.</string>
+    <string name="stay_outside_minutes">ابق بالخارج لمدة %1$s دقيقة</string>
+    <string name="satellited_detected_move_open_area">تم الكشف عن الأقمار الصناعية. انتقل إلى منطقة أكثر انفتاحًا لزيادة الدقة.</string>
+    <string name="go_outside_move_open_area">اخرج وانتقل إلى منطقة مفتوحة.</string>
+    <string name="difficulty_detecting_location">صعوبة اكتشاف الموقع الرجاء الانتظار %1$s دقيقة أخرى …</string>
 </resources>

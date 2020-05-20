@@ -1,19 +1,13 @@
 <resources>
     <string name="app_name" translatable="false">SharePlusCode</string>
-    <string name="code_view_empty">Ayikho ikhodi okufanele iboniswe</string>
-    <string name="current_location_loading">Ilayisha indawo yakho</string>
-    <string name="current_location_error">Ngeke ngikwazi ukubona indawo yakho</string>
 
+    <string name="current_location_error">Ngeke ngikwazi ukubona indawo yakho</string>
     <string name="distance_meters">%dm</string>
-    <string name="distance_few_kilometers">% .1fkm</string>
-    <string name="distance_many_kilometers">% .0fkm</string>
+    <string name="distance_few_kilometers">%.1fkm</string>
+    <string name="distance_many_kilometers">%.0fkm</string>
     <string name="accuracy_value">Ukunemba: %1$s</string>
     <string name="satellites_value">Ama-Satellites: %1$s /%2$s</string>
-    <string name="stay_outside_minutes">Hlala ngaphandle imizuzu engu- %1$s</string>
 
-    <string name="title_no_connection">Akukho ukuxhumana kwe-inthanethi</string>
-    <string name="msg_ok">KULUNGILE</string>
-    <string name="msg_message_connection">Awubonakali uxhumekile kwi-inthanethi. Sicela ubheke izilungiselelo zakho zokuxhuma bese uzama futhi.</string>
     <string name="enable_gps">Nika amandla i-GPS</string>
     <string name="enable_gps_msg">I-GPS ayinikiwe amandla. Ufuna ukuya kumenyu yezilungiselelo?</string>
     <string name="action_settings">Izilungiselelo</string>
@@ -23,7 +17,6 @@
     <string name="label_accuracy">Ukunemba: -</string>
     <string name="label_distance">- m</string>
     <string name="please_go_outside">Sicela uphumele ngaphandle</string>
-    <string name="unable_to_detect_location_restart">Ayikwazi ukuthola indawo, Qalisa kabusha</string>
     <string name="go_to_an_open_area">Sicela uzame ukuya endaweni evulekile.</string>
     <string name="no_signal">Akunasiginali</string>
     <string name="high_accuracy">phezulu</string>
@@ -47,16 +40,18 @@
     <string name="menu">Imenyu</string>
     <string name="share">Yabelana</string>
 
-    <string name="about_data1">Uhlelo lokusebenza Luklanywe yi-Open Development Education</string>
-
+    <string name="about_data1">Uhlelo lokusebenza Luklanyelwe yi-Open Development</string>
     <string name="about_data2">Uhlelo lokusebenza lakhiwa nguNarola Infotech</string>
-
-    <string name="about_data3">Thola okuningi ku: http://opendeved.net/ShareOLC</string>
-
-    <string name="about_data4">Ngemibono nemibuzo, i-imeyili: shareolc@opendeved.net</string>
-
+    <string name="about_data3">Thola okuningi ku: http://opendeved.net/SharePlusCode</string>
+    <string name="about_data4">Ngemibono nemibuzo, i-imeyili: sharepluscode@opendeved.net</string>
     <string name="about_data5">Lolu hlelo lokusebenza lungumthombo ovulekile, onelayisense ngaphansi kwelayisense ye-MIT. Ikhodi yomthombo iyatholakala ku-: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">Ngingaphandle</string>
     <string name="please_tap_green_button">Sicela uthephe inkinobho eluhlaza ukuze wabelane ngomphumela</string>
+
+    <string name="unable_to_detect_location_restart">Ayikwazi ukuthola indawo. Sicela uqale kabusha.</string>
+    <string name="stay_outside_minutes">Hlala ngaphandle imizuzu engu- %1$s</string>
+    <string name="satellited_detected_move_open_area">Kutholwe ama-Satellites. Hambisa endaweni evulekile kakhudlwana ukwandisa ukunemba.</string>
+    <string name="go_outside_move_open_area">Phuma ngaphandle bese udlulela endaweni evulekile.</string>
+    <string name="difficulty_detecting_location">Ubunzima bokuthola indawo Sicela ulinde enye imizuzu engu- %1$s…</string>
 </resources>

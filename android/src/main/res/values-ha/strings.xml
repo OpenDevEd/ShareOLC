@@ -1,29 +1,22 @@
 <resources>
     <string name="app_name" translatable="false">SharePlusCode</string>
-    <string name="code_view_empty">Babu lambar da za\'a nuna</string>
-    <string name="current_location_loading">Loading wurinku</string>
-    <string name="current_location_error">Ba za a iya tantance wurin ku ba</string>
 
+    <string name="current_location_error">Ba za a iya tantance wurin ku ba</string>
     <string name="distance_meters">%dm</string>
-    <string name="distance_few_kilometers">% .1fkm</string>
-    <string name="distance_many_kilometers">% .0fkm</string>
+    <string name="distance_few_kilometers">%.1fkm</string>
+    <string name="distance_many_kilometers">%.0fkm</string>
     <string name="accuracy_value">Gaskiya: %1$s</string>
     <string name="satellites_value">Satellites: %1$s /%2$s</string>
-    <string name="stay_outside_minutes">Zauna a waje na minti 1% $</string>
 
-    <string name="title_no_connection">Babu Haɗin Intanet</string>
-    <string name="msg_ok">KO</string>
-    <string name="msg_message_connection">Ba ka da alama an haɗa ka da intanet. Da fatan za a duba saitunan haɗi ku sake gwadawa.</string>
     <string name="enable_gps">Sanya GPS</string>
     <string name="enable_gps_msg">Ba a kunna GPS ba. Kuna so ku je menu na saiti?</string>
     <string name="action_settings">Saiti</string>
     <string name="no_close_app">Soke</string>
 
     <string name="satellites_0_0">Satellites: 0/0</string>
-    <string name="label_accuracy">Yi daidai: -</string>
+    <string name="label_accuracy">Gaskiya: -</string>
     <string name="label_distance">- m</string>
     <string name="please_go_outside">Don Allah fita waje</string>
-    <string name="unable_to_detect_location_restart">An kasa gano wurin, Sake kunnawa</string>
     <string name="go_to_an_open_area">Da fatan za a gwada zuwa wani wurin buɗewa.</string>
     <string name="no_signal">Babu Alamar</string>
     <string name="high_accuracy">babba</string>
@@ -47,16 +40,18 @@
     <string name="menu">Jeri</string>
     <string name="share">Raba</string>
 
-    <string name="about_data1">App ne wanda aka kirkira ta hanyar Ilimin Ci Gaban Kara</string>
-
+    <string name="about_data1">App Ne Aka Shirya daga Open Development</string>
     <string name="about_data2">App na Narola Infotech</string>
-
-    <string name="about_data3">Nemi karin bayani a: http://opendeved.net/ShareOLC</string>
-
-    <string name="about_data4">Don jin ra\'ayoyi da tambayoyi, imel: shareolc@opendeved.net</string>
-
+    <string name="about_data3">Nemi karin bayani a: http://opendeved.net/SharePlusCode</string>
+    <string name="about_data4">Don jin ra\'ayoyi da tambayoyi, imel: sharepluscode@opendeved.net</string>
     <string name="about_data5">Wannan aikin na bude hanya ne, mai lasisi ƙarƙashin lasisin MIT. Ana samo lambar tushe a: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">Ina waje</string>
     <string name="please_tap_green_button">Da fatan za a danna maballin kore domin raba sakamako</string>
+
+    <string name="unable_to_detect_location_restart">An kasa gano wurin. Da fatan za a sake farawa.</string>
+    <string name="stay_outside_minutes">Zauna a waje na mintina %1$s</string>
+    <string name="satellited_detected_move_open_area">An gano tauraron dan adam. Matsa zuwa wurin da ya buɗe don ƙara daidaito.</string>
+    <string name="go_outside_move_open_area">Je zuwa waje ka matsa zuwa wurin budewa.</string>
+    <string name="difficulty_detecting_location">Matsalar gano maɓallin Don Allah jira ɗan wani mintuna %1$s…</string>
 </resources>

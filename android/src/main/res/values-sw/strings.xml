@@ -1,19 +1,13 @@
 <resources>
     <string name="app_name" translatable="false">SharePlusCode</string>
-    <string name="code_view_empty">Hakuna nambari ya kuonyesha</string>
-    <string name="current_location_loading">Inapakia eneo lako</string>
-    <string name="current_location_error">Haiwezi kuamua eneo lako</string>
 
+    <string name="current_location_error">Haiwezi kuamua eneo lako</string>
     <string name="distance_meters">%dm</string>
-    <string name="distance_few_kilometers">% .1fkm</string>
-    <string name="distance_many_kilometers">% .0fkm</string>
+    <string name="distance_few_kilometers">%.1fkm</string>
+    <string name="distance_many_kilometers">%.0fkm</string>
     <string name="accuracy_value">Usahihi: %1$s</string>
     <string name="satellites_value">Satelaiti: %1$s /%2$s</string>
-    <string name="stay_outside_minutes">Kaa nje kwa dakika %1$s</string>
 
-    <string name="title_no_connection">Hakuna muunganisho wa Mtandaoni</string>
-    <string name="msg_ok">sawa</string>
-    <string name="msg_message_connection">Huwezi kuonekana kuwa umeunganishwa kwenye mtandao. Tafadhali angalia mipangilio yako ya unganisho na ujaribu tena.</string>
     <string name="enable_gps">Wezesha GPS</string>
     <string name="enable_gps_msg">GPS haijawashwa. Je! Unataka kwenda kwenye menyu ya mipangilio?</string>
     <string name="action_settings">Mipangilio</string>
@@ -23,7 +17,6 @@
     <string name="label_accuracy">Usahihi: -</string>
     <string name="label_distance">- m</string>
     <string name="please_go_outside">Tafadhali nenda nje</string>
-    <string name="unable_to_detect_location_restart">Haiwezi kugundua eneo, Anza upya</string>
     <string name="go_to_an_open_area">Tafadhali jaribu kwenda kwenye eneo wazi.</string>
     <string name="no_signal">Hakuna Ishara</string>
     <string name="high_accuracy">juu</string>
@@ -32,7 +25,6 @@
     <string name="low_accuracy">chini</string>
     <string name="sharing_data_not_available">Kushiriki data haipatikani</string>
     <string name="cannot_get_high_accuracy_share_anyway">Haiwezi kupata usahihi wa hali ya juu tafadhali shiriki eneo anyway.</string>
-
     <string name="no_connection_available">Hakuna muunganisho uliopatikana</string>
     <string name="ready_to_share">Uko Tayari Kushiriki</string>
     <string name="restart">Anzisha tena</string>
@@ -48,16 +40,18 @@
     <string name="menu">Menyu</string>
     <string name="share">Shiriki</string>
 
-    <string name="about_data1">Programu iliyoundwa na elimu ya wazi ya Maendeleo</string>
-
+    <string name="about_data1">Programu iliyoundwa na Development Open</string>
     <string name="about_data2">Programu iliyoundwa na Narola Infotech</string>
-
-    <string name="about_data3">Tafuta zaidi kwa: http://opendeved.net/ShareOLC</string>
-
-    <string name="about_data4">Kwa maoni na maswali, barua pepe: shareolc@opendeved.net</string>
-
+    <string name="about_data3">Tafuta zaidi kwa: http://opendeved.net/SharePlusCode</string>
+    <string name="about_data4">Kwa maoni na maswali, barua pepe: sharepluscode@opendeved.net</string>
     <string name="about_data5">Maombi haya ni chanzo wazi, leseni chini ya leseni ya MIT. Nambari ya chanzo inapatikana kwa: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">Niko nje</string>
     <string name="please_tap_green_button">Tafadhali bonyeza kitufe kijani ili ushiriki matokeo</string>
+
+    <string name="unable_to_detect_location_restart">Imeshindwa kugundua eneo. Tafadhali anza tena.</string>
+    <string name="stay_outside_minutes">Kaa nje kwa dakika %1$s</string>
+    <string name="satellited_detected_move_open_area">Satelaiti zinagunduliwa. Sogeza kwenye eneo wazi zaidi ili kuongeza usahihi.</string>
+    <string name="go_outside_move_open_area">Toka nje na uhamie kwenye eneo wazi.</string>
+    <string name="difficulty_detecting_location">Ugumu wa kugundua eneo tafadhali subiri dakika nyingine %1$s…</string>
 </resources>

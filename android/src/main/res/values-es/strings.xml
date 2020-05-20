@@ -1,19 +1,13 @@
 <resources>
-<string name="app_name" translatable="false">SharePlusCode</string>
-    <string name="code_view_empty">No hay código para mostrar</string>
-    <string name="current_location_loading">Cargando tu ubicación</string>
-    <string name="current_location_error">No puedo determinar tu ubicación</string>
+    <string name="app_name" translatable="false">SharePlusCode</string>
 
+    <string name="current_location_error">No puedo determinar tu ubicación</string>
     <string name="distance_meters">%dm</string>
-    <string name="distance_few_kilometers">% .1fkm</string>
-    <string name="distance_many_kilometers">% .0fkm</string>
+    <string name="distance_few_kilometers">%.1fkm</string>
+    <string name="distance_many_kilometers">%.0fkm</string>
     <string name="accuracy_value">Precisión: %1$s</string>
     <string name="satellites_value">Satélites: %1$s /%2$s</string>
-    <string name="stay_outside_minutes">Quédese afuera por %1$s minutos</string>
 
-    <string name="title_no_connection">Sin conexión a Internet</string>
-    <string name="msg_ok">Okay</string>
-    <string name="msg_message_connection">Parece que no estás conectado a internet. Verifique la configuración de su conexión e intente nuevamente.</string>
     <string name="enable_gps">Habilitar GPS</string>
     <string name="enable_gps_msg">El GPS no está habilitado. ¿Quieres ir al menú de configuración?</string>
     <string name="action_settings">Configuraciones</string>
@@ -23,7 +17,6 @@
     <string name="label_accuracy">Exactitud: -</string>
     <string name="label_distance">- m</string>
     <string name="please_go_outside">Por favor ve afuera</string>
-    <string name="unable_to_detect_location_restart">No se puede detectar la ubicación, reiniciar</string>
     <string name="go_to_an_open_area">Intenta ir a un área abierta.</string>
     <string name="no_signal">Sin señal</string>
     <string name="high_accuracy">alto</string>
@@ -32,7 +25,6 @@
     <string name="low_accuracy">bajo</string>
     <string name="sharing_data_not_available">Compartir datos no disponibles</string>
     <string name="cannot_get_high_accuracy_share_anyway">No se puede obtener una alta precisión, comparte la ubicación de todos modos.</string>
-
     <string name="no_connection_available">No hay conexión disponible</string>
     <string name="ready_to_share">Listo para compartir</string>
     <string name="restart">Reiniciar</string>
@@ -48,16 +40,18 @@
     <string name="menu">Menú</string>
     <string name="share">Compartir</string>
 
-    <string name="about_data1">Aplicación diseñada por Open Development Education</string>
-
+    <string name="about_data1">Aplicación diseñada por Open Development</string>
     <string name="about_data2">Aplicación desarrollada por Narola Infotech</string>
-
-    <string name="about_data3">Obtenga más información en: http://opendeved.net/ShareOLC</string>
-
-    <string name="about_data4">Para comentarios y consultas, correo electrónico: shareolc@opendeved.net</string>
-
+    <string name="about_data3">Obtenga más información en: http://opendeved.net/SharePlusCode</string>
+    <string name="about_data4">Para comentarios y consultas, correo electrónico: sharepluscode@opendeved.net</string>
     <string name="about_data5">Esta aplicación es de código abierto, con licencia bajo la licencia MIT. El código fuente está disponible en: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">Estoy afuera</string>
     <string name="please_tap_green_button">Toque el botón verde para compartir el resultado.</string>
+
+    <string name="unable_to_detect_location_restart">No se puede detectar la ubicación. Por favor reinicie.</string>
+    <string name="stay_outside_minutes">Quédese afuera por %1$s minutos</string>
+    <string name="satellited_detected_move_open_area">Satélites detectados. Muévase a un área más abierta para aumentar la precisión.</string>
+    <string name="go_outside_move_open_area">Sal y muévete a un área abierta.</string>
+    <string name="difficulty_detecting_location">Dificultad para detectar la ubicación Por favor espere otro %1$s minutos …</string>
 </resources>

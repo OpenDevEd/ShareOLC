@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
 abstract class LocaleAwareCompatActivity : AppCompatActivity() {
+
     private val localeDelegate = LocaleHelperActivityDelegateImpl()
 
     override fun attachBaseContext(newBase: Context) {
@@ -19,15 +20,15 @@ abstract class LocaleAwareCompatActivity : AppCompatActivity() {
         localeDelegate.onCreate(this)
     }
 
-    override fun onResume() {
+    /*override fun onResume() {
         super.onResume()
-        localeDelegate.onResumed(this)
-    }
+        //localeDelegate.onResumed(this)
+    }*/
 
-    override fun onPause() {
-        super.onPause()
-        localeDelegate.onPaused()
-    }
+    /* override fun onPause() {
+         super.onPause()
+         //localeDelegate.onPaused()
+     }*/
 
     open fun updateLocale(locale: Locale) {
         localeDelegate.setLocale(this, locale)

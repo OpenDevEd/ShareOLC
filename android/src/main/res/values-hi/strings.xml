@@ -1,19 +1,13 @@
 <resources>
-    <string name="app_name" translatable="false">SharePlusCode</string>
-    <string name="code_view_empty">प्रदर्शित करने के लिए कोई कोड नहीं</string>
-    <string name="current_location_loading">अपना स्थान लोड कर रहा है</string>
-    <string name="current_location_error">अपना स्थान निर्धारित नहीं कर सकता</string>
+<string name="app_name" translatable="false">SharePlusCode</string>
 
+    <string name="current_location_error">अपना स्थान निर्धारित नहीं कर सकता</string>
     <string name="distance_meters">%dm</string>
     <string name="distance_few_kilometers">%.1fkm</string>
     <string name="distance_many_kilometers">%.0fkm</string>
     <string name="accuracy_value">सटीकता: %1$s</string>
     <string name="satellites_value">उपग्रहों: %1$s /%2$s</string>
-    <string name="stay_outside_minutes">%1$s मिनट के लिए बाहर रहें</string>
 
-    <string name="title_no_connection">कोई इंटरनेट कनेक्शन नहीं</string>
-    <string name="msg_ok">ठीक</string>
-    <string name="msg_message_connection">आप इंटरनेट से जुड़े हुए प्रतीत नहीं होते हैं। कृपया अपनी कनेक्शन सेटिंग जांचें और पुनः प्रयास करें।</string>
     <string name="enable_gps">GPS सक्षम करें</string>
     <string name="enable_gps_msg">GPS सक्षम नहीं है। क्या आप सेटिंग मेनू पर जाना चाहते हैं?</string>
     <string name="action_settings">समायोजन</string>
@@ -23,8 +17,7 @@
     <string name="label_accuracy">सटीकता: -</string>
     <string name="label_distance">-- म</string>
     <string name="please_go_outside">कृपया बाहर जाएं</string>
-    <string name="unable_to_detect_location_restart">स्थान का पता लगाने में असमर्थ, पुनरारंभ करें</string>
-    <string name="go_to_an_open_area">कृपया किसी खुले क्षेत्र में जाने का प्रयास करें।</string>
+    <string name="go_to_an_open_area">कृपया एक खुले क्षेत्र में जाने का प्रयास करें।</string>
     <string name="no_signal">कोई संकेत नहीं</string>
     <string name="high_accuracy">उच्च</string>
     <string name="medium_accuracy">मध्यम</string>
@@ -33,7 +26,7 @@
     <string name="sharing_data_not_available">शेयरिंग डेटा उपलब्ध नहीं है</string>
     <string name="cannot_get_high_accuracy_share_anyway">वैसे भी उच्च सटीकता प्राप्त नहीं कर सकते कृपया स्थान साझा करें।</string>
     <string name="no_connection_available">कोई कनेक्शन उपलब्ध नहीं है</string>
-    <string name="ready_to_share">साझा करने के लिए तैयार है</string>
+    <string name="ready_to_share">साझा करने के लिए तैयार</string>
     <string name="restart">पुनर्प्रारंभ करें</string>
 
     <string name="about">के बारे में</string>
@@ -41,21 +34,24 @@
     <string name="settings">समायोजन</string>
     <string name="open_location_code">अधिक कोड:</string>
     <string name="please_wait">कृपया प्रतीक्षा कीजिये।</string>
-    <string name="please_allow_location_permission">कृपया डिवाइस स्थान की अनुमति का उपयोग करने की अनुमति दें</string>
+    <string name="please_allow_location_permission">कृपया डिवाइस स्थान अनुमति को एक्सेस करने की अनुमति दें</string>
     <string name="allow">अनुमति</string>
     <string name="help">मदद</string>
     <string name="menu">मेन्यू</string>
     <string name="share">शेयर</string>
 
-    <string name="about_data1">ओपन डेवलपमेंट एजुकेशन द्वारा डिज़ाइन किया गया ऐप</string>
-
+    <string name="about_data1">ओपन डेवलपमेंट द्वारा डिज़ाइन किया गया ऐप</string>
     <string name="about_data2">Narola Infotech द्वारा विकसित ऐप</string>
-
-    <string name="about_data3">और अधिक जानकारी प्राप्त करें: http://opendeved.net/ShareOLC</string>
-
-    <string name="about_data4">टिप्पणियों और प्रश्नों के लिए, ईमेल: shareolc@opendeved.net</string>
-
+    <string name="about_data3">और अधिक जानकारी प्राप्त करें: http://opendeved.net/SharePlusCode</string>
+    <string name="about_data4">टिप्पणियों और प्रश्नों के लिए, ईमेल: sharepluscode@opendeved.net</string>
     <string name="about_data5">यह आवेदन खुला स्रोत है, एमआईटी लाइसेंस के तहत लाइसेंस प्राप्त है। स्रोत कोड यहां उपलब्ध है: https://github.com/OpenDevEd/ShareOLC</string>
+
     <string name="i_am_outside">मैं बाहर हूं</string>
     <string name="please_tap_green_button">परिणाम साझा करने के लिए कृपया हरे बटन पर टैप करें</string>
+
+    <string name="unable_to_detect_location_restart">स्थान का पता लगाने में असमर्थ। कृपया पुनः प्रारंभ करें।</string>
+    <string name="stay_outside_minutes">%1$s मिनट के लिए बाहर रहें</string>
+    <string name="satellited_detected_move_open_area">उपग्रहों का पता लगाया। सटीकता बढ़ाने के लिए अधिक खुले क्षेत्र में जाएं।</string>
+    <string name="go_outside_move_open_area">बाहर जाओ और एक खुले क्षेत्र में चले जाओ।</string>
+    <string name="difficulty_detecting_location">स्थान का पता लगाने में कठिनाई हो रही है कृपया एक और %1$s मिनट प्रतीक्षा करें …</string>
 </resources>

@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import com.android.sharepluscode.localeHelper.LocaleAwareCompatActivity;
 
 

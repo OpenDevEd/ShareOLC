@@ -1,19 +1,13 @@
 <resources>
     <string name="app_name" translatable="false">SharePlusCode</string>
-    <string name="code_view_empty">Aucun code à afficher</string>
-    <string name="current_location_loading">Chargement de votre position</string>
-    <string name="current_location_error">Impossible de déterminer votre emplacement</string>
 
+    <string name="current_location_error">Impossible de déterminer votre emplacement</string>
     <string name="distance_meters">%dm</string>
-    <string name="distance_few_kilometers">% .1fkm</string>
-    <string name="distance_many_kilometers">% .0fkm</string>
+    <string name="distance_few_kilometers">%.1fkm</string>
+    <string name="distance_many_kilometers">%.0fkm</string>
     <string name="accuracy_value">Précision: %1$s</string>
     <string name="satellites_value">Satellites: %1$s /%2$s</string>
-    <string name="stay_outside_minutes">Restez dehors pendant %1$s minute</string>
 
-    <string name="title_no_connection">No Internet Connection</string>
-    <string name="msg_ok">D\'accord</string>
-    <string name="msg_message_connection">Vous ne semblez pas être connecté à Internet. Veuillez vérifier vos paramètres de connexion et réessayer.</string>
     <string name="enable_gps">Enable GPS</string>
     <string name="enable_gps_msg">Le GPS n\'est pas activé. Voulez-vous accéder au menu des paramètres?</string>
     <string name="action_settings">Réglages</string>
@@ -23,7 +17,6 @@
     <string name="label_accuracy">Précision: -</string>
     <string name="label_distance">-- m</string>
     <string name="please_go_outside">Veuillez sortir</string>
-    <string name="unable_to_detect_location_restart">Impossible de détecter l\'emplacement, redémarrer</string>
     <string name="go_to_an_open_area">Veuillez essayer d\'aller dans une zone ouverte.</string>
     <string name="no_signal">Pas de signal</string>
     <string name="high_accuracy">haute</string>
@@ -47,16 +40,18 @@
     <string name="menu">Menu</string>
     <string name="share">Partager</string>
 
-    <string name="about_data1">Application conçue par Open Development Education</string>
-
+    <string name="about_data1">Application conçue par Open Development</string>
     <string name="about_data2">Application développée par Narola Infotech</string>
-
-    <string name="about_data3">En savoir plus sur: http://opendeved.net/ShareOLC</string>
-
-    <string name="about_data4">Pour des commentaires et des questions, envoyez un courriel à shareolc@opendeved.net</string>
-
+    <string name="about_data3">En savoir plus sur: http://opendeved.net/SharePlusCode</string>
+    <string name="about_data4">Pour des commentaires et des questions, envoyez un courriel à sharepluscode@opendeved.net</string>
     <string name="about_data5">Cette application est open source, sous licence MIT. Le code source est disponible sur: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">Je suis à l\'extérieur</string>
     <string name="please_tap_green_button">Veuillez appuyer sur le bouton vert pour partager le résultat</string>
+
+    <string name="unable_to_detect_location_restart">Impossible de détecter l\'emplacement. Veuillez recommencer.</string>
+    <string name="stay_outside_minutes">Restez dehors pendant %1$s minutes</string>
+    <string name="satellited_detected_move_open_area">Satellites détectés. Déplacez-vous dans une zone plus ouverte pour augmenter la précision.</string>
+    <string name="go_outside_move_open_area">Sortez et allez dans une zone dégagée.</string>
+    <string name="difficulty_detecting_location">Difficulté à détecter l\'emplacement Veuillez patienter encore %1$s minutes…</string>
 </resources>

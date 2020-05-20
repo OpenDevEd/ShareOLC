@@ -19,8 +19,9 @@ import android.view.WindowManager
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.location.*
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import kotlin.math.abs
-
 
 
 class BaseLocationHelper(private var mContext: Activity) : SensorEventListener {
@@ -30,7 +31,7 @@ class BaseLocationHelper(private var mContext: Activity) : SensorEventListener {
     private lateinit var locationCallback: LocationCallback
     private var mListener: NewLocationListener? = null
 
-   // private val updateIntervalMillis: Long = 4000L
+    // private val updateIntervalMillis: Long = 4000L
     private val fastestUpdateIntervalMillis = 2000L
 
     private var mGoogleApiAvailability: GoogleApiAvailability? = null
@@ -198,12 +199,21 @@ class BaseLocationHelper(private var mContext: Activity) : SensorEventListener {
         try {
             val removeTask = fusedLocationProviderClient.removeLocationUpdates(locationCallback)
             removeTask.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
+                /*if (task.isSuccessful) {
                     Log.e(tag, "Location Callback removed.")
                 } else {
                     Log.e(tag, "Failed to remove Location Callback.")
-                }
+                }*/
+                Log.e(tag, "Location Callback removed.")
             }
+            removeTask.addOnSuccessListener {
+                Log.e(tag, "success to remove Location Callback.")
+            }
+
+            removeTask.addOnFailureListener {
+                Log.e(tag, "Failed to remove Location Callback.")
+            }
+
         } catch (unlikely: SecurityException) {
             Log.e(tag, "Lost location permissions. Couldn't remove updates. $unlikely")
         }
