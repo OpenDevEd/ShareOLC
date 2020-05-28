@@ -43,6 +43,7 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 
 
+
 class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocationListener {
 
     private lateinit var mContext: Activity
@@ -105,7 +106,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         satelliteModel = SatelliteModel(0, 0)
         JSConstant.IS_READY_SHARE = false
         is10Timer = false
-        initializeHandlers()
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
@@ -176,8 +176,9 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         recycleMenu.layoutManager = LinearLayoutManager(mContext, RecyclerView.VERTICAL, false)
         recycleMenu.adapter = MenuAdapter(mContext)
 
+        //Runtime permission...
         btnAllowPermissionHome.setOnClickListener {
-            requestAppPermissions(ARRAY_PERMISSIONS, R.string.app_name, ARRAY_PERMISSION_CODE)
+            requestAppPermissions(arrayPermissions,arrayPermissionCode)
         }
 
         btnRestartHome.setOnClickListener {
@@ -197,6 +198,8 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             layoutPermissionHome.visibility = View.VISIBLE
             layoutMainHome.visibility = View.GONE
         } else {
+            Log.e("onResume: ", "===> " + "ok")
+            initializeHandlers()
             layoutPermissionHome.visibility = View.GONE
             layoutMainHome.visibility = View.VISIBLE
             textToSpeech = TextToSpeech(this, mTextToSpeechListener)
@@ -218,7 +221,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
 
 
     override fun onPermissionsGranted(requestCode: Int, isGranted: Boolean) {
-        if (requestCode == ARRAY_PERMISSION_CODE && isGranted) {
+        if (requestCode == arrayPermissionCode && isGranted) {
             layoutPermissionHome.visibility = View.GONE
             layoutMainHome.visibility = View.VISIBLE
         } else {
@@ -226,6 +229,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             layoutMainHome.visibility = View.GONE
         }
     }
+
 
     //new location updated...
     override fun onNewLocation(locationResult: Location?, available: Boolean) {
@@ -244,6 +248,8 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
+
+    //starting stage...
     private fun startStage(isRestarted: Boolean) {
         isDone = false
         if (isRestarted) {
@@ -272,7 +278,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                 override fun onTickListener(seconds: Int) {
                     if (seconds == 1) {
                         startSecondsTimer.removeSecondsTimerCallbacks()
-                        Log.e("moveStage1", "===> " + "10 seconds done")
                         moveStage1()
                     } else {
                         if (mCurrentLocation != null) {
@@ -286,25 +291,27 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
+
+    //move to stage1...
     private fun moveStage1() {
         if (mCurrentLocation == null) {
             moveStage2()
         } else {
-            showDistanceCode(mCurrentLocation!!)
+            showLocationCode(mCurrentLocation!!)
             moveStage4()
         }
     }
 
 
+
+    //move to stage2...
     private fun moveStage2() {
         timerSpentHandler.updateData(JSConstant.JSEVENT_STAGE2)
-
         isDone = false
+
         getSatellitesAvailable()
         if (satelliteModel.totalSatellites == 0) {
-            Log.e("moveStage2", "===> " + "move outside ok")
             moveOutside()
-
             if (satelliteTimer.stopHandler) {
                 unableDetectLocation()
             } else {
@@ -317,7 +324,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                             satelliteTimer.removeSatelliteTimerCallbacks()
                             unableDetectLocation()
                         } else {
-                            Log.e("moveStage2 counter 3", "===> " + "else ok")
                             speechMessage = ""
                             if (satelliteModel.totalSatellites != 0) {
                                 satelliteTimer.removeSatelliteTimerCallbacks()
@@ -328,15 +334,18 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                 })
             }
         } else {
-            Log.e("moveStage2", "===> " + "else ok")
             moveStage3()
         }
     }
 
 
+
+
+    //move to stage3...
     private fun moveStage3() {
         timerSpentHandler.updateData(JSConstant.JSEVENT_STAGE3)
         isDone = false
+
         if (satelliteModel.useInSatellites >= JSConstant.minSatellite) {
             Log.e("moveStage3", "===> " + "satellites greater ok")
             moveStage4()
@@ -365,10 +374,14 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
+
+
+
+    //move to stage4...
     private fun moveStage4() {
         timerSpentHandler.updateData(JSConstant.JSEVENT_STAGE4)
-
         isDone = false
+
         if (mCurrentLocation != null) {
             accuracy = mCurrentLocation?.accuracy!!.toDouble()
             accuracyShareData = accuracy.toFloat()
@@ -395,48 +408,34 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
 
     private fun checkingStage4Data(minutes: Int) {
         if (minutes == 0) {
-            Log.e("moveStage4", "===> " + "timer removed done")
             handlerTimer.removeTimerCallbacks()
             moveStage4CheckSatellites(false)
         } else {
             if (accuracy == JSConstant.accuracyNo) {
-                Log.e("moveStage4", "===> " + "no signal ok")
                 txtAccuracyHome.text = accuracyValue(getString(R.string.no_signal))
                 sendAccuracy = "No signal"
-                createStayOutSideMessage(minutes)
+                stayOutSideViews(minutes)
             } else if (accuracy >= JSConstant.accuracyHighStart && accuracy <= JSConstant.accuracyHighEnd) {
-                Log.e("moveStage4", "===> " + "high ok")
                 txtAccuracyHome.text = accuracyValue(getString(R.string.high_accuracy))
                 sendAccuracy = getString(R.string.high_accuracy)
                 moveStage4CheckSatellites(true)
             } else if (accuracy >= JSConstant.accuracyMediumStart && accuracy <= JSConstant.accuracyMediumEnd) {
-                Log.e("moveStage4", "===> " + "medium ok")
                 txtAccuracyHome.text = accuracyValue(getString(R.string.medium_accuracy))
                 sendAccuracy = getString(R.string.medium_accuracy)
-                createStayOutSideMessage(minutes)
+                stayOutSideViews(minutes)
             } else if (accuracy >= JSConstant.accuracyLowStart && accuracy <= JSConstant.accuracyLowEnd) {
-                Log.e("moveStage4", "===> " + "low ok")
                 txtAccuracyHome.text = accuracyValue(getString(R.string.low_accuracy))
                 sendAccuracy = getString(R.string.low_accuracy)
-                createStayOutSideMessage(minutes)
+                stayOutSideViews(minutes)
             } else if (accuracy >= JSConstant.accuracyLowEnd && minutes == 0) {
                 Log.e("moveStage4", "===> " + "does not reached accuracy ok")
                 moveStage4CheckSatellites(false)
             } else {
-                Log.e("moveStage4", "===> " + "else ok")
-                createStayOutSideMessage(minutes)
+                stayOutSideViews(minutes)
             }
         }
     }
 
-
-    private fun createStayOutSideMessage(minutes: Int) {
-        val stayOutsideMessage = String.format(mContext.resources.getString(R.string.stay_outside_minutes), minutes)
-        speechMessage = stayOutsideMessage
-        speechLoud()
-        txtStateWaiting.text = stayOutsideMessage
-        stayOutSideViews()
-    }
 
 
     private fun moveStage4CheckSatellites(highAccuracy: Boolean) {
@@ -466,25 +465,85 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
+
+
+    //move to stage5...
     private fun moveStage5() {
         timerSpentHandler.updateData(JSConstant.JSEVENT_STAGE5)
+        isDone = true
+
         if (is10Timer) {
             timerSpentHandler.updateData(JSConstant.JSEVENT_STAGE_END)
-
             JSConstant.IS_READY_SHARE = true
             waitingViews()
             Handler().postDelayed({
                 Log.e("isReadyToShare", "===> " + " reset")
-                isDone = true
                 isReadyShareViews()
             }, JSConstant.endTimerMillisecondsDelayed)
         }
+
         btnDataShareHome.setOnClickListener {
             createShareData()
         }
     }
 
 
+    //generate share data...
+    private fun createShareData() {
+        if (mCurrentLocation != null && isDone) {
+            altitudeHeight = mCurrentLocation?.altitude!!
+            val accuracyFormat = formatDecimal(accuracyShareData)
+            val latitude = mCurrentLocation?.latitude!!
+            val longitude = mCurrentLocation?.longitude!!
+            val altitudeFormat = formatDecimal(altitudeHeight.toFloat())
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                //horizontal accuracy, vertical accuracy
+                val verticalAccuracy = mCurrentLocation?.verticalAccuracyMeters
+                sensorData = accuracyFormat + "," + formatDecimal(verticalAccuracy!!)
+            } else {
+                sensorData = accuracyFormat
+            }
+
+            //device information data..
+            val deviceModel = Utility.getDeviceModel()
+            val languageCode = PrefUtil.getStringPref(PrefUtil.PRF_LANGUAGE, mContext)
+            val infoData = languageCode + "; " + deviceModel.deviceName + "; " + deviceModel.deviceOsVersion + "; " + timerSpentHandler.sendDataHome()
+            val info = "[$infoData]"
+
+            //location data...
+            val height = "height:" + altitudeFormat + "m; "
+            val satellites = "sat:" + satelliteModel.useInSatellites + "/" + satelliteModel.totalSatellites + "; "
+            val accuracy = "acc:" + sendAccuracy + "," + accuracyFormat + "m" + "; "
+            val sensor = "sensor:$sensorData"
+            val dataValue = " ($height$satellites$accuracy$sensor), $info"
+
+            //urls data...
+            val shareUrl1 = "\nGoogle Maps: https://www.google.com/maps/place/$fullCode"
+            val shareUrl2 = "\nOpenStreetMap: https://www.openstreetmap.org/#map=14/$latitude/$longitude"
+            val shareUrl3 = "\nMaps.Me: https://ge0.me/$fullCode"
+            val shareUrl4 = "\nPlus Codes: https://plus.codes/$fullCode Get SharePlusCode at https://opendeved.net/SharePlusCode"
+            val urlsData = shareUrl1 + shareUrl2 + shareUrl3 + shareUrl4
+
+            val shareData = "SharePlusCode. Your Plus Code is$dataValue$urlsData"
+            Log.e("shareData", "===> $shareData")
+            shareIntentData(shareData)
+        } else {
+            Utility.toastLong(mContext, getString(R.string.sharing_data_not_available))
+        }
+    }
+
+    private fun shareIntentData(shareData: String) {
+        val sendIntent = Intent()
+        sendIntent.action = Intent.ACTION_SEND
+        sendIntent.putExtra(Intent.EXTRA_TEXT, shareData)
+        sendIntent.type = "text/plain"
+        startActivity(sendIntent)
+    }
+
+
+
+    //views visibility...
     private fun highAccuracyViews() {
         speechMessage = ""
         txtStateWaiting.visibility = View.GONE
@@ -572,7 +631,11 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         btnOutsideHome.visibility = View.GONE
     }
 
-    private fun stayOutSideViews() {
+    private fun stayOutSideViews(minutes: Int) {
+        val stayOutsideMessage = String.format(mContext.resources.getString(R.string.stay_outside_minutes), minutes)
+        speechMessage = stayOutsideMessage
+        speechLoud()
+        txtStateWaiting.text = stayOutsideMessage
         txtStateWaiting.visibility = View.VISIBLE
         btnDataShareHome.visibility = View.GONE
         btnRestartHome.visibility = View.GONE
@@ -581,64 +644,13 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-    private fun createShareData() {
-        if (mCurrentLocation != null && isDone) {
-            altitudeHeight = mCurrentLocation?.altitude!!
-            val accuracyFormat = formatDecimal(accuracyShareData)
-            val latitude = mCurrentLocation?.latitude!!
-            val longitude = mCurrentLocation?.longitude!!
-            val altitudeFormat = formatDecimal(altitudeHeight.toFloat())
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                //horizontal accuracy, vertical accuracy
-                val verticalAccuracy = mCurrentLocation?.verticalAccuracyMeters
-                sensorData = accuracyFormat + "," + formatDecimal(verticalAccuracy!!)
-            } else {
-                sensorData = accuracyFormat
-            }
-
-            //device information data..
-            val deviceModel = Utility.getDeviceModel()
-            val languageCode = PrefUtil.getStringPref(PrefUtil.PRF_LANGUAGE, mContext)
-            val infoData = languageCode + "; " + deviceModel.deviceName + "; " + deviceModel.deviceOsVersion + "; " + timerSpentHandler.sendDataHome()
-            val info = "[$infoData]"
-
-            //location data...
-            val height = "height:" + altitudeFormat + "m; "
-            val satellites = "sat:" + satelliteModel.useInSatellites + "/" + satelliteModel.totalSatellites + "; "
-            val accuracy = "acc:" + sendAccuracy + "," + accuracyFormat + "m" + "; "
-            val sensor = "sensor:$sensorData"
-            val dataValue = " ($height$satellites$accuracy$sensor), $info"
-
-            //urls data...
-            val shareUrl1 = "\nGoogle Maps: https://www.google.com/maps/place/$fullCode"
-            val shareUrl2 = "\nOpenStreetMap: https://www.openstreetmap.org/#map=14/$latitude/$longitude"
-            val shareUrl3 = "\nMaps.Me: https://ge0.me/$fullCode"
-            val shareUrl4 = "\nPlus Codes: https://plus.codes/$fullCode Get SharePlusCode at https://opendeved.net/SharePlusCode"
-            val urlsData = shareUrl1 + shareUrl2 + shareUrl3 + shareUrl4
-
-            val shareData = "SharePlusCode. Your Plus Code is$dataValue$urlsData"
-            Log.e("shareData", "===> $shareData")
-            shareIntentData(shareData)
-        } else {
-            Utility.toastLong(mContext, getString(R.string.sharing_data_not_available))
-        }
-    }
-
 
     private fun formatDecimal(value: Float): String {
         return String.format("%.2f", value)
     }
 
-    private fun shareIntentData(shareData: String) {
-        val sendIntent = Intent()
-        sendIntent.action = Intent.ACTION_SEND
-        sendIntent.putExtra(Intent.EXTRA_TEXT, shareData)
-        sendIntent.type = "text/plain"
-        startActivity(sendIntent)
-    }
 
-
+    //text to speech loud message...
     private fun speechLoud() {
         if (speechMessage.isNotEmpty()) {
             if (speechMessage != lastSpeechMessage) {
@@ -654,7 +666,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             val result: Int = textToSpeech!!.setLanguage(Locale(appLanguage))
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Log.e("sendSpeechLoud", "msg ===> failed missing")
-                //Utility.toastLong(mContext, "Current Language is not supported for speech")
             } else {
                 sendSpeechLoud()
             }
@@ -662,6 +673,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             Utility.toastLong(mContext, "Failed to voice initialization")
         }
     }
+
 
     private fun sendSpeechLoud() {
         if (speechMessage.isNotEmpty()) {
@@ -682,6 +694,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
+    //get satellites data...
     @Suppress("DEPRECATION")
     @SuppressLint("MissingPermission")
     fun getSatellitesAvailable() {
@@ -712,9 +725,9 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-    private fun showDistanceCode(location: Location?) {
-        if (location != null) {
 
+    private fun showLocationCode(location: Location?) {
+        if (location != null) {
             val code = OpenLocationCodeUtil.createOpenLocationCode(location.latitude, location.longitude)
             lastFullCode = code
             fullCode = code.code
@@ -728,41 +741,14 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
 
             val accuracyFormat = formatDecimal(location.accuracy)
             txtDistanceHome.text = accuracyFormat + "m"
-
-            //if (location!!.hasBearing() && getCurrentOpenLocationCode() != null) {
-            /*if (getCurrentOpenLocationCode() != null) {
-                val direction = DirectionUtil.getDirection(location, getCurrentOpenLocationCode(), mCurrentLocation)
-                showDistance(direction.distance)
-                Log.e("distance: ", "===> " + direction.distance)
-                //Log.e("accuracy: ", "===> "+location.accuracy+"m")
-            }*/
         }
     }
 
-
-    private fun showDistance(distanceInMeters: Int) {
-        when {
-            distanceInMeters < 1000 -> {
-                txtDistanceHome.text = String.format(mContext.resources.getString(R.string.distance_meters), distanceInMeters)
-            }
-            distanceInMeters < 3000 -> {
-                val distanceInKm = distanceInMeters / 1000.0
-                txtDistanceHome.text = String.format(mContext.resources.getString(R.string.distance_few_kilometers), distanceInKm)
-            }
-            else -> {
-                val distanceInKm = distanceInMeters / 1000.0
-                txtDistanceHome.text = String.format(mContext.resources.getString(R.string.distance_many_kilometers), distanceInKm)
-            }
-        }
-    }
-
-    private fun getCurrentOpenLocationCode(): OpenLocationCode? {
-        return lastFullCode
-    }
 
     override fun updateLocale(locale: Locale) {
         super.updateLocale(locale)
     }
+
 
     override fun onBackPressed() {
         when {

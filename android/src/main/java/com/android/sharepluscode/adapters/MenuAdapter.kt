@@ -8,8 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sharepluscode.R
-import com.android.sharepluscode.localeHelper.LocaleHelper
-import com.android.sharepluscode.model.LanguegeModel
+import com.android.sharepluscode.model.LanguageModel
 import com.android.sharepluscode.ui.MainActivity
 import com.android.sharepluscode.utils.PrefUtil
 import java.util.*
@@ -57,30 +56,30 @@ class MenuAdapter(private var mContext: Activity) : RecyclerView.Adapter<MenuAda
     }
 
 
-    private fun createLanguageData(): MutableList<LanguegeModel> {
-        val dataList: MutableList<LanguegeModel> = mutableListOf()
-        dataList.add(LanguegeModel("English", "en"))
-        dataList.add(LanguegeModel("French", "fr"))
-        dataList.add(LanguegeModel("Spanish", "es"))
-        dataList.add(LanguegeModel("Portuguese", "pt"))
-        dataList.add(LanguegeModel("Swahili", "sw"))
-        dataList.add(LanguegeModel("Hindi", "hi"))
-        dataList.add(LanguegeModel("Arabic", "ar"))
-        dataList.add(LanguegeModel("Amharic", "am"))
-        dataList.add(LanguegeModel("Bengali", "bn"))
-        dataList.add(LanguegeModel("Hausa", "ha"))
-        dataList.add(LanguegeModel("Igbo", "ig"))
-        dataList.add(LanguegeModel("Shona", "sn"))
-        dataList.add(LanguegeModel("Telugu", "te"))
-        dataList.add(LanguegeModel("Urdu", "ur"))
-        dataList.add(LanguegeModel("Xhosa", "xh"))
-        dataList.add(LanguegeModel("Zulu", "zu"))
+    private fun createLanguageData(): MutableList<LanguageModel> {
+        val dataList: MutableList<LanguageModel> = mutableListOf()
+        dataList.add(LanguageModel("English", "en"))
+        dataList.add(LanguageModel("French", "fr"))
+        dataList.add(LanguageModel("Spanish", "es"))
+        dataList.add(LanguageModel("Portuguese", "pt"))
+        dataList.add(LanguageModel("Swahili", "sw"))
+        dataList.add(LanguageModel("Hindi", "hi"))
+        dataList.add(LanguageModel("Arabic", "ar"))
+        dataList.add(LanguageModel("Amharic", "am"))
+        dataList.add(LanguageModel("Bengali", "bn"))
+        dataList.add(LanguageModel("Hausa", "ha"))
+        dataList.add(LanguageModel("Igbo", "ig"))
+        dataList.add(LanguageModel("Shona", "sn"))
+        dataList.add(LanguageModel("Telugu", "te"))
+        dataList.add(LanguageModel("Urdu", "ur"))
+        dataList.add(LanguageModel("Xhosa", "xh"))
+        dataList.add(LanguageModel("Zulu", "zu"))
 
-        dataList.add(LanguegeModel("Kinyarwanda", "rw"))
-        dataList.add(LanguegeModel("Bemba", "bem"))
+        dataList.add(LanguageModel("Kinyarwanda", "rw"))
+        dataList.add(LanguageModel("Bemba", "bem"))
 
-        Collections.sort(dataList, object : Comparator<LanguegeModel?> {
-            override fun compare(s1: LanguegeModel?, s2: LanguegeModel?): Int {
+        Collections.sort(dataList, object : Comparator<LanguageModel?> {
+            override fun compare(s1: LanguageModel?, s2: LanguageModel?): Int {
                 return s1!!.languageName.compareTo(s2!!.languageName, ignoreCase = true)
             }
         })

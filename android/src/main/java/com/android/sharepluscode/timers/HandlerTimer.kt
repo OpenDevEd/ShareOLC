@@ -36,7 +36,7 @@ class HandlerTimer {
         timeHandler.removeCallbacksAndMessages(null)
         isRunning = false
         stopHandler = true
-        Log.e("removeTimerCallbacks : ", "===> " + "cleared")
+        Log.e("removeTimerCallbacks : ", "===> cleared $stopHandler")
     }
 
     interface TimerTickListener {

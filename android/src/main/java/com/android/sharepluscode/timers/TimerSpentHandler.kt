@@ -48,7 +48,6 @@ class TimerSpentHandler {
                         mStage5Seconds += 1
                         stage5Data = "5,$mStage5Seconds;"
                     } else if (mCurrentStatus == JSConstant.JSEVENT_STAGE_END) {
-                        //end spent timers...
                         removeSpentTimerCallbacks()
                     }
                     sendDataHome()
@@ -79,7 +78,7 @@ class TimerSpentHandler {
         if (stage5Data.isNotEmpty()) {
             builder.append(stage5Data)
         }
-        Log.e("sendDataHome: ", "===> $builder")
+        //Log.e("sendDataHome: ", "===> $builder")
         return builder.toString()
     }
 

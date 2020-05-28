@@ -75,7 +75,6 @@ public class Utility {
             deviceName = capitalize(manufacturer) + " " + model;
         }
 
-
         deviceModel.setDeviceName(deviceName);
         deviceModel.setAppVersion(versionName);
         deviceModel.setDeviceOsVersion(deviceOsVersion);
