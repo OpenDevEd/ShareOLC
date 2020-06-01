@@ -10,10 +10,12 @@ import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.os.PowerManager
 import android.speech.tts.TextToSpeech
 import android.speech.tts.TextToSpeech.OnInitListener
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sharepluscode.R
@@ -41,7 +43,6 @@ import kotlinx.android.synthetic.main.layout_main_home.*
 import kotlinx.android.synthetic.main.layout_permission_home.*
 import java.util.*
 import java.util.concurrent.TimeUnit
-
 
 
 class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocationListener {
@@ -96,16 +97,25 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private var waitMilliseconds = 500L
     private var accuracy = 0.0
 
+    private lateinit var wakeLock: PowerManager.WakeLock
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
         mContext = this
         LocaleHelper.onAttach(this)
         dialogUtils = DialogUtils(mContext)
         satelliteModel = SatelliteModel(0, 0)
         JSConstant.IS_READY_SHARE = false
         is10Timer = false
+
+        initializeHandlers()
+
+        val pm = getSystemService(Context.POWER_SERVICE) as PowerManager
+        wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "SharePlusCode:WakelockTag")
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
@@ -178,7 +188,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
 
         //Runtime permission...
         btnAllowPermissionHome.setOnClickListener {
-            requestAppPermissions(arrayPermissions,arrayPermissionCode)
+            requestAppPermissions(arrayPermissions, arrayPermissionCode)
         }
 
         btnRestartHome.setOnClickListener {
@@ -193,13 +203,14 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
 
     override fun onResume() {
         super.onResume()
+        wakeLock.acquire(10 * 60 * 1000L)
         //CHECK PERMISSION...
         if (!hasPermissions(mContext)) {
             layoutPermissionHome.visibility = View.VISIBLE
             layoutMainHome.visibility = View.GONE
         } else {
             Log.e("onResume: ", "===> " + "ok")
-            initializeHandlers()
+            //initializeHandlers()
             layoutPermissionHome.visibility = View.GONE
             layoutMainHome.visibility = View.VISIBLE
             textToSpeech = TextToSpeech(this, mTextToSpeechListener)
@@ -248,7 +259,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-
     //starting stage...
     private fun startStage(isRestarted: Boolean) {
         isDone = false
@@ -291,7 +301,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-
     //move to stage1...
     private fun moveStage1() {
         if (mCurrentLocation == null) {
@@ -301,7 +310,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             moveStage4()
         }
     }
-
 
 
     //move to stage2...
@@ -339,8 +347,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-
-
     //move to stage3...
     private fun moveStage3() {
         timerSpentHandler.updateData(JSConstant.JSEVENT_STAGE3)
@@ -372,9 +378,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             }
         }
     }
-
-
-
 
 
     //move to stage4...
@@ -437,7 +440,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-
     private fun moveStage4CheckSatellites(highAccuracy: Boolean) {
         isDone = false
         if (satelliteModel.totalSatellites == 0) {
@@ -463,8 +465,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             }
         }
     }
-
-
 
 
     //move to stage5...
@@ -540,7 +540,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         sendIntent.type = "text/plain"
         startActivity(sendIntent)
     }
-
 
 
     //views visibility...
@@ -644,7 +643,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-
     private fun formatDecimal(value: Float): String {
         return String.format("%.2f", value)
     }
@@ -725,7 +723,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-
     private fun showLocationCode(location: Location?) {
         if (location != null) {
             val code = OpenLocationCodeUtil.createOpenLocationCode(location.latitude, location.longitude)
@@ -781,6 +778,12 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
+    override fun onPause() {
+        super.onPause()
+        wakeLock.release()
+    }
+
+
     override fun onStop() {
         super.onStop()
         stoppedLocation()
@@ -800,6 +803,15 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             Log.e("stoppedLocation ", "===> " + "ok")
             stoppedSpeech()
             baseLocationHelper.disconnectLocation()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        try {
             handlerTimer.removeTimerCallbacks()
             satelliteTimer.removeSatelliteTimerCallbacks()
             sTimer.removeSatelliteTimerCallbacks()
