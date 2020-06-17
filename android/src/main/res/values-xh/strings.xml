@@ -1,13 +1,12 @@
 <resources>
     <string name="app_name" translatable="false">SharePlusCode</string>
 
-    <string name="current_location_error">Andikwazi ukubona indawo yakho</string>
+    <string name="current_location_error">Andikwazi ukubona i lokishi yakho</string>
     <string name="distance_meters">%dm</string>
     <string name="distance_few_kilometers">%.1fkm</string>
     <string name="distance_many_kilometers">%.0fkm</string>
-    <string name="accuracy_value">Ukuchaneka: %1$s</string>
+    <string name="accuracy_value">Ecacileyo: %1$s</string>
     <string name="satellites_value">Iisatellite: %1$s /%2$s</string>
-
     <string name="enable_gps">Yenza i-GPS isebenze</string>
     <string name="enable_gps_msg">IGPS ayisebenzi. Ngaba uyafuna ukuya kwimenyu yezicwangciso?</string>
     <string name="action_settings">Useto</string>
@@ -21,7 +20,7 @@
     <string name="no_signal">Akukho Sibonakaliso</string>
     <string name="high_accuracy">phezulu</string>
     <string name="medium_accuracy">phakathi</string>
-    <string name="poor_accuracy">ihlwempu</string>
+    <string name="poor_accuracy">imbi</string>
     <string name="low_accuracy">isezantsi</string>
     <string name="sharing_data_not_available">Ukwabelana ngedatha akufumaneki</string>
     <string name="cannot_get_high_accuracy_share_anyway">Awunakufumana ukuchaneka okuphezulu nceda wabelane ngendawo.</string>
@@ -51,7 +50,7 @@
 
     <string name="unable_to_detect_location_restart">Ayikwazi kubona indawo. Nceda uqalise.</string>
     <string name="stay_outside_minutes">Hlala ngaphandle %1$s imizuzu</string>
-    <string name="satellited_detected_move_open_area">Kufunyenwe iisatellite. Yiya kwindawo evulekileyo ngakumbi ukuze wandise ukuchaneka.</string>
+    <string name="satellited_detected_move_open_area">I satellite ifumanekile. YIya kwindawo ephangaleleyo ngakumbi ukuze wandise ukucaca.</string>
     <string name="go_outside_move_open_area">Phuma ngaphandle kwaye uye kwindawo evulekileyo.</string>
     <string name="difficulty_detecting_location">Ubunzima bokufumana indawo Nceda ulinde enye i-1 $ s imizuzu …</string>
 </resources>

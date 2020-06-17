@@ -16,12 +16,12 @@
     <string name="satellites_0_0">سیٹلائٹ: 0/0</string>
     <string name="label_accuracy">درستگی: -</string>
     <string name="label_distance">-. م</string>
-    <string name="please_go_outside">براہ کرم باہر جاو</string>
-    <string name="go_to_an_open_area">براہ کرم کھلے علاقے میں جانے کی کوشش کریں۔</string>
+    <string name="please_go_outside">برائے مہربانی باہر جاو</string>
+    <string name="go_to_an_open_area">برائے مہربانی کھلے علاقے میں جانے کی کوشش کریں۔</string>
     <string name="no_signal">سگنل نہیں ہیں</string>
     <string name="high_accuracy">اونچا</string>
-    <string name="medium_accuracy">میڈیم</string>
-    <string name="poor_accuracy">غریب</string>
+    <string name="medium_accuracy">دَرمیان</string>
+    <string name="poor_accuracy">ناقص</string>
     <string name="low_accuracy">کم</string>
     <string name="sharing_data_not_available">شیئرنگ ڈیٹا دستیاب نہیں ہے</string>
     <string name="cannot_get_high_accuracy_share_anyway">اعلی درستگی حاصل نہیں کی جاسکتی ہے ویسے بھی مقام کا اشتراک کریں۔</string>
@@ -29,29 +29,29 @@
     <string name="ready_to_share">اشتراک کے لئے تیار ہے</string>
     <string name="restart">دوبارہ شروع کریں</string>
 
-    <string name="about">کے بارے میں</string>
+    <string name="about">ہمارے بارے میں</string>
     <string name="languages">زبانیں</string>
     <string name="settings">ترتیبات</string>
     <string name="open_location_code">مزید کوڈ:</string>
     <string name="please_wait">برائے مہربانی انتظار کریں.</string>
-    <string name="please_allow_location_permission">براہ کرم آلے کے مقام کی اجازت تک رسائی کی اجازت دیں</string>
+    <string name="please_allow_location_permission">برائے مہربانی مقام تعین کرنے کے لیے اجازت دیں</string>
     <string name="allow">اجازت دیں</string>
     <string name="help">مدد</string>
     <string name="menu">مینو</string>
     <string name="share">بانٹیں</string>
 
-    <string name="about_data1">کھلی ترقی کے ذریعہ ڈیزائن کردہ ایپ</string>
+    <string name="about_data1">اوپن ڈیولپمنٹ ایڈیکیشن نے اس ایپ کو تجویز کی</string>
     <string name="about_data2">ایپ نرولا انفٹیک نے تیار کی ہے</string>
     <string name="about_data3">مزید معلومات حاصل کریں: http://opendeved.net/SharePlusCode پر</string>
     <string name="about_data4">تبصرے اور سوالات کے ل email ، ای میل کریں: sharepluscode@opendeved.net</string>
-    <string name="about_data5">یہ درخواست اوپن سورس ہے ، جو ایم آئی ٹی لائسنس کے تحت لائسنس یافتہ ہے۔ ماخذ کوڈ پر دستیاب ہے: https://github.com/OpenDevEd/ShareOLC</string>
+    <string name="about_data5">یہ ایپ اوپن سورس ہے ، جو ایم آئی ٹی لائسنس کے تحت لائسنس یافتہ ہے۔سورس کوڈ یہاں پر دستیاب ہے: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">میں باہر ہوں</string>
-    <string name="please_tap_green_button">براہ کرم نتیجہ بانٹنے کے لئے گرین بٹن کو تھپتھپائیں</string>
+    <string name="please_tap_green_button">برائے مہربانی نتیجہ بانٹنے کے لئے گرین بٹن کو تھپتھپائیں</string>
 
-    <string name="unable_to_detect_location_restart">مقام کا پتہ لگانے سے قاصر۔ دوبارہ شروع کریں</string>
+    <string name="unable_to_detect_location_restart">مقام کا پتہ نہ لگا سکے ۔ دوبارہ شروع کریں</string>
     <string name="stay_outside_minutes">s$1% منٹ کے لئے باہر رہیں</string>
-    <string name="satellited_detected_move_open_area">سیٹلائٹ کا پتہ چلا۔ درستگی بڑھانے کے لئے زیادہ کھلے علاقے میں منتقل کریں۔</string>
+    <string name="satellited_detected_move_open_area">سیٹلائٹ کا پتہ چلا۔ درستگی بڑھانے کے لئے زیادہ کھلے علاقے میں جائیں۔</string>
     <string name="go_outside_move_open_area">باہر جاکر کھلے علاقے میں چلے جائیں۔</string>
-    <string name="difficulty_detecting_location">مقام کا پتہ لگانے میں دشواری براہ کرم مزید %1$s منٹ کا انتظار کریں…</string>
+    <string name="difficulty_detecting_location">مقام کا پتہ لگانے میں دشواری برائے مہربانی مزید %1$s منٹ کا انتظار کریں…</string>
 </resources>

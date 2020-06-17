@@ -17,16 +17,16 @@
     <string name="label_accuracy">Gaskiya: -</string>
     <string name="label_distance">- m</string>
     <string name="please_go_outside">Don Allah fita waje</string>
-    <string name="go_to_an_open_area">Da fatan za a gwada zuwa wani wurin buɗewa.</string>
+    <string name="go_to_an_open_area">Don Allah ku ge wani wuri buɗe</string>
     <string name="no_signal">Babu Alamar</string>
     <string name="high_accuracy">babba</string>
     <string name="medium_accuracy">matsakaici</string>
     <string name="poor_accuracy">matalauta</string>
     <string name="low_accuracy">low</string>
-    <string name="sharing_data_not_available">Ba a raba bayanai ba</string>
+    <string name="sharing_data_not_available">Babu rabon bayanai</string>
     <string name="cannot_get_high_accuracy_share_anyway">Ba za a iya samun daidaito daidai ba a raba wuri ko ta yaya.</string>
     <string name="no_connection_available">Babu hanyar sadarwa</string>
-    <string name="ready_to_share">Shirye Shirya</string>
+    <string name="ready_to_share">Shirye don a raba</string>
     <string name="restart">Sake kunnawa</string>
 
     <string name="about">Game da</string>
@@ -34,7 +34,7 @@
     <string name="settings">Saiti</string>
     <string name="open_location_code">Codearin lamba:</string>
     <string name="please_wait">Don Allah jira.</string>
-    <string name="please_allow_location_permission">Da fatan za a ba da izinin samun izinin izinin na\'urar na\'urar</string>
+    <string name="please_allow_location_permission">Da fatan za a ba da izinin nunar da wurin na\'urar</string>
     <string name="allow">Kyale</string>
     <string name="help">Taimako</string>
     <string name="menu">Jeri</string>
@@ -47,7 +47,7 @@
     <string name="about_data5">Wannan aikin na bude hanya ne, mai lasisi ƙarƙashin lasisin MIT. Ana samo lambar tushe a: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">Ina waje</string>
-    <string name="please_tap_green_button">Da fatan za a danna maballin kore domin raba sakamako</string>
+    <string name="please_tap_green_button">Da fatan za a danna sawan maballin domin raba sakamako</string>
 
     <string name="unable_to_detect_location_restart">An kasa gano wurin. Da fatan za a sake farawa.</string>
     <string name="stay_outside_minutes">Zauna a waje na mintina %1$s</string>

@@ -13,13 +13,13 @@
         android:layout_alignParentTop="true"
         android:orientation="vertical">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/open_location_code"
             android:textColor="@color/colorBlack"
-            android:textSize="26sp" />
+            android:textSize="@dimen/sp_26" />
 
 
         <LinearLayout
@@ -30,10 +30,11 @@
 
             <include layout="@layout/layout_code" />
 
+
         </LinearLayout>
 
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtSateliteHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,18 +42,18 @@
             android:gravity="center"
             android:text="@string/satellites_0_0"
             android:textColor="#000"
-            android:textSize="28sp" />
+            android:textSize="@dimen/sp_26" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtAccuracyHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/label_accuracy"
             android:textColor="#000"
-            android:textSize="28sp" />
+            android:textSize="@dimen/sp_26" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtDistanceHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,7 +61,7 @@
             android:gravity="center"
             android:text="@string/label_distance"
             android:textColor="#000"
-            android:textSize="32sp" />
+            android:textSize="@dimen/sp_32" />
 
     </LinearLayout>
 
@@ -75,18 +76,18 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtStateWaiting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginBottom="10dp"
             android:layout_marginEnd="12dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:visibility="gone"
             android:text="@string/please_wait"
             android:textColor="#AC1E13"
-            android:textSize="28sp" />
+            android:textSize="28sp"
+            android:visibility="gone" />
 
 
         <RelativeLayout
@@ -94,60 +95,60 @@
             android:layout_height="wrap_content">
 
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btnTextDataShareHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:visibility="gone"
-                android:singleLine="true"
                 android:layout_marginBottom="12dp"
+                android:gravity="center"
+                android:singleLine="true"
                 android:text="@string/please_tap_green_button"
                 android:textColor="@color/colorBlackGrey"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                android:visibility="gone" />
 
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btnDataShareHome"
-                android:layout_below="@+id/btnTextDataShareHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/btnTextDataShareHome"
                 android:background="@drawable/button_turquoise"
                 android:gravity="center"
-                android:visibility="gone"
                 android:padding="14dp"
                 android:text="@string/ready_to_share"
                 android:textColor="@color/colorBlack"
                 android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btnOutsideHome"
-                android:layout_below="@+id/btnTextDataShareHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/btnTextDataShareHome"
                 android:background="@drawable/button_turquoise"
                 android:gravity="center"
-                android:visibility="gone"
                 android:padding="14dp"
                 android:text="@string/i_am_outside"
                 android:textColor="@color/colorBlack"
                 android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btnRestartHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/btnTextDataShareHome"
                 android:background="@drawable/button_magenta"
                 android:gravity="center"
                 android:padding="14dp"
                 android:text="@string/restart"
-                android:visibility="gone"
-                android:layout_below="@+id/btnTextDataShareHome"
                 android:textColor="@color/colorBlack"
                 android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
         </RelativeLayout>
 

@@ -426,11 +426,12 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                 txtAccuracyHome.text = accuracyValue(getString(R.string.medium_accuracy))
                 sendAccuracy = getString(R.string.medium_accuracy)
                 stayOutSideViews(minutes)
-            } else if (accuracy >= JSConstant.accuracyLowStart && accuracy <= JSConstant.accuracyLowEnd) {
+            } else if (accuracy >= JSConstant.accuracyLowStart /*&& accuracy <= JSConstant.accuracyLowEnd*/)
+            {
                 txtAccuracyHome.text = accuracyValue(getString(R.string.low_accuracy))
                 sendAccuracy = getString(R.string.low_accuracy)
                 stayOutSideViews(minutes)
-            } else if (accuracy >= JSConstant.accuracyLowEnd && minutes == 0) {
+            } else if (accuracy >= JSConstant.accuracyLowStart && minutes == 0) {
                 Log.e("moveStage4", "===> " + "does not reached accuracy ok")
                 moveStage4CheckSatellites(false)
             } else {

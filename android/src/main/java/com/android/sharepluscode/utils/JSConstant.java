@@ -8,11 +8,11 @@ public class JSConstant {
     public static double minSatellite = 5;
     public static double accuracyNo = 0.0;
     public static double accuracyHighStart = 1.0;
-    public static double accuracyHighEnd = 5.0;
-    public static double accuracyMediumStart = 6.0;
-    public static double accuracyMediumEnd = 75.0;
-    public static double accuracyLowStart = 75.0;
-    public static double accuracyLowEnd = 100.0;
+    public static double accuracyHighEnd = 10.0;
+    public static double accuracyMediumStart = 11.0;
+    public static double accuracyMediumEnd = 100.0;
+    public static double accuracyLowStart = 101.0;
+    //public static double accuracyLowEnd = 100.0;
 
     public static final int JSEVENT_STAGE1 = 1001;
     public static final int JSEVENT_STAGE2 = 1002;

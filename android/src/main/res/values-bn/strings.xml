@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">SharePlusCode</string>
 
-    <string name="current_location_error">আপনার অবস্থান নির্ধারণ করা যায় না</string>
+    <string name="current_location_error">আপনার অবস্থান নির্ধারণ করা যাচ্ছে না</string>
     <string name="distance_meters">%dm</string>
     <string name="distance_few_kilometers">%.1fkm</string>
     <string name="distance_many_kilometers">%.0fkm</string>
@@ -21,12 +21,12 @@
     <string name="no_signal">সংকেত নেই</string>
     <string name="high_accuracy">উচ্চ</string>
     <string name="medium_accuracy">মধ্যম</string>
-    <string name="poor_accuracy">দরিদ্র</string>
+    <string name="poor_accuracy">ক্ষীণ</string>
     <string name="low_accuracy">কম</string>
-    <string name="sharing_data_not_available">ভাগ করে নেওয়ার ডেটা পাওয়া যায় না</string>
-    <string name="cannot_get_high_accuracy_share_anyway">উচ্চ নির্ভুলতা পেতে পারে না দয়া করে যেভাবে অবস্থান ভাগ করুন।</string>
-    <string name="no_connection_available">কোনও সংযোগ উপলব্ধ নেই</string>
-    <string name="ready_to_share">ভাগ করে নেওয়ার জন্য প্রস্তুত</string>
+    <string name="sharing_data_not_available">তথ্য প্রদান করা সম্ভব না</string>
+    <string name="cannot_get_high_accuracy_share_anyway">সম্পূর্ণ নির্ভুল তথ্য পাওয়া যাচ্ছে না, দয়া করে তবুও অবস্থান প্রদান করুন।</string>
+    <string name="no_connection_available">সংযোগ দেওয়া সম্ভব হচ্ছে না</string>
+    <string name="ready_to_share">তথ্য প্রদান করতে প্রস্তুত</string>
     <string name="restart">আবার শুরু</string>
 
     <string name="about">সম্পর্কিত</string>
@@ -34,20 +34,20 @@
     <string name="settings">সেটিংস</string>
     <string name="open_location_code">আরও কোড:</string>
     <string name="please_wait">অনুগ্রহপূর্বক অপেক্ষা করুন.</string>
-    <string name="please_allow_location_permission">ডিভাইস অবস্থান অনুমতি অ্যাক্সেস করার অনুমতি দয়া করে</string>
+    <string name="please_allow_location_permission">দয়া করে ডিভাইসের অবস্থান অ্যাক্সেস করার অনুমতি দিন</string>
     <string name="allow">অনুমতি দিন</string>
     <string name="help">সাহায্য</string>
     <string name="menu">তালিকা</string>
-    <string name="share">ভাগ</string>
+    <string name="share">তথ্য প্রদান করুন</string>
 
     <string name="about_data1">অ্যাপ্লিকেশনটি মুক্ত বিকাশ দ্বারা ডিজাইন করা</string>
-    <string name="about_data2">অ্যাপটি নরোলা ইনফোটেক দ্বারা বিকাশ করা হয়েছে</string>
+    <string name="about_data2">অ্যাপটি নরোলা ইনফোটেক ডেভেলপ করেছে</string>
     <string name="about_data3">এখানে আরও অনুসন্ধান করুন: http://opendeved.net/SharePlusCode</string>
     <string name="about_data4">মন্তব্য এবং প্রশ্নের জন্য, ইমেল: sharepluscode@opendeved.net</string>
-    <string name="about_data5">এই অ্যাপ্লিকেশনটি ওপেন সোর্স, এমআইটি লাইসেন্সের আওতায় লাইসেন্সযুক্ত। উত্স কোডটি এখানে পাওয়া যায়: https://github.com/OpenDevEd/ShareOLC</string>
+    <string name="about_data5">এই অ্যাপ্লিকেশনটি ওপেন সোর্স, এমআইটি লাইসেন্সের আওতায় লাইসেন্সযুক্ত। উৎস কোডটি এখানে পাওয়া যায়: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">আমি বাইরে আছি</string>
-    <string name="please_tap_green_button">ফলাফল ভাগ করতে দয়া করে সবুজ বোতামটি আলতো চাপুন</string>
+    <string name="please_tap_green_button">ফলাফল প্রদান করতে দয়া করে সবুজ বোতামটি আলতো করে চাপুন</string>
 
     <string name="unable_to_detect_location_restart">অবস্থান সনাক্ত করতে অক্ষম। পুনরায় চালু করুন।</string>
     <string name="stay_outside_minutes">%1$s মিনিটের জন্য বাইরে থাকুন</string>

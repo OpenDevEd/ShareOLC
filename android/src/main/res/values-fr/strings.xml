@@ -6,52 +6,52 @@
     <string name="distance_few_kilometers">%.1fkm</string>
     <string name="distance_many_kilometers">%.0fkm</string>
     <string name="accuracy_value">Précision: %1$s</string>
-    <string name="satellites_value">Satellites: %1$s /%2$s</string>
+    <string name="satellites_value">Satélites: %1$s /%2$s</string>
 
-    <string name="enable_gps">Enable GPS</string>
-    <string name="enable_gps_msg">Le GPS n\'est pas activé. Voulez-vous accéder au menu des paramètres?</string>
+    <string name="enable_gps">Activer le GPS</string>
+    <string name="enable_gps_msg">Le GPS n\'est pas activé. Voulez-vous accéder au menu \'réglages\'?</string>
     <string name="action_settings">Réglages</string>
     <string name="no_close_app">Annuler</string>
 
-    <string name="satellites_0_0">Satellites: 0/0</string>
+    <string name="satellites_0_0">Satélites: 0/0</string>
     <string name="label_accuracy">Précision: -</string>
     <string name="label_distance">-- m</string>
-    <string name="please_go_outside">Veuillez sortir</string>
+    <string name="please_go_outside">Veuillez sortir dehors</string>
     <string name="go_to_an_open_area">Veuillez essayer d\'aller dans une zone ouverte.</string>
     <string name="no_signal">Pas de signal</string>
-    <string name="high_accuracy">haute</string>
+    <string name="high_accuracy">fort</string>
     <string name="medium_accuracy">moyen</string>
-    <string name="poor_accuracy">pauvres</string>
+    <string name="poor_accuracy">mauvais</string>
     <string name="low_accuracy">faible</string>
     <string name="sharing_data_not_available">Partage de données non disponible</string>
-    <string name="cannot_get_high_accuracy_share_anyway">Impossible d\'obtenir une grande précision, veuillez partager l\'emplacement de toute façon.</string>
+    <string name="cannot_get_high_accuracy_share_anyway">Impossible d\'obtenir une estimation d\'une grande précision, veuillez partager l\'emplacement de toute façon.</string>
     <string name="no_connection_available">Aucune connexion disponible</string>
     <string name="ready_to_share">Prêt à partager</string>
     <string name="restart">Redémarrer</string>
 
     <string name="about">À propos de</string>
-    <string name="languages">Les langues</string>
+    <string name="languages">Langues</string>
     <string name="settings">Réglages</string>
     <string name="open_location_code">Plus Code:</string>
-    <string name="please_wait">S\'il vous plaît, attendez.</string>
-    <string name="please_allow_location_permission">Veuillez autoriser l\'accès à l\'emplacement de l\'appareil</string>
+    <string name="please_wait">Attendez s\'il vous plaît.</string>
+    <string name="please_allow_location_permission">Veuillez autoriser l\'accès à la localisation de l\'appareil</string>
     <string name="allow">Autoriser</string>
-    <string name="help">Aidez-moi</string>
+    <string name="help">Aide</string>
     <string name="menu">Menu</string>
     <string name="share">Partager</string>
 
-    <string name="about_data1">Application conçue par Open Development</string>
+    <string name="about_data1">Application conçue par Open Development &amp; Education</string>
     <string name="about_data2">Application développée par Narola Infotech</string>
     <string name="about_data3">En savoir plus sur: http://opendeved.net/SharePlusCode</string>
-    <string name="about_data4">Pour des commentaires et des questions, envoyez un courriel à sharepluscode@opendeved.net</string>
-    <string name="about_data5">Cette application est open source, sous licence MIT. Le code source est disponible sur: https://github.com/OpenDevEd/ShareOLC</string>
+    <string name="about_data4">Pour partager vos commentaires et questions, voyez envoyer un email à sharepluscode@opendeved.net</string>
+    <string name="about_data5">Cette application est une source ouverte, sous licence MIT. Le code source est disponible sur: https://github.com/OpenDevEd/ShareOLC</string>
 
     <string name="i_am_outside">Je suis à l\'extérieur</string>
     <string name="please_tap_green_button">Veuillez appuyer sur le bouton vert pour partager le résultat</string>
 
-    <string name="unable_to_detect_location_restart">Impossible de détecter l\'emplacement. Veuillez recommencer.</string>
+    <string name="unable_to_detect_location_restart">Impossible de détecter votre emplacement. Veuillez recommencer.</string>
     <string name="stay_outside_minutes">Restez dehors pendant %1$s minutes</string>
-    <string name="satellited_detected_move_open_area">Satellites détectés. Déplacez-vous dans une zone plus ouverte pour augmenter la précision.</string>
-    <string name="go_outside_move_open_area">Sortez et allez dans une zone dégagée.</string>
-    <string name="difficulty_detecting_location">Difficulté à détecter l\'emplacement Veuillez patienter encore %1$s minutes…</string>
+    <string name="satellited_detected_move_open_area">Satélites détectés. Déplacez-vous dans une zone plus ouverte pour augmenter la précision.</string>
+    <string name="go_outside_move_open_area">Sortez et allez dans une zone à ciel ouvert.</string>
+    <string name="difficulty_detecting_location">Difficile de détecter votre emplacement. Veuillez patienter encore %1$s minutes…</string>
 </resources>

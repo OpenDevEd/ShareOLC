@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">SharePlusCode</string>
 
-    <string name="current_location_error">"አካባቢዎን መወሰን አልተቻለም።"</string>
+    <string name="current_location_error">አካባቢዎን መወሰን አልተቻለም።</string>
     <string name="distance_meters">%dm</string>
     <string name="distance_few_kilometers">%.1fkm</string>
     <string name="distance_many_kilometers">%.0fkm</string>
@@ -9,8 +9,8 @@
     <string name="satellites_value">ሳተላይቶች- %1$s /%2$s</string>
 
     <string name="enable_gps">GPS ን አንቃ</string>
-    <string name="enable_gps_msg">GPS አልነቃም። ወደ ቅንብሮች ምናሌ መሄድ ይፈልጋሉ?</string>
-    <string name="action_settings">ቅንጅቶች</string>
+    <string name="enable_gps_msg">GPS አልነቃም። ወደ መነሻ ምናሌ መሄድ ይፈልጋሉ?</string>
+    <string name="action_settings">መነሻ</string>
     <string name="no_close_app">ይቅር</string>
 
     <string name="satellites_0_0">ሳተላይቶች-0/0</string>
@@ -21,7 +21,7 @@
     <string name="no_signal">ምልክት የለም</string>
     <string name="high_accuracy">ከፍተኛ</string>
     <string name="medium_accuracy">መካከለኛ</string>
-    <string name="poor_accuracy">ድሃ</string>
+    <string name="poor_accuracy">ደኻማ</string>
     <string name="low_accuracy">ዝቅተኛ</string>
     <string name="sharing_data_not_available">ውሂብ ማጋራት አይገኝም</string>
     <string name="cannot_get_high_accuracy_share_anyway">ከፍተኛ ትክክለኛነት ማግኘት አልተቻለም እባክዎን አካባቢን ለማንኛውም ያጋሩ።</string>
@@ -32,9 +32,9 @@
     <string name="about">ስለ</string>
     <string name="languages">ቋንቋዎች</string>
     <string name="settings">ቅንጅቶች</string>
-    <string name="open_location_code">ተጨማሪ ኮድ</string>
-    <string name="please_wait">ቆይ በናተህ.</string>
-    <string name="please_allow_location_permission">እባክዎ የመሣሪያ አካባቢ ፈቃድ እንዲደርስ ይፍቀዱ</string>
+    <string name="open_location_code">ተጨማሪ ኮድ (Plus Code)</string>
+    <string name="please_wait">እባክዎ ይቆዩ</string>
+    <string name="please_allow_location_permission">እባክዎ የመሣሪያ አካባቢ ፈቃድ እንዲሰጥ ይፍቀዱ</string>
     <string name="allow">ፍቀድ</string>
     <string name="help">እገዛ</string>
     <string name="menu">ምናሌ</string>
