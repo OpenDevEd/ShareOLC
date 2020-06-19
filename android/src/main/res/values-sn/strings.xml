@@ -26,13 +26,13 @@
     <string name="sharing_data_not_available">Haukwanise kugovera data?</string>
     <string name="cannot_get_high_accuracy_share_anyway">Hatikwanisi kubata masaisai akakwenenzverwa zvepamusoro tinokumbira mutiudze kwamuri</string>
     <string name="no_connection_available">Hapana/Hakuna masaisai</string>
-    <string name="ready_to_share">kugovera</string>
+    <string name="ready_to_share">Kugadzirira kugovera</string>
     <string name="restart">Kutangazve</string>
 
     <string name="about">Nezve</string>
     <string name="languages">Mitauro</string>
     <string name="settings">Masevenzero</string>
-    <string name="open_location_code">More Code:</string>
+    <string name="open_location_code">Plus Code:</string>
     <string name="please_wait">Tokumbira umirire.</string>
     <string name="please_allow_location_permission">Tokumbira ubvumidze kuwana mvumo yepauri</string>
     <string name="allow">Bvumidza</string>
@@ -40,7 +40,7 @@
     <string name="menu">Menyu</string>
     <string name="share">Govera</string>
 
-    <string name="about_data1">App Yakagadzirirwa Open? Development</string>
+    <string name="about_data1">App yakagadzirwa Open Development &amp; Education</string>
     <string name="about_data2">App yakagadzirwa naNarola Infotech</string>
     <string name="about_data3">Tsvaga zvimwe pa: http://opendeved.net/SharePlusCode</string>
     <string name="about_data4">MIbvunzo tumirai pa: sharepluscode@opendeved.net</string>
@@ -50,8 +50,8 @@
     <string name="please_tap_green_button">Bayai pegreen muone zvinobuda</string>
 
     <string name="unable_to_detect_location_restart">Hatikwanisi kuona nzvimbo. Tinokumbira utangezve.</string>
-    <string name="stay_outside_minutes">Gara kunze kwe %1$s maminitsi</string>
+    <string name="stay_outside_minutes">Gara kunze kwe maminitsi anosvika %1$s</string>
     <string name="satellited_detected_move_open_area">Satellites yaonekwa. Famba uchienda kune imwe nzvimbo isina kuvharidzirwa kuwedzera kukwenenzvera</string>
     <string name="go_outside_move_open_area">Endai panze panzvimbo isina miti kana zvimwe zvinovharidzira</string>
-    <string name="difficulty_detecting_location">Nzvimbo irikunetsa kuwana, mirira kwemaminitsi anosvika 15</string>
+    <string name="difficulty_detecting_location">Nzvimbo irikunetsa kuwana, mirira kwemaminitsi anosvika %1$s</string>
 </resources>

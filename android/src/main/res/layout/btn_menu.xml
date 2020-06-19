@@ -22,7 +22,7 @@
         android:layout_gravity="center"
         android:layout_marginLeft="4dp"
         android:text="@string/menu"
-        android:textColor="#000000"
-        android:textSize="@dimen/sp_10" />
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_10ssp" />
 
 </LinearLayout>

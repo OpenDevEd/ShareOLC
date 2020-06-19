@@ -32,7 +32,7 @@
     <string name="about">Ihe</string>
     <string name="languages">Asụsụ</string>
     <string name="settings">Ntọala</string>
-    <string name="open_location_code">Koodu ozo:</string>
+    <string name="open_location_code">Koodu ozo (Plus Code):</string>
     <string name="please_wait">Biko chere.</string>
     <string name="please_allow_location_permission">Biko nye ohere iji nweta ikike ọnọdụ ngwaọrụ</string>
     <string name="allow">Kwe ka</string>
@@ -40,7 +40,7 @@
     <string name="menu">Nchigha</string>
     <string name="share">Kesaa</string>
 
-    <string name="about_data1">Ngwa ọrụ enyoputara site na aka ndi mmụta open development na amp;</string>
+    <string name="about_data1">Ngwa ọrụ enyoputara site na aka ndi mmụta open development (Open Development &amp; Education)</string>
     <string name="about_data2">Ngwa ọrụ emeputara site na aka ndi Narola Infotech</string>
     <string name="about_data3">Chọpụta ihe ndị ọzọ na: http://opendeved.net/SharePlusCode</string>
     <string name="about_data4">zie anyi ozi na: sharepluscode@opendeved.net</string>

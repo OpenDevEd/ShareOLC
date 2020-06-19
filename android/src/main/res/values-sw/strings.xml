@@ -32,7 +32,7 @@
     <string name="about">Kuhusu</string>
     <string name="languages">Lugha</string>
     <string name="settings">Mipangilio</string>
-    <string name="open_location_code">Nambari Zaidi:</string>
+    <string name="open_location_code">Nambari Zaidi (Plus Code):</string>
     <string name="please_wait">Tafadhali subiri.</string>
     <string name="please_allow_location_permission">Tafadhali ruhusu kufikia idhini ya eneo la kifaa</string>
     <string name="allow">Ruhusu</string>
@@ -40,7 +40,7 @@
     <string name="menu">Menyu</string>
     <string name="share">Shiriki</string>
 
-    <string name="about_data1">Programu iliyoundwa na Development Open</string>
+    <string name="about_data1">Programu iliyoundwa na Open Development &amp; Education</string>
     <string name="about_data2">Programu iliyoundwa na Narola Infotech</string>
     <string name="about_data3">Tafuta zaidi kwa: http://opendeved.net/SharePlusCode</string>
     <string name="about_data4">Kwa maoni na maswali, barua pepe: sharepluscode@opendeved.net</string>

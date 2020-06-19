@@ -1,11 +1,14 @@
 package com.android.sharepluscode.adapters
 
 import android.app.Activity
+import android.content.Intent
+import android.content.Intent.getIntent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sharepluscode.R
 import com.android.sharepluscode.model.LanguageModel
@@ -46,9 +49,17 @@ class MenuAdapter(private var mContext: Activity) : RecyclerView.Adapter<MenuAda
                 mainActivity.updateLocale(Locale(languageModel.languageCode))
                 notifyDataSetChanged()
                 mainActivity.hideMenu()
-                mainActivity.recreate()
+                //mainActivity.recreate()
+                restartActivity(mainActivity)
             }
         }
+    }
+
+    private fun restartActivity(activity: Activity) {
+        val intent = activity.intent
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        activity.finish()
+        activity.startActivity(intent)
     }
 
     override fun getItemCount(): Int {

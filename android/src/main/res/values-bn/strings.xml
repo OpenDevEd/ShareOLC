@@ -32,7 +32,7 @@
     <string name="about">সম্পর্কিত</string>
     <string name="languages">ভাষাসমূহ</string>
     <string name="settings">সেটিংস</string>
-    <string name="open_location_code">আরও কোড:</string>
+    <string name="open_location_code">আরও কোড (Plus Code):</string>
     <string name="please_wait">অনুগ্রহপূর্বক অপেক্ষা করুন.</string>
     <string name="please_allow_location_permission">দয়া করে ডিভাইসের অবস্থান অ্যাক্সেস করার অনুমতি দিন</string>
     <string name="allow">অনুমতি দিন</string>
@@ -40,7 +40,7 @@
     <string name="menu">তালিকা</string>
     <string name="share">তথ্য প্রদান করুন</string>
 
-    <string name="about_data1">অ্যাপ্লিকেশনটি মুক্ত বিকাশ দ্বারা ডিজাইন করা</string>
+    <string name="about_data1">অ্যাপ্লিকেশনটি মুক্ত বিকাশ দ্বারা ডিজাইন করা (Open Development &amp; Education)</string>
     <string name="about_data2">অ্যাপটি নরোলা ইনফোটেক ডেভেলপ করেছে</string>
     <string name="about_data3">এখানে আরও অনুসন্ধান করুন: http://opendeved.net/SharePlusCode</string>
     <string name="about_data4">মন্তব্য এবং প্রশ্নের জন্য, ইমেল: sharepluscode@opendeved.net</string>

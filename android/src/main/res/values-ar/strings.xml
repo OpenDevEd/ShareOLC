@@ -32,7 +32,7 @@
     <string name="about">حول</string>
     <string name="languages">اللغات</string>
     <string name="settings">الإعدادات</string>
-    <string name="open_location_code">كود أكثر:</string>
+    <string name="open_location_code">Plus Code:</string>
     <string name="please_wait">ارجوك انتظر.</string>
     <string name="please_allow_location_permission">الرجاء السماح بالوصول إلى إذن موقع الجهاز</string>
     <string name="allow">السماح</string>
@@ -40,7 +40,7 @@
     <string name="menu">قائمة طعام</string>
     <string name="share">شارك</string>
 
-    <string name="about_data1">التطبيق صممه Open Development</string>
+    <string name="about_data1">(Open Development &amp; Education) التطبيق مصمم من قبل</string>
     <string name="about_data2">التطبيق تم تطويره بواسطة Narola Infotech</string>
     <string name="about_data3">اكتشف المزيد على: http://opendeved.net/SharePlusCode</string>
     <string name="about_data4">للتعليقات والاستفسارات ، البريد الإلكتروني: sharepluscode@opendeved.net</string>

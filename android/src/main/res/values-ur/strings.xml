@@ -32,7 +32,7 @@
     <string name="about">ہمارے بارے میں</string>
     <string name="languages">زبانیں</string>
     <string name="settings">ترتیبات</string>
-    <string name="open_location_code">مزید کوڈ:</string>
+    <string name="open_location_code">مزید کوڈ(Plus Code):</string>
     <string name="please_wait">برائے مہربانی انتظار کریں.</string>
     <string name="please_allow_location_permission">برائے مہربانی مقام تعین کرنے کے لیے اجازت دیں</string>
     <string name="allow">اجازت دیں</string>
@@ -40,7 +40,7 @@
     <string name="menu">مینو</string>
     <string name="share">بانٹیں</string>
 
-    <string name="about_data1">اوپن ڈیولپمنٹ ایڈیکیشن نے اس ایپ کو تجویز کی</string>
+    <string name="about_data1">اوپن ڈیولپمنٹ ایڈیکیشن نے اس ایپ کو تجویز کی(Open Development &amp; Education)</string>
     <string name="about_data2">ایپ نرولا انفٹیک نے تیار کی ہے</string>
     <string name="about_data3">مزید معلومات حاصل کریں: http://opendeved.net/SharePlusCode پر</string>
     <string name="about_data4">تبصرے اور سوالات کے ل email ، ای میل کریں: sharepluscode@opendeved.net</string>

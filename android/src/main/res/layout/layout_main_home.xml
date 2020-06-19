@@ -3,7 +3,7 @@
     android:id="@+id/layoutMainHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
+    android:padding="@dimen/_10sdp"
     android:visibility="gone">
 
     <LinearLayout
@@ -16,10 +16,11 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:maxLines="2"
             android:text="@string/open_location_code"
             android:textColor="@color/colorBlack"
-            android:textSize="@dimen/sp_26" />
+            android:textSize="@dimen/_22ssp" />
 
 
         <LinearLayout
@@ -38,11 +39,11 @@
             android:id="@+id/txtSateliteHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/_12sdp"
             android:gravity="center"
             android:text="@string/satellites_0_0"
-            android:textColor="#000"
-            android:textSize="@dimen/sp_26" />
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_24ssp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtAccuracyHome"
@@ -50,18 +51,18 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/label_accuracy"
-            android:textColor="#000"
-            android:textSize="@dimen/sp_26" />
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_24ssp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtDistanceHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="@dimen/_2sdp"
             android:gravity="center"
             android:text="@string/label_distance"
-            android:textColor="#000"
-            android:textSize="@dimen/sp_32" />
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_28ssp" />
 
     </LinearLayout>
 
@@ -71,8 +72,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -80,13 +81,13 @@
             android:id="@+id/txtStateWaiting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:gravity="center"
             android:text="@string/please_wait"
             android:textColor="#AC1E13"
-            android:textSize="28sp"
+            android:textSize="@dimen/_20ssp"
             android:visibility="gone" />
 
 
@@ -99,12 +100,12 @@
                 android:id="@+id/btnTextDataShareHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="@dimen/_12sdp"
                 android:gravity="center"
-                android:singleLine="true"
+                android:maxLines="2"
                 android:text="@string/please_tap_green_button"
                 android:textColor="@color/colorBlackGrey"
-                android:textSize="18sp"
+                android:textSize="@dimen/_14ssp"
                 android:visibility="gone" />
 
 
@@ -115,10 +116,10 @@
                 android:layout_below="@+id/btnTextDataShareHome"
                 android:background="@drawable/button_turquoise"
                 android:gravity="center"
-                android:padding="14dp"
+                android:padding="@dimen/_10ssp"
                 android:text="@string/ready_to_share"
                 android:textColor="@color/colorBlack"
-                android:textSize="22sp"
+                android:textSize="@dimen/_16ssp"
                 android:textStyle="bold"
                 android:visibility="gone" />
 
@@ -129,10 +130,10 @@
                 android:layout_below="@+id/btnTextDataShareHome"
                 android:background="@drawable/button_turquoise"
                 android:gravity="center"
-                android:padding="14dp"
+                android:padding="@dimen/_10ssp"
                 android:text="@string/i_am_outside"
                 android:textColor="@color/colorBlack"
-                android:textSize="22sp"
+                android:textSize="@dimen/_18ssp"
                 android:textStyle="bold"
                 android:visibility="gone" />
 
@@ -143,10 +144,10 @@
                 android:layout_below="@+id/btnTextDataShareHome"
                 android:background="@drawable/button_magenta"
                 android:gravity="center"
-                android:padding="14dp"
+                android:padding="@dimen/_10ssp"
                 android:text="@string/restart"
                 android:textColor="@color/colorBlack"
-                android:textSize="22sp"
+                android:textSize="@dimen/_18ssp"
                 android:textStyle="bold"
                 android:visibility="gone" />
 

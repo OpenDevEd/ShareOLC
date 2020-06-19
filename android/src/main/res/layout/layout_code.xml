@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="12dp"
+    android:layout_marginTop="@dimen/_12sdp"
     android:layout_marginBottom="16dp"
     android:orientation="vertical">
 
@@ -21,8 +21,8 @@
             android:background="@color/colorTurquoiseLight"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp">
+            android:paddingTop="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_6sdp">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txtOneOLCHome"
@@ -32,7 +32,7 @@
                 android:singleLine="true"
                 android:text="5GRF"
                 android:textColor="@color/colorBlackGrey"
-                android:textSize="@dimen/sp_34" />
+                android:textSize="@dimen/_26ssp" />
 
         </LinearLayout>
 
@@ -45,8 +45,8 @@
             android:background="@color/colorAquaLight"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp">
+            android:paddingTop="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_6sdp">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txtTwoOLCHome"
@@ -55,7 +55,7 @@
                 android:singleLine="true"
                 android:text="2F3V"
                 android:textColor="@color/colorBlackGrey"
-                android:textSize="@dimen/sp_34" />
+                android:textSize="@dimen/_26ssp" />
 
 
         </LinearLayout>
@@ -69,8 +69,8 @@
             android:background="@color/colorMagentaLight"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp">
+            android:paddingTop="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_6sdp">
 
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -80,7 +80,7 @@
                 android:singleLine="true"
                 android:text="+8M"
                 android:textColor="@color/colorBlackGrey"
-                android:textSize="@dimen/sp_34" />
+                android:textSize="@dimen/_26ssp" />
 
 
         </LinearLayout>
@@ -100,7 +100,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="6dp">
+            android:padding="@dimen/_6sdp">
 
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -109,8 +109,8 @@
                 android:src="@drawable/ic_close" />
 
             <View
-                android:layout_width="10dp"
-                android:layout_height="10dp" />
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_10sdp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
@@ -126,7 +126,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="6dp">
+            android:padding="@dimen/_6sdp">
 
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -135,8 +135,8 @@
                 android:src="@drawable/ic_close" />
 
             <View
-                android:layout_width="10dp"
-                android:layout_height="10dp" />
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_10sdp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
@@ -152,7 +152,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="6dp">
+            android:padding="@dimen/_6sdp">
 
 
             <androidx.appcompat.widget.AppCompatImageView

@@ -32,7 +32,7 @@
     <string name="about">Cishe</string>
     <string name="languages">Izilimi</string>
     <string name="settings">Izilungiselelo</string>
-    <string name="open_location_code">Ikhodi Engaphezulu:</string>
+    <string name="open_location_code">Ikhodi Engaphezulu (Plus Code):</string>
     <string name="please_wait">Ngicela ulinde.</string>
     <string name="please_allow_location_permission">Sicela uvumele i-app ukusebenzisa itracker yendawo</string>
     <string name="allow">Vumela</string>
@@ -40,7 +40,7 @@
     <string name="menu">Imenyu</string>
     <string name="share">Yabelana</string>
 
-    <string name="about_data1">Uhlelo lwe-App luhlangwanise yi-Open Development</string>
+    <string name="about_data1">Uhlelo lokusebenza Luklanyelwe yi-Open Development Uhlelo lwe-App luhlangwanise yi-Open Development (Open Development &amp; Education)</string>
     <string name="about_data2">Uhlelo lwe-app lakhiwa nguNarola Infotech</string>
     <string name="about_data3">Thola imininingwane ku: http://opendeved.net/SharePlusCode</string>
     <string name="about_data4">Ngemibono nemibuzo, themela umleyezo ku: sharepluscode@opendeved.net</string>

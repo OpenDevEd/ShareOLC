@@ -2,8 +2,11 @@ package com.android.sharepluscode.localeHelper
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.content.Intent.getIntent
 import android.os.Build
 import android.view.View
+import androidx.core.content.ContextCompat.startActivity
 import java.util.*
 
 
@@ -29,7 +32,15 @@ class LocaleHelperActivityDelegateImpl : LocaleHelperActivityDelegate {
     override fun setLocale(activity: Activity, newLocale: Locale) {
         LocaleHelper.setLocale(activity, newLocale)
         locale = newLocale
-        activity.recreate()
+        restartActivity(activity)
+        //activity.recreate()
+    }
+
+    private fun restartActivity(activity: Activity) {
+        val intent = activity.intent
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        activity.finish()
+        activity.startActivity(intent)
     }
 
     override fun attachBaseContext(newBase: Context): Context {

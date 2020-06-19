@@ -32,7 +32,7 @@
     <string name="about">Acerca de</string>
     <string name="languages">Idiomas</string>
     <string name="settings">Configuraciones</string>
-    <string name="open_location_code">Más código:</string>
+    <string name="open_location_code">Plus Code:</string>
     <string name="please_wait">Por favor espera.</string>
     <string name="please_allow_location_permission">Por favor permita acceder al permiso de ubicación del dispositivo</string>
     <string name="allow">Permitir</string>
@@ -40,7 +40,7 @@
     <string name="menu">Menú</string>
     <string name="share">Compartir</string>
 
-    <string name="about_data1">Aplicación diseñada por Open Development</string>
+    <string name="about_data1">Aplicación diseñada por Open Development (Open Development &amp; Education)</string>
     <string name="about_data2">Aplicación desarrollada por Narola Infotech</string>
     <string name="about_data3">Obtenga más información en: http://opendeved.net/SharePlusCode</string>
     <string name="about_data4">Para comentarios y consultas, correo electrónico: sharepluscode@opendeved.net</string>

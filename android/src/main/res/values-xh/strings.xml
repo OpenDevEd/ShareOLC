@@ -31,7 +31,7 @@
     <string name="about">Malunga</string>
     <string name="languages">Iilwimi</string>
     <string name="settings">Useto</string>
-    <string name="open_location_code">Ikhowudi engakumbi:</string>
+    <string name="open_location_code">Ikhowudi engakumbi (Plus Code):</string>
     <string name="please_wait">Nceda linda.</string>
     <string name="please_allow_location_permission">Nceda uvumele ukufikelela kwindawo yokufumana imvume</string>
     <string name="allow">Vumela</string>
@@ -39,7 +39,7 @@
     <string name="menu">Imenyu</string>
     <string name="share">Yabelana</string>
 
-    <string name="about_data1">Isixhobo esenziwe nguPhuhliso oluVulekileyo</string>
+    <string name="about_data1">Isixhobo esenziwe nguPhuhliso oluVulekileyo (Open Development &amp; Education)</string>
     <string name="about_data2">Isixhobo esenziwe nguNarola Infotech</string>
     <string name="about_data3">Fumana ngakumbi ku: http://opendeved.net/SharePlusCode</string>
     <string name="about_data4">Ngezimvo kunye nemibuzo, i-imeyile: sharepluscode@opendeved.net</string>

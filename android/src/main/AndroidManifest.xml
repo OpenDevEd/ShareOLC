@@ -23,11 +23,13 @@
         <activity
             android:name="com.android.sharepluscode.ui.MainActivity"
             android:configChanges="locale|orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/BlackTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 </manifest>

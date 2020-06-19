@@ -3,10 +3,10 @@
     android:id="@+id/layoutAboutMenuHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="4dp"
-    android:visibility="gone"
+    android:layout_margin="@dimen/_4sdp"
+    android:background="@drawable/background_about"
     android:orientation="vertical"
-    android:background="@drawable/background_about">
+    android:visibility="gone">
 
 
     <RelativeLayout
@@ -18,25 +18,25 @@
             android:id="@+id/btnCloseAboutMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:padding="8dp"
-            android:clickable="true"
-            android:tint="@color/colorBlack"
-            android:focusable="true"
-            android:layout_marginRight="4dp"
             android:layout_marginEnd="4dp"
-            android:src="@drawable/ic_close_white" />
+            android:layout_marginRight="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:src="@drawable/ic_close_white"
+            android:tint="@color/colorBlack" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:paddingLeft="8dp"
+            android:paddingLeft="@dimen/_6sdp"
             android:text="@string/about"
             android:textColor="@color/colorBlack"
-            android:textSize="26sp"
+            android:textSize="@dimen/_20ssp"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -48,53 +48,51 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/about_data1"
                 android:layout_marginTop="24dp"
+                android:text="@string/about_data1"
                 android:textColor="@color/colorBlack"
-                android:textSize="22sp" />
+                android:textSize="@dimen/_16ssp" />
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/about_data2"
                 android:layout_marginTop="16dp"
+                android:text="@string/about_data2"
                 android:textColor="@color/colorBlack"
-                android:textSize="22sp" />
+                android:textSize="@dimen/_16ssp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="24dp"
                 android:text="@string/about_data3"
                 android:textColor="@color/colorBlack"
-                android:layout_marginTop="24dp"
-                android:textSize="22sp" />
+                android:textSize="@dimen/_16ssp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
                 android:text="@string/about_data4"
                 android:textColor="@color/colorBlack"
-                android:layout_marginTop="16dp"
-                android:textSize="22sp" />
+                android:textSize="@dimen/_16ssp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/about_data5"
                 android:layout_marginTop="24dp"
+                android:text="@string/about_data5"
                 android:textColor="@color/colorBlack"
-                android:textSize="22sp" />
-
+                android:textSize="@dimen/_16ssp" />
 
         </LinearLayout>
-
     </ScrollView>
 
 </LinearLayout>

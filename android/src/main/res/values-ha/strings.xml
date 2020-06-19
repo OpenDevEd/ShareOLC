@@ -32,7 +32,7 @@
     <string name="about">Game da</string>
     <string name="languages">Harsuna</string>
     <string name="settings">Saiti</string>
-    <string name="open_location_code">Codearin lamba:</string>
+    <string name="open_location_code">Codearin lamba (Plus Code):</string>
     <string name="please_wait">Don Allah jira.</string>
     <string name="please_allow_location_permission">Da fatan za a ba da izinin nunar da wurin na\'urar</string>
     <string name="allow">Kyale</string>
@@ -40,7 +40,7 @@
     <string name="menu">Jeri</string>
     <string name="share">Raba</string>
 
-    <string name="about_data1">App Ne Aka Shirya daga Open Development</string>
+    <string name="about_data1">App Ne Aka Shirya daga Open Development (Open Development &amp; Education)</string>
     <string name="about_data2">App na Narola Infotech</string>
     <string name="about_data3">Nemi karin bayani a: http://opendeved.net/SharePlusCode</string>
     <string name="about_data4">Don jin ra\'ayoyi da tambayoyi, imel: sharepluscode@opendeved.net</string>
