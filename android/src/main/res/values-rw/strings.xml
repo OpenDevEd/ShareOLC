@@ -20,10 +20,12 @@
     <string name="please_go_outside">Mwasohoka hanze</string>
     <string name="go_to_an_open_area">Mwagerageza mukajya ahantu hagari</string>
     <string name="no_signal">Nta sinyali ihari</string>
-    <string name="high_accuracy">hejuru</string>
+
+   <!-- <string name="high_accuracy">hejuru</string>
     <string name="medium_accuracy">ijereranyije</string>
     <string name="poor_accuracy">itameze neza</string>
-    <string name="low_accuracy">hasi cyane</string>
+    <string name="low_accuracy">hasi cyane</string>-->
+
     <string name="sharing_data_not_available">Gusangiza amakuru ntabwo bishobotse</string>
     <string name="cannot_get_high_accuracy_share_anyway">Ntabwo bishobotse kugaragaza igipimo gihagije mwakomeza mukagaragza aho uherereye</string>
     <string name="no_connection_available">Nta conecsiyo ihari</string>

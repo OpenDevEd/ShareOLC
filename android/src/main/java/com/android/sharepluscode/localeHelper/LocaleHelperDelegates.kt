@@ -7,12 +7,14 @@ import android.content.Intent.getIntent
 import android.os.Build
 import android.view.View
 import androidx.core.content.ContextCompat.startActivity
+import com.android.sharepluscode.R
 import java.util.*
 
 
 interface LocaleHelperActivityDelegate {
     fun setLocale(activity: Activity, newLocale: Locale)
     fun attachBaseContext(newBase: Context): Context
+
     //fun onResumed(activity: Activity)
     fun onCreate(activity: Activity)
 }
@@ -41,15 +43,16 @@ class LocaleHelperActivityDelegateImpl : LocaleHelperActivityDelegate {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         activity.finish()
         activity.startActivity(intent)
+        activity.overridePendingTransition(R.anim.fade_in_activity, R.anim.fade_out_activity);
     }
 
     override fun attachBaseContext(newBase: Context): Context {
         return LocaleHelper.onAttach(newBase)
     }
 
-   /* override fun onPaused() {
-        //locale = Locale.getDefault()
-    }*/
+    /* override fun onPaused() {
+         //locale = Locale.getDefault()
+     }*/
 
     /*override fun onResumed(activity: Activity) {
         if (locale == Locale.getDefault()) return

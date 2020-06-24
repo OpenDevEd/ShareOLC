@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layoutAboutMenuHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/_4sdp"
+    android:layout_margin="4dp"
     android:background="@drawable/background_about"
     android:orientation="vertical"
     android:visibility="gone">
 
 
     <RelativeLayout
+        android:id="@+id/layoutTopAbout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:padding="4dp">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/btnCloseAboutMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,7 +31,7 @@
             android:src="@drawable/ic_close_white"
             android:tint="@color/colorBlack" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -41,9 +43,12 @@
 
     </RelativeLayout>
 
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/txtVersionAbout"
+        android:layout_below="@+id/layoutTopAbout">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,7 +56,7 @@
             android:orientation="vertical"
             android:padding="8dp">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="24dp"
@@ -60,7 +65,7 @@
                 android:textSize="@dimen/_16ssp" />
 
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
@@ -68,31 +73,47 @@
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_16ssp" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="24dp"
+                android:autoLink="web"
                 android:text="@string/about_data3"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_16ssp" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
+                android:autoLink="email"
                 android:text="@string/about_data4"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_16ssp" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="24dp"
+                android:autoLink="web"
                 android:text="@string/about_data5"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_16ssp" />
 
         </LinearLayout>
+
     </ScrollView>
 
-</LinearLayout>
+
+    <TextView
+        android:id="@+id/txtVersionAbout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:gravity="center"
+        android:padding="@dimen/_4sdp"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_13ssp" />
+
+</RelativeLayout>

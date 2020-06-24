@@ -19,10 +19,12 @@
     <string name="please_go_outside">Biko ga na ebe ghe oghe</string>
     <string name="go_to_an_open_area">Biko nwaa ịga ebe ghe oghe.</string>
     <string name="no_signal">Enweghị alrịba Ama</string>
-    <string name="high_accuracy">o juru eju</string>
+
+   <!-- <string name="high_accuracy">o juru eju</string>
     <string name="medium_accuracy">ọkara</string>
     <string name="poor_accuracy">ọdịrọ mma</string>
-    <string name="low_accuracy">ọdịntakịrị</string>
+    <string name="low_accuracy">ọdịntakịrị</string>-->
+
     <string name="sharing_data_not_available">Ikekọrịta data adịghị</string>
     <string name="cannot_get_high_accuracy_share_anyway">Enweghi ike nweta ezigbo nkata ziri ezi biko kesaa ọnọdụ ọ bụla.</string>
     <string name="no_connection_available">Onweghi njikọ dị</string>

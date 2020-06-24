@@ -19,10 +19,12 @@
     <string name="please_go_outside">Don Allah fita waje</string>
     <string name="go_to_an_open_area">Don Allah ku ge wani wuri buɗe</string>
     <string name="no_signal">Babu Alamar</string>
-    <string name="high_accuracy">babba</string>
+
+   <!-- <string name="high_accuracy">babba</string>
     <string name="medium_accuracy">matsakaici</string>
     <string name="poor_accuracy">matalauta</string>
-    <string name="low_accuracy">low</string>
+    <string name="low_accuracy">low</string>-->
+
     <string name="sharing_data_not_available">Babu rabon bayanai</string>
     <string name="cannot_get_high_accuracy_share_anyway">Ba za a iya samun daidaito daidai ba a raba wuri ko ta yaya.</string>
     <string name="no_connection_available">Babu hanyar sadarwa</string>

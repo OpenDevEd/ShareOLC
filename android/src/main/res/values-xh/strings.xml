@@ -18,10 +18,12 @@
     <string name="please_go_outside">Nceda uphume phandle</string>
     <string name="go_to_an_open_area">Nceda uzame ukuya kwindawo evulekileyo.</string>
     <string name="no_signal">Akukho Sibonakaliso</string>
-    <string name="high_accuracy">phezulu</string>
+
+    <!--<string name="high_accuracy">phezulu</string>
     <string name="medium_accuracy">phakathi</string>
     <string name="poor_accuracy">imbi</string>
-    <string name="low_accuracy">isezantsi</string>
+    <string name="low_accuracy">isezantsi</string>-->
+
     <string name="sharing_data_not_available">Ukwabelana ngedatha akufumaneki</string>
     <string name="cannot_get_high_accuracy_share_anyway">Awunakufumana ukuchaneka okuphezulu nceda wabelane ngendawo.</string>
     <string name="no_connection_available">Akukho nxibelelwano lufumanekayo</string>

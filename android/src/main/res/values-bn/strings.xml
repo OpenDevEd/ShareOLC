@@ -19,10 +19,12 @@
     <string name="please_go_outside">দয়া করে বাইরে যান</string>
     <string name="go_to_an_open_area">দয়া করে একটি খোলা জায়গায় যাওয়ার চেষ্টা করুন।</string>
     <string name="no_signal">সংকেত নেই</string>
-    <string name="high_accuracy">উচ্চ</string>
+
+    <!--<string name="high_accuracy">উচ্চ</string>
     <string name="medium_accuracy">মধ্যম</string>
     <string name="poor_accuracy">ক্ষীণ</string>
-    <string name="low_accuracy">কম</string>
+    <string name="low_accuracy">কম</string>-->
+
     <string name="sharing_data_not_available">তথ্য প্রদান করা সম্ভব না</string>
     <string name="cannot_get_high_accuracy_share_anyway">সম্পূর্ণ নির্ভুল তথ্য পাওয়া যাচ্ছে না, দয়া করে তবুও অবস্থান প্রদান করুন।</string>
     <string name="no_connection_available">সংযোগ দেওয়া সম্ভব হচ্ছে না</string>

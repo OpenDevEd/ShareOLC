@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:padding="4dp">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/btnCloseMenuHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
             android:src="@drawable/ic_close_white"
             android:tint="@color/colorBlack" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -48,7 +48,7 @@
         android:background="@color/colorBlack" />
 
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
@@ -72,7 +72,7 @@
         android:background="@color/colorAquaLight"
         android:scrollbars="vertical" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/btnAboutMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

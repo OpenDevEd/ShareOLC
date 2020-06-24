@@ -19,10 +19,12 @@
     <string name="please_go_outside">Por favor ve afuera</string>
     <string name="go_to_an_open_area">Intenta ir a un área abierta.</string>
     <string name="no_signal">Sin señal</string>
-    <string name="high_accuracy">alto</string>
+
+    <!--<string name="high_accuracy">alto</string>
     <string name="medium_accuracy">medio</string>
     <string name="poor_accuracy">pobre</string>
-    <string name="low_accuracy">bajo</string>
+    <string name="low_accuracy">bajo</string>-->
+
     <string name="sharing_data_not_available">Compartir datos no disponibles</string>
     <string name="cannot_get_high_accuracy_share_anyway">No se puede obtener una alta precisión, comparte la ubicación de todos modos.</string>
     <string name="no_connection_available">No hay conexión disponible</string>

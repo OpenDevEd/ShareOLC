@@ -14,7 +14,7 @@
     <application
         android:name="com.android.sharepluscode.utils.AppController"
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="false"

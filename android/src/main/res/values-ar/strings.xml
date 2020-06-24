@@ -19,10 +19,12 @@
     <string name="please_go_outside">يرجى الخروج</string>
     <string name="go_to_an_open_area">يرجى المحاولة للذهاب إلى منطقة مفتوحة.</string>
     <string name="no_signal">لا توجد تغطية</string>
-    <string name="high_accuracy">عالي</string>
+
+   <!-- <string name="high_accuracy">عالي</string>
     <string name="medium_accuracy">متوسط</string>
     <string name="poor_accuracy">فقير</string>
-    <string name="low_accuracy">low</string>
+    <string name="low_accuracy">low</string>-->
+
     <string name="sharing_data_not_available">مشاركة البيانات غير متاحة</string>
     <string name="cannot_get_high_accuracy_share_anyway">لا يمكن الحصول على دقة عالية يرجى مشاركة الموقع على أي حال.</string>
     <string name="no_connection_available">لا يوجد اتصال متاح</string>

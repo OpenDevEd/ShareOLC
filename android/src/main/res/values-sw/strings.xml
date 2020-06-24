@@ -19,10 +19,12 @@
     <string name="please_go_outside">Tafadhali nenda nje</string>
     <string name="go_to_an_open_area">Tafadhali jaribu kwenda kwenye eneo wazi.</string>
     <string name="no_signal">Hakuna Ishara</string>
-    <string name="high_accuracy">Ishara ya juu</string>
+
+    <!--<string name="high_accuracy">Ishara ya juu</string>
     <string name="medium_accuracy">Ishara ya kati</string>
     <string name="poor_accuracy">Ishara mbaya</string>
-    <string name="low_accuracy">Ishara ya chini</string>
+    <string name="low_accuracy">Ishara ya chini</string>-->
+
     <string name="sharing_data_not_available">Kushiriki data haipatikani</string>
     <string name="cannot_get_high_accuracy_share_anyway">Haiwezi kupata usahihi wa hali ya juu tafadhali shiriki eneo anyway.</string>
     <string name="no_connection_available">Hakuna muunganisho uliopatikana</string>

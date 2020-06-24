@@ -19,10 +19,12 @@
     <string name="please_go_outside">Buda panze</string>
     <string name="go_to_an_open_area">Tokumbirawo muende panzvimbo isina miti kana zvinovharidzira.</string>
     <string name="no_signal">Hapana Signal</string>
-    <string name="high_accuracy">yepamusoro</string>
+
+    <!--<string name="high_accuracy">yepamusoro</string>
     <string name="medium_accuracy">nepakati?</string>
     <string name="poor_accuracy">masaisai asina kusimba</string>
-    <string name="low_accuracy">zvakaderera</string>
+    <string name="low_accuracy">zvakaderera</string>-->
+
     <string name="sharing_data_not_available">Haukwanise kugovera data?</string>
     <string name="cannot_get_high_accuracy_share_anyway">Hatikwanisi kubata masaisai akakwenenzverwa zvepamusoro tinokumbira mutiudze kwamuri</string>
     <string name="no_connection_available">Hapana/Hakuna masaisai</string>

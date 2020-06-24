@@ -19,10 +19,12 @@
     <string name="please_go_outside">እባክዎን ወደ ውጭ ይውጡ</string>
     <string name="go_to_an_open_area">እባክዎን ወደ ክፍት ቦታ ለመሄድ ይሞክሩ ፡፡</string>
     <string name="no_signal">ምልክት የለም</string>
-    <string name="high_accuracy">ከፍተኛ</string>
-    <string name="medium_accuracy">መካከለኛ</string>
-    <string name="poor_accuracy">ደኻማ</string>
-    <string name="low_accuracy">ዝቅተኛ</string>
+
+   <!-- <string name="high_accuracy">high</string>
+    <string name="medium_accuracy">medium</string>
+    <string name="poor_accuracy">poor</string>
+    <string name="low_accuracy">low</string>-->
+
     <string name="sharing_data_not_available">ውሂብ ማጋራት አይገኝም</string>
     <string name="cannot_get_high_accuracy_share_anyway">ከፍተኛ ትክክለኛነት ማግኘት አልተቻለም እባክዎን አካባቢን ለማንኛውም ያጋሩ።</string>
     <string name="no_connection_available">ምንም ግንኙነት የለም</string>

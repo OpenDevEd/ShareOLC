@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageInfo
 import android.location.GpsStatus
 import android.location.Location
 import android.location.LocationManager
@@ -163,8 +164,12 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         }
 
         btnHelpHome.setOnClickListener {
-            isSpeechButton = true
-            sendSpeechLoud()
+            //isSpeechButton = true
+            //sendSpeechLoud()
+            layoutMenuHome.visibility = View.GONE
+            layoutAboutMenuHome.visibility = View.VISIBLE
+            isShowingMenu = false
+            isShowingAbout = true
         }
 
         btnShareHome.setOnClickListener {
@@ -198,6 +203,10 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         btnOutsideHome.setOnClickListener {
             waitingViews()
         }
+
+        val pInfo: PackageInfo = packageManager.getPackageInfo(packageName, 0)
+        val versionName: String = pInfo.versionName
+        txtVersionAbout.text = "Version: $versionName"
     }
 
 
@@ -426,8 +435,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                 txtAccuracyHome.text = accuracyValue(getString(R.string.medium_accuracy))
                 sendAccuracy = getString(R.string.medium_accuracy)
                 stayOutSideViews(minutes)
-            } else if (accuracy >= JSConstant.accuracyLowStart /*&& accuracy <= JSConstant.accuracyLowEnd*/)
-            {
+            } else if (accuracy >= JSConstant.accuracyLowStart /*&& accuracy <= JSConstant.accuracyLowEnd*/) {
                 txtAccuracyHome.text = accuracyValue(getString(R.string.low_accuracy))
                 sendAccuracy = getString(R.string.low_accuracy)
                 stayOutSideViews(minutes)
@@ -491,7 +499,7 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
 
     //generate share data...
     private fun createShareData() {
-        if (mCurrentLocation != null && isDone) {
+        if (mCurrentLocation != null /*&& isDone*/) {
             altitudeHeight = mCurrentLocation?.altitude!!
             val accuracyFormat = formatDecimal(accuracyShareData)
             val latitude = mCurrentLocation?.latitude!!

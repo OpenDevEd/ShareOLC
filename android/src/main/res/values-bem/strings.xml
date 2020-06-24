@@ -20,10 +20,12 @@
     <string name="please_go_outside">napapata kabiye panse</string>
     <string name="go_to_an_open_area">napapata kabiye PA chende yapanse</string>
     <string name="no_signal">takuli ichilagililo</string>
-    <string name="high_accuracy">pamulu</string>
+
+    <!--<string name="high_accuracy">pamulu</string>
     <string name="medium_accuracy">pakati</string>
     <string name="poor_accuracy">ubuchushi</string>
-    <string name="low_accuracy">panshi</string>
+    <string name="low_accuracy">panshi</string>-->
+
     <string name="sharing_data_not_available">data yakwakanya takuli</string>
     <string name="cannot_get_high_accuracy_share_anyway">Cannot get high accuracy please share location anyway.</string>
     <string name="no_connection_available">takuli connection</string>

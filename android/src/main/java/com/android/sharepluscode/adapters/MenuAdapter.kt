@@ -31,6 +31,7 @@ class MenuAdapter(private var mContext: Activity) : RecyclerView.Adapter<MenuAda
         return ViewHolder(itemView)
     }
 
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val languageModel = dataList[position]
         holder.menuName.text = languageModel.languageName
@@ -60,6 +61,7 @@ class MenuAdapter(private var mContext: Activity) : RecyclerView.Adapter<MenuAda
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         activity.finish()
         activity.startActivity(intent)
+        activity.overridePendingTransition(R.anim.fade_in_activity, R.anim.fade_out_activity);
     }
 
     override fun getItemCount(): Int {
@@ -85,7 +87,6 @@ class MenuAdapter(private var mContext: Activity) : RecyclerView.Adapter<MenuAda
         dataList.add(LanguageModel("Urdu", "ur"))
         dataList.add(LanguageModel("Xhosa", "xh"))
         dataList.add(LanguageModel("Zulu", "zu"))
-
         dataList.add(LanguageModel("Kinyarwanda", "rw"))
         dataList.add(LanguageModel("Bemba", "bem"))
 

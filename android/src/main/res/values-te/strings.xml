@@ -19,10 +19,12 @@
     <string name="please_go_outside">దయచేసి బయటికి వెళ్లండి</string>
     <string name="go_to_an_open_area">దయచేసి బహిరంగ ప్రదేశానికి వెళ్ళడానికి ప్రయత్నించండి.</string>
     <string name="no_signal">సంకేతం లేదు</string>
-    <string name="high_accuracy">అధిక</string>
+
+    <!--<string name="high_accuracy">అధిక</string>
     <string name="medium_accuracy">మీడియం</string>
     <string name="poor_accuracy">పేద</string>
-    <string name="low_accuracy">తక్కువ</string>
+    <string name="low_accuracy">తక్కువ</string>-->
+
     <string name="sharing_data_not_available">భాగస్వామ్య డేటా అందుబాటులో లేదు</string>
     <string name="cannot_get_high_accuracy_share_anyway">అధిక ఖచ్చితత్వాన్ని పొందలేము దయచేసి ఏమైనప్పటికీ స్థానాన్ని భాగస్వామ్యం చేయండి.</string>
     <string name="no_connection_available">కనెక్షన్ అందుబాటులో లేదు</string>
