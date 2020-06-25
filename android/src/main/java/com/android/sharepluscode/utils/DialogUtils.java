@@ -1,12 +1,9 @@
 package com.android.sharepluscode.utils;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.provider.Settings;
-import android.widget.Button;
 import androidx.appcompat.app.AlertDialog;
 import com.android.sharepluscode.R;
 
@@ -15,6 +12,7 @@ public class DialogUtils {
 
     private Activity mContext;
     private AlertDialog locationSettingDialog;
+    private AlertDialog errorDialog;
 
     public DialogUtils(Activity context) {
         this.mContext = context;
@@ -49,6 +47,22 @@ public class DialogUtils {
         });
         locationSettingDialog = builder.create();
         locationSettingDialog.show();
+    }
+
+
+    public static void showExceptionAlert(Activity activity,String errMsg) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle("Exception");
+        builder.setMessage(errMsg);
+        builder.setCancelable(false);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+            }
+        });
+        AlertDialog errorDialog = builder.create();
+        errorDialog.show();
     }
 
 

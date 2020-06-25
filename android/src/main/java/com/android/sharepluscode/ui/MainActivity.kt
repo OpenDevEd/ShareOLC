@@ -530,17 +530,19 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             //urls data...
             val shareUrl1 = "\nGoogle Maps: https://www.google.com/maps/place/$fullCode"
             val shareUrl2 = "\nOpenStreetMap: https://www.openstreetmap.org/#map=14/$latitude/$longitude"
-            val shareUrl3 = "\nMaps.Me: https://ge0.me/$fullCode"
+            //val shareUrl3 = "\nMaps.Me: https://ge0.me/$fullCode"
             val shareUrl4 = "\nPlus Codes: https://plus.codes/$fullCode Get SharePlusCode at https://opendeved.net/SharePlusCode"
-            val urlsData = shareUrl1 + shareUrl2 + shareUrl3 + shareUrl4
+            val urlsData = shareUrl1 + shareUrl2 + shareUrl4
 
-            val shareData = "SharePlusCode. Your Plus Code is$dataValue$urlsData"
+            val shareData = "SharePlusCode. Your Plus Code is $fullCode $dataValue$urlsData"
             Log.e("shareData", "===> $shareData")
             shareIntentData(shareData)
         } else {
             Utility.toastLong(mContext, getString(R.string.sharing_data_not_available))
         }
     }
+
+
 
     private fun shareIntentData(shareData: String) {
         val sendIntent = Intent()

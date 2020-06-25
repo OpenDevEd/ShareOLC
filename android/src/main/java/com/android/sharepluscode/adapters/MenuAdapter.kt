@@ -2,19 +2,19 @@ package com.android.sharepluscode.adapters
 
 import android.app.Activity
 import android.content.Intent
-import android.content.Intent.getIntent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sharepluscode.R
 import com.android.sharepluscode.model.LanguageModel
 import com.android.sharepluscode.ui.MainActivity
+import com.android.sharepluscode.utils.DialogUtils
 import com.android.sharepluscode.utils.PrefUtil
 import java.util.*
+
 
 
 class MenuAdapter(private var mContext: Activity) : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
@@ -44,25 +44,30 @@ class MenuAdapter(private var mContext: Activity) : RecyclerView.Adapter<MenuAda
 
         holder.itemView.setOnClickListener {
             if (mContext is MainActivity) {
-                PrefUtil.putStringPref(PrefUtil.PRF_LANGUAGE, languageModel.languageCode, mContext)
-                //LocaleHelper.setLocale(mContext, Locale(languageModel.languageCode))
-                val mainActivity = mContext as MainActivity
-                mainActivity.updateLocale(Locale(languageModel.languageCode))
-                notifyDataSetChanged()
-                mainActivity.hideMenu()
-                //mainActivity.recreate()
-                restartActivity(mainActivity)
+                try {
+                    PrefUtil.putStringPref(PrefUtil.PRF_LANGUAGE, languageModel.languageCode, mContext)
+                    //LocaleHelper.setLocale(mContext, Locale(languageModel.languageCode))
+                    val mainActivity = mContext as MainActivity
+                    mainActivity.updateLocale(Locale(languageModel.languageCode))
+                    notifyDataSetChanged()
+                    mainActivity.hideMenu()
+                    restartActivity(mContext)
+                } catch (e: Exception) {
+                    DialogUtils.showExceptionAlert(mContext, e.message.toString())
+                }
             }
         }
     }
 
+
     private fun restartActivity(activity: Activity) {
+        activity.finish()
         val intent = activity.intent
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-        activity.finish()
         activity.startActivity(intent)
-        activity.overridePendingTransition(R.anim.fade_in_activity, R.anim.fade_out_activity);
+        activity.overridePendingTransition(R.anim.fade_in_activity, R.anim.fade_out_activity)
     }
+
 
     override fun getItemCount(): Int {
         return dataList.size

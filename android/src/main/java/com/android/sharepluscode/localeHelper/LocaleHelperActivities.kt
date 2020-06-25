@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
+
 abstract class LocaleAwareCompatActivity : AppCompatActivity() {
 
     private val localeDelegate = LocaleHelperActivityDelegateImpl()
@@ -25,7 +26,7 @@ abstract class LocaleAwareCompatActivity : AppCompatActivity() {
         //localeDelegate.onResumed(this)
     }*/
 
-    /* override fun onPause() {
+    /*override fun onPause() {
          super.onPause()
          //localeDelegate.onPaused()
      }*/
