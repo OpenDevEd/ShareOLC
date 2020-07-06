@@ -1,5 +1,6 @@
 package com.android.sharepluscode.localeHelper
 
+/*
 import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
@@ -21,15 +22,19 @@ abstract class LocaleAwareCompatActivity : AppCompatActivity() {
         localeDelegate.onCreate(this)
     }
 
-    /*override fun onResume() {
+    */
+/*override fun onResume() {
         super.onResume()
         //localeDelegate.onResumed(this)
-    }*/
+    }*//*
 
-    /*override fun onPause() {
+
+    */
+/*override fun onPause() {
          super.onPause()
          //localeDelegate.onPaused()
-     }*/
+     }*//*
+
 
     open fun updateLocale(locale: Locale) {
         localeDelegate.setLocale(this, locale)
@@ -47,4 +52,4 @@ abstract class LocaleAwareApplication : Application() {
         super.onConfigurationChanged(newConfig)
         localeAppDelegate.onConfigurationChanged(this)
     }
-}
+}*/

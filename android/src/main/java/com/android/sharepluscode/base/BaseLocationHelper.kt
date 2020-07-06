@@ -7,6 +7,7 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import android.hardware.SensorManager.SENSOR_DELAY_NORMAL
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
@@ -19,9 +20,8 @@ import android.view.WindowManager
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.location.*
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import kotlin.math.abs
+
 
 
 class BaseLocationHelper(private var mContext: Activity) : SensorEventListener {
@@ -67,7 +67,8 @@ class BaseLocationHelper(private var mContext: Activity) : SensorEventListener {
         sensorManager = mContext.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         windowManager = mContext.getSystemService(Context.WINDOW_SERVICE) as WindowManager
         defaultDisplay = windowManager.defaultDisplay
-        mSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)
+
+        mSensor = sensorManager.getDefaultSensor(SENSOR_DELAY_NORMAL)
         sensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL * 5)
 
         isGPSEnabled = mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)

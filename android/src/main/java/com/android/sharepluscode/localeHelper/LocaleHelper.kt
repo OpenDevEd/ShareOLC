@@ -49,34 +49,28 @@ object LocaleHelper {
         val preferences = getPreferences(context)
         val language = preferences.getString(SELECTED_LANGUAGE, Locale.getDefault().language)
         val country = preferences.getString(SELECTED_COUNTRY, Locale.getDefault().country)
-        return Locale(language, country)
+        return Locale(language!!, country!!)
     }
 
     @TargetApi(Build.VERSION_CODES.N)
     private fun updateResources(context: Context, locale: Locale): Context {
         Locale.setDefault(locale)
-
         val configuration = context.resources.configuration
         configuration.setLocale(locale)
         configuration.setLayoutDirection(locale)
-
         return context.createConfigurationContext(configuration)
     }
 
     @SuppressWarnings("deprecation")
     private fun updateResourcesLegacy(context: Context, locale: Locale): Context {
         Locale.setDefault(locale)
-
         val resources = context.resources
         val configuration = resources.configuration
         configuration.locale = locale
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             configuration.setLayoutDirection(locale)
         }
-
         resources.updateConfiguration(configuration, resources.displayMetrics)
-
         return context
     }
-
 }

@@ -6,11 +6,11 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.android.sharepluscode.localeHelper.LocaleAwareCompatActivity
 
-abstract class RuntimePermissionActivity : LocaleAwareCompatActivity() {
+abstract class RuntimePermissionActivity : AppCompatActivity() {
 
     private lateinit var baseActivity: Activity
 

@@ -1,5 +1,6 @@
 package com.android.sharepluscode.localeHelper
 
+/*
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -13,6 +14,7 @@ import java.util.*
 interface LocaleHelperActivityDelegate {
     fun setLocale(activity: Activity, newLocale: Locale)
     fun attachBaseContext(newBase: Context): Context
+
     //fun onResumed(activity: Activity)
     fun onCreate(activity: Activity)
 }
@@ -22,9 +24,8 @@ class LocaleHelperActivityDelegateImpl : LocaleHelperActivityDelegate {
 
     override fun onCreate(activity: Activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            activity.window.decorView.layoutDirection = View.LAYOUT_DIRECTION_LTR
-            /*activity.window.decorView.layoutDirection =
-                    if (LocaleHelper.isRTL(Locale.getDefault())) View.LAYOUT_DIRECTION_RTL else View.LAYOUT_DIRECTION_LTR*/
+            activity.window.decorView.layoutDirection =
+                    if (LocaleHelper.isRTL(Locale.getDefault())) View.LAYOUT_DIRECTION_RTL else View.LAYOUT_DIRECTION_LTR
         }
         locale = Locale.getDefault()
     }
@@ -37,15 +38,15 @@ class LocaleHelperActivityDelegateImpl : LocaleHelperActivityDelegate {
             locale = newLocale
             restartActivity(activity)
         } catch (e: Exception) {
-            DialogUtils.showExceptionAlert(activity, e.message.toString())
+            DialogUtils.showExceptionAlert(activity, "Exception : From Locale Delegates", e.message.toString())
         }
     }
 
 
     private fun restartActivity(activity: Activity) {
+        activity.finish()
         val intent = activity.intent
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-        activity.finish()
         activity.startActivity(intent)
         activity.overridePendingTransition(R.anim.fade_in_activity, R.anim.fade_out_activity)
     }
@@ -55,14 +56,18 @@ class LocaleHelperActivityDelegateImpl : LocaleHelperActivityDelegate {
         return LocaleHelper.onAttach(newBase)
     }
 
-    /* override fun onPaused() {
+    */
+/* override fun onPaused() {
          //locale = Locale.getDefault()
-     }*/
+     }*//*
 
-    /*override fun onResumed(activity: Activity) {
+
+    */
+/*override fun onResumed(activity: Activity) {
         if (locale == Locale.getDefault()) return
         activity.recreate()
-    }*/
+    }*//*
+
 }
 
 class LocaleHelperApplicationDelegate {
@@ -73,4 +78,4 @@ class LocaleHelperApplicationDelegate {
     fun onConfigurationChanged(context: Context) {
         LocaleHelper.onAttach(context)
     }
-}
+}*/

@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.provider.Settings;
+
 import androidx.appcompat.app.AlertDialog;
+
 import com.android.sharepluscode.R;
 
 
@@ -50,15 +52,15 @@ public class DialogUtils {
     }
 
 
-    public static void showExceptionAlert(Activity activity,String errMsg) {
+    public static void showExceptionAlert(Activity activity, String title, String errMsg) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setTitle("Exception");
+        builder.setTitle(title);
         builder.setMessage(errMsg);
         builder.setCancelable(false);
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
+                dialog.dismiss();
             }
         });
         AlertDialog errorDialog = builder.create();
