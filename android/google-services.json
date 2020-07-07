@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "160473617666",
+    "firebase_url": "https://sharepluscode.firebaseio.com",
+    "project_id": "sharepluscode",
+    "storage_bucket": "sharepluscode.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160473617666:android:57155f3bccb7146ed4de1b",
+        "android_client_info": {
+          "package_name": "com.android.sharepluscode"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160473617666-56aubr9i0g5h13e7a33rqvnprt3dp691.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.sharepluscode",
+            "certificate_hash": "c5d9e542a346349bae8e802002a93d1d3520ec0c"
+          }
+        },
+        {
+          "client_id": "160473617666-fj3ns9h8c0tr046i0pk51qkdn9c5rhun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCph1pFIuxv3KA0Y9XydSFN0Lof3D-EiJg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160473617666-fj3ns9h8c0tr046i0pk51qkdn9c5rhun.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

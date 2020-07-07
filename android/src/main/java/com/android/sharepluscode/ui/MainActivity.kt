@@ -219,13 +219,13 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
                 try {
                     if (locale != null) {
                         //updateLocale(locale)
-                        setLocale(mContext,locale)
+                        setLocale(mContext, locale)
                         menuAdapter.notifyDataSetChanged()
                         hideMenu()
                         restartActivity()
                     }
                 } catch (e: Exception) {
-                    DialogUtils.showExceptionAlert(mContext, "Exception: From adapter", e.message.toString())
+                    DialogUtils.showExceptionAlert(mContext, "Exception: From adapter", e.message.toString() + " StackTrace: " + e.printStackTrace())
                 }
             }
         })
