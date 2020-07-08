@@ -10,8 +10,8 @@ android {
         applicationId "com.android.sharepluscode"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 13
-        versionName "1.0.12"
+        versionCode 15
+        versionName "1.0.14"
     }
     buildTypes {
         release {
@@ -34,5 +34,8 @@ dependencies {
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.google.firebase:firebase-analytics:17.4.4'
+    implementation 'com.google.firebase:firebase-core:17.4.4'
+    implementation 'com.google.firebase:firebase-crashlytics:17.1.1'
 }
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'

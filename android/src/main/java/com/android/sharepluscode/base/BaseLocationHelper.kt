@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.hardware.Sensor
+import android.hardware.Sensor.TYPE_ROTATION_VECTOR
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
@@ -68,8 +69,8 @@ class BaseLocationHelper(private var mContext: Activity) : SensorEventListener {
         windowManager = mContext.getSystemService(Context.WINDOW_SERVICE) as WindowManager
         defaultDisplay = windowManager.defaultDisplay
 
-        mSensor = sensorManager.getDefaultSensor(SENSOR_DELAY_NORMAL)
-        sensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL * 5)
+        mSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        sensorManager.registerListener(this, mSensor, SENSOR_DELAY_NORMAL * 5)
 
         isGPSEnabled = mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
         isNetworkEnabled = mLocationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
@@ -242,7 +243,7 @@ class BaseLocationHelper(private var mContext: Activity) : SensorEventListener {
 
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        if (sensor!!.type == Sensor.TYPE_ROTATION_VECTOR) {
+        if (sensor!!.type == TYPE_ROTATION_VECTOR) {
             Log.i(tag, "Rotation sensor accuracy changed to: $accuracy")
         }
     }

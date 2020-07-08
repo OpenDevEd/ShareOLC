@@ -32,6 +32,7 @@ import com.android.sharepluscode.utils.DialogUtils
 import com.android.sharepluscode.utils.JSConstant
 import com.android.sharepluscode.utils.PrefUtil
 import com.android.sharepluscode.utils.Utility
+import com.google.firebase.FirebaseApp
 import kotlinx.android.synthetic.main.btn_help.btnHelpHome
 import kotlinx.android.synthetic.main.btn_menu.*
 import kotlinx.android.synthetic.main.btn_share.*
@@ -109,7 +110,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         //window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-
         mContext = this
         //LocaleHelper.onAttach(this)
         dialogUtils = DialogUtils(mContext)
