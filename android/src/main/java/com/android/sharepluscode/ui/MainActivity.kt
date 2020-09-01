@@ -22,7 +22,6 @@ import com.android.sharepluscode.adapters.MenuAdapter
 import com.android.sharepluscode.base.BaseLocationHelper
 import com.android.sharepluscode.code.OpenLocationCode
 import com.android.sharepluscode.code.OpenLocationCodeUtil
-import com.android.sharepluscode.localeHelper.LocaleHelper
 import com.android.sharepluscode.model.SatelliteModel
 import com.android.sharepluscode.timers.HandlerTimer
 import com.android.sharepluscode.timers.SatelliteTimer
@@ -32,7 +31,6 @@ import com.android.sharepluscode.utils.DialogUtils
 import com.android.sharepluscode.utils.JSConstant
 import com.android.sharepluscode.utils.PrefUtil
 import com.android.sharepluscode.utils.Utility
-import com.google.firebase.FirebaseApp
 import kotlinx.android.synthetic.main.btn_help.btnHelpHome
 import kotlinx.android.synthetic.main.btn_menu.*
 import kotlinx.android.synthetic.main.btn_share.*
@@ -97,30 +95,19 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     private var waitMilliseconds = 500L
     private var accuracy = 0.0
 
-    //private lateinit var wakeLock: PowerManager.WakeLock
     private lateinit var menuAdapter: MenuAdapter
-
-    override fun attachBaseContext(newBase: Context?) {
-        val onAttach = LocaleHelper.onAttach(newBase!!)
-        super.attachBaseContext(onAttach)
-    }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        //window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         mContext = this
-        //LocaleHelper.onAttach(this)
         dialogUtils = DialogUtils(mContext)
         satelliteModel = SatelliteModel(0, 0)
         JSConstant.IS_READY_SHARE = false
         is10Timer = false
 
-        initializeHandlers()
-        //val pm = getSystemService(Context.POWER_SERVICE) as PowerManager
-        //wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "SharePlusCode:WakelockTag")
 
+        initializeHandlers()
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
         isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
@@ -167,8 +154,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
         }
 
         btnHelpHome.setOnClickListener {
-            //isSpeechButton = true
-            //sendSpeechLoud()
             layoutMenuHome.visibility = View.GONE
             layoutAboutMenuHome.visibility = View.VISIBLE
             isShowingMenu = false
@@ -218,13 +203,11 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             override fun onLanguageChanged(locale: Locale?) {
                 try {
                     if (locale != null) {
-                        //updateLocale(locale)
-                        setLocale(mContext, locale)
-                        menuAdapter.notifyDataSetChanged()
                         hideMenu()
-                        restartActivity()
+                        setLocale(Locale(locale.language))
                     }
                 } catch (e: Exception) {
+                    Log.e("Exception Adapter : ", "===> " + e.printStackTrace())
                     DialogUtils.showExceptionAlert(mContext, "Exception: From adapter", e.message.toString() + " StackTrace: " + e.printStackTrace())
                 }
             }
@@ -232,18 +215,8 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-    private fun restartActivity() {
-        finish()
-        val intent = intent
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-        startActivity(intent)
-        overridePendingTransition(R.anim.fade_in_activity, R.anim.fade_out_activity)
-    }
-
-
     override fun onResume() {
         super.onResume()
-        //wakeLock.acquire(10 * 60 * 1000L)
         //CHECK PERMISSION...
         if (!hasPermissions(mContext)) {
             layoutPermissionHome.visibility = View.VISIBLE
@@ -783,21 +756,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
     }
 
 
-    /*override fun updateLocale(locale: Locale) {
-        super.updateLocale(locale)
-    }*/
-
-
-    private fun setLocale(activity: Activity, newLocale: Locale) {
-        try {
-            LocaleHelper.setLocale(activity, newLocale)
-            restartActivity()
-        } catch (e: Exception) {
-            DialogUtils.showExceptionAlert(activity, "Exception : From Locale Delegates", e.message.toString())
-        }
-    }
-
-
     override fun onBackPressed() {
         when {
             isShowingMenu -> {
@@ -827,13 +785,6 @@ class MainActivity : RuntimePermissionActivity(), BaseLocationHelper.NewLocation
             }
         }
     }
-
-
-    override fun onPause() {
-        super.onPause()
-        //wakeLock.release()
-    }
-
 
     override fun onStop() {
         super.onStop()

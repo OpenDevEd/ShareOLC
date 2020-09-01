@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sharepluscode.R
 import com.android.sharepluscode.model.LanguageModel
-import com.android.sharepluscode.ui.MainActivity
 import com.android.sharepluscode.utils.PrefUtil
 import java.util.*
 
@@ -42,23 +41,9 @@ class MenuAdapter(private var mContext: Activity) : RecyclerView.Adapter<MenuAda
         holder.itemView.setOnClickListener {
             if (mLanguageListener != null) {
                 PrefUtil.putStringPref(PrefUtil.PRF_LANGUAGE, languageModel.languageCode, mContext)
-                val locale = Locale(languageModel.languageCode)
+                val locale = Locale(dataList[holder.adapterPosition].languageCode)
                 mLanguageListener?.onLanguageChanged(locale)
             }
-
-            //if (mContext is MainActivity) {
-            //try {
-            //PrefUtil.putStringPref(PrefUtil.PRF_LANGUAGE, languageModel.languageCode, mContext)
-            //LocaleHelper.setLocale(mContext, Locale(languageModel.languageCode))
-            //val mainActivity = mContext as MainActivity
-            //mainActivity.updateLocale(Locale(languageModel.languageCode))
-            //notifyDataSetChanged()
-            //mainActivity.hideMenu()
-            //restartActivity(mContext)
-            //} catch (e: Exception) {
-            // DialogUtils.showExceptionAlert(mContext, e.message.toString())
-            //  }
-            //}
         }
     }
 
@@ -89,11 +74,7 @@ class MenuAdapter(private var mContext: Activity) : RecyclerView.Adapter<MenuAda
         dataList.add(LanguageModel("Kinyarwanda", "rw"))
         dataList.add(LanguageModel("Bemba", "bem"))
 
-        Collections.sort(dataList, object : Comparator<LanguageModel?> {
-            override fun compare(s1: LanguageModel?, s2: LanguageModel?): Int {
-                return s1!!.languageName.compareTo(s2!!.languageName, ignoreCase = true)
-            }
-        })
+        dataList.sortWith(Comparator { s1, s2 -> s1!!.languageName.compareTo(s2!!.languageName, ignoreCase = true) })
         return dataList
     }
 
